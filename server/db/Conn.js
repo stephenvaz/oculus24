@@ -1,21 +1,18 @@
-// import mongoose from 'mongoose';
-// import dotenv from 'dotenv';
+import firebase from 'firebase/app';
+import 'firebase/database';
 
-// dotenv.config()
+const firebaseConfig = {
+  apiKey: 'YOUR_API_KEY',
+  authDomain: 'YOUR_AUTH_DOMAIN',
+  databaseURL: 'YOUR_DATABASE_URL',
+  projectId: 'YOUR_PROJECT_ID',
+  storageBucket: 'YOUR_STORAGE_BUCKET',
+  messagingSenderId: 'YOUR_MESSAGING_SENDER_ID',
+  appId: 'YOUR_APP_ID'
+};
 
-// const DB = process.env.MONGO;
+firebase.initializeApp(firebaseConfig);
 
-// function init() {
-//     console.log("DB", DB);
-//     mongoose.connect(DB, {
-//         useNewUrlParser: true,
-//         useUnifiedTopology: true
-//     }).then(() => {
-//         console.log(`DB connected`);
-//     }).catch((err) => 
-//     console.log(`DB connection failed ${err}`));
-// }
+const database = firebase.database();
 
-// export default init;
-
-// TODO: Migrate to Firebase
+export default database;
