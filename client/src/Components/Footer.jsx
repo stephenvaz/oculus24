@@ -7,7 +7,7 @@ import YouTubeIcon from '@mui/icons-material/YouTube';
 
 function Footer() {
   return (
-    <footer className="fixed bottom-0 w-full bg-black bg-opacity-95 text-white py-8 flex justify-center">
+    <footer className="bottom-0 w-full bg-primary-dark bg-opacity-95 text-white py-8 flex justify-center">
       <div className='container mx-auto w-full flex flex-col items-center justify-center gap-4'>
         <div className='w-full flex-1 flex flex-col md:flex-row items-center md:items-start justify-around gap-4 md:gap-2'>
           <div className='flex flex-col items-center justify-center gap-2'>
@@ -73,17 +73,17 @@ function Footer() {
               <a 
               href='https://oculus.spit.ac.in/privacy-policy'
               target='_blank'
-              className='cursor-pointer opacity-75 hover:opacity-100 hover:text-red-500 font-semibold'
+              className='cursor-pointer opacity-75 hover:opacity-100 hover:text-red font-semibold'
               >Privacy Policy</a>
               <a 
               href='https://oculus.spit.ac.in/terms-and-conditions'
               target='_blank'
-              className='cursor-pointer opacity-75 hover:opacity-100 hover:text-red-500 font-semibold'
+              className='cursor-pointer opacity-75 hover:opacity-100 hover:text-red font-semibold'
               >Terms and Conditions</a>
               <a 
               href='https://oculus.spit.ac.in/refund-policy'
               target='_blank'
-              className='cursor-pointer opacity-75 hover:opacity-100 hover:text-red-500 font-semibold'
+              className='cursor-pointer opacity-75 hover:opacity-100 hover:text-red font-semibold'
               >Refund Policy</a>
             </div>
           </div>
