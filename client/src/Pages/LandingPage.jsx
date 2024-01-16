@@ -13,7 +13,7 @@ function LandingPage() {
       scrollTrigger: {
         trigger: galleryBoxRef.current,
         // start: "top center-=200px",
-        // end: "bottom+=3000px center-=200px ",
+        // end: "bottom center-=200px ",
         // i want a start end such that the gallery_box_outer is always in the center of the screen
         start: "top 50%",
         end: "bottom 50%",
