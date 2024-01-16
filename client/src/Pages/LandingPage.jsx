@@ -11,16 +11,16 @@ function LandingPage() {
 
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: galleryBoxRef.current,
+        // trigger: galleryBoxRef.current,
         // start: "top center-=200px",
         // end: "bottom center-=200px ",
         // i want a start end such that the gallery_box_outer is always in the center of the screen
-        start: "top 50%",
-        end: "bottom 50%",
+        // start: "top 50%",
+        // end: "bottom 50%",
 
-        scrub: true,
-        pin: true,
-        markers: true,
+        // scrub: true,
+        // pin: true,
+        // markers: true,
       },
     });
 
@@ -33,9 +33,8 @@ function LandingPage() {
 
   return (
     <div className="work2">
-      <div className="gallery_box" ref={galleryBoxRef}
-      >
-        <div className="gallery_box_outer">
+      <div className="gallery_box" ref={galleryBoxRef}>
+        {/* <div className="gallery_box_outer">
           {LandingData.map((tile, index) => (
             <div key={tile.id} className="gallery_box_in" style={{
               backgroundImage: `url(${tile.image})`,
@@ -46,7 +45,7 @@ function LandingPage() {
               </a>
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
     </div>
   );
