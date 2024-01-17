@@ -2,7 +2,7 @@ import React from 'react'
 
 function SponsorsPage() {
   return (
-    <div>SponsorsPage</div>
+    <div className='h-full w-full'>SponsorsPage</div>
   )
 }
 
