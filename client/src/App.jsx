@@ -11,6 +11,7 @@ import Footer from './Components/Footer';
 import space from './assets/space1.jpg';
 import { motion } from 'framer-motion';
 import { AnimatePresence } from 'framer-motion';
+import Appear from './animated-components/Appear';
 
 function App() {
   const router = createBrowserRouter([
@@ -19,15 +20,9 @@ function App() {
       element: (
         <>
           <Navbar />
-          <motion.div
-            initial={{ opacity: 0, y: 100 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -100 }}
-            transition={{ duration: 0.5 }}
-            className='h-full w-full'
-          >
+          {/* <Appear> */}
             <Outlet />
-          </motion.div>
+          {/* </Appear> */}
           <Footer />
         </>
       ),
@@ -36,49 +31,25 @@ function App() {
         {
           path: '/login',
           element: (
-            // <motion.div
-            //   initial={{ opacity: 0 }}
-            //   animate={{ opacity: 1 }}
-            //   exit={{ opacity: 0 }}
-            // >
             <LoginPage />
-            // </motion.div>
           ),
         },
         {
           path: '/',
           element: (
-            // <motion.div
-            //   initial={{ opacity: 0 }}
-            //   animate={{ opacity: 1 }}
-            //   exit={{ opacity: 0 }}
-            // >
             <LandingPage />
-            // </motion.div>
           ),
         },
         {
           path: '/events',
           element: (
-            // <motion.div
-            //   initial={{ opacity: 0 }}
-            //   animate={{ opacity: 1 }}
-            //   exit={{ opacity: 0 }}
-            // >
             <EventsPage />
-            // </motion.div>
           ),
         },
         {
           path: '/sponsors',
           element: (
-            // <motion.div
-            //   initial={{ opacity: 0 }}
-            //   animate={{ opacity: 1 }}
-            //   exit={{ opacity: 0 }}
-            // >
             <SponsorsPage />
-            // </motion.div>
           ),
         },
       ],
@@ -86,7 +57,7 @@ function App() {
   ]);
 
   return (
-    <AnimatePresence mode='wait'>
+    <AnimatePresence >
       <div className="h-screen w-full">
         <img
           style={{
