@@ -7,6 +7,8 @@ import { saveUser } from '../redux/userslice'
 import logo from '../assets/Full White.png'
 import Center from '../animated-components/Center'
 import NavLink from '../animated-components/NavLink'
+import GlassmorphicButton from './glassmorphic/CButtonv1'
+import { toggleNavBar } from '../redux/uislice'
 
 
 const navigation = [
@@ -75,7 +77,12 @@ export default function Navbar() {
       }}>
         <a href="/schedule" className='hidden lg:block font-semibold tracking-wide text-[14px]'>SCHEDULE</a>
         <a href="/donation" className='hidden lg:block font-semibold tracking-wide text-[14px]'>DONATION</a>
-        <a href="/login" className='hidden lg:block font-semibold tracking-wide text-[14px]'>LOGIN</a>
+        {/* <a href="/login" className='hidden lg:block font-semibold tracking-wide text-[14px]'>LOGIN</a> */}
+        <GlassmorphicButton className='hidden lg:block font-semibold tracking-wide text-[14px]' onClick={
+          () => {
+            dispatch(toggleNavBar())
+          }
+        }>Open Nav</GlassmorphicButton>
       </div>
     </div>
     // <Disclosure as="nav" className="text-white sticky top-0 z-50 ">

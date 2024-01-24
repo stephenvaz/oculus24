@@ -13,19 +13,33 @@ import { motion } from 'framer-motion';
 import { AnimatePresence } from 'framer-motion';
 import Appear from './animated-components/Appear';
 import rocket from './assets/rocket.png';
+import ParticleRing from './Components/background/ParticleRing';
+import { NavBarv2 } from './Components/Navbarv2';
+import { useSelector } from 'react-redux';
 
 function App() {
+
+  const isNavBarOpen = useSelector(state => state.ui.isNavBarOpen)
+  
   const router = createBrowserRouter([
     {
       path: '/',
-      element: (
+      element: 
+      (
+
+        !isNavBarOpen ?
         <>
+
+        {/* <NavBarv2 /> */}
           <Navbar />
+          
+          <ParticleRing />
           {/* <Appear> */}
             <Outlet />
           {/* </Appear> */}
           <Footer />
-        </>
+        </> :
+        <NavBarv2/>
       ),
       errorElement: <ErrorPage />,
       children: [
@@ -64,19 +78,10 @@ function App() {
         cursor: 'url("https://upload.wikimedia.org/wikipedia/commons/3/33/Cartoon_space_rocket.png")',
       }} 
       >
-        <img
-          style={{
-            height: '100%',
-            width: '100%',
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            zIndex: -1,
-          }}
-          src={space}
-          alt=""
-        />
+        
+        
         <div className="h-full w-full">
+        
           <RouterProvider router={router} />
         </div>
       </div>

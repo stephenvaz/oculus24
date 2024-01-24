@@ -1,11 +1,13 @@
-import { createStoreHook } from "react-redux";
 import { userSlice } from "./redux/userslice";
-import { configureStore, createStore } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
+import { uiSlice } from "./redux/uislice";
 
 
 const store = configureStore({
     reducer: {
         user: userSlice.reducer,
+        ui: uiSlice.reducer,
+
     }
 });
 
