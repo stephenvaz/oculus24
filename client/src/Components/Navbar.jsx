@@ -2,6 +2,8 @@ import { Fragment, useEffect } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { NavLink } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { saveUser } from '../redux/userslice'
 
 const navigation = [
   { name: 'Home', href: '/', current: true },
@@ -16,15 +18,26 @@ function classNames(...classes) {
 
 export default function Navbar() {
 
+  const dispatch = useDispatch()
+  const user = useSelector(state => state.user.user)
 
 
-  useEffect(() => {
-    // read from local storage if user data is present
-    const user = localStorage.getItem('user')
-    if (user) {
-      
-    }
-  }, [])
+  // useEffect(() => {
+  //   // read from local storage if user data is present
+  //   // const user = localStorage.getItem('user')
+  //   if (!user) {
+  //     dispatch(saveUser("test"))
+  //     console.log("user", user)
+  //   }
+  //   else {
+  //     console.log("user", user)
+  //   }
+
+  // }, [])
+
+  // useEffect(() => {
+  //   console.log("userc", user)
+  // }, [user])
 
   return (
     <Disclosure as="nav" className="text-white sticky top-0 z-50 ">
