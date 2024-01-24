@@ -12,6 +12,7 @@ import space from './assets/space1.jpg';
 import { motion } from 'framer-motion';
 import { AnimatePresence } from 'framer-motion';
 import Appear from './animated-components/Appear';
+import rocket from './assets/rocket.png';
 
 function App() {
   const router = createBrowserRouter([
@@ -58,7 +59,11 @@ function App() {
 
   return (
     <AnimatePresence >
-      <div className="h-screen w-full">
+      <div className="h-screen w-full"
+      style={{
+        cursor: 'url("https://upload.wikimedia.org/wikipedia/commons/3/33/Cartoon_space_rocket.png")',
+      }} 
+      >
         <img
           style={{
             height: '100%',
