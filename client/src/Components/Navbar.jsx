@@ -1,4 +1,4 @@
-import { Fragment } from 'react'
+import { Fragment, useEffect } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { NavLink } from 'react-router-dom'
@@ -15,6 +15,17 @@ function classNames(...classes) {
 }
 
 export default function Navbar() {
+
+
+
+  useEffect(() => {
+    // read from local storage if user data is present
+    const user = localStorage.getItem('user')
+    if (user) {
+      
+    }
+  }, [])
+
   return (
     <Disclosure as="nav" className="text-white sticky top-0 z-50 ">
       {({ open }) => (
@@ -91,7 +102,7 @@ export default function Navbar() {
                     leaveFrom="transform opacity-100 scale-100"
                     leaveTo="transform opacity-0 scale-95"
                   >
-                    <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                    <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-neutral-900	 py-1 shadow-lg ring-1 ring-white ring-opacity-2 focus:outline-none">
                       <Menu.Item>
                         {({ active }) => (
                           <a

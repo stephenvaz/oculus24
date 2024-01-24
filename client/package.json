@@ -16,10 +16,12 @@
     "@heroicons/react": "^2.1.1",
     "@mui/icons-material": "^5.15.4",
     "@mui/material": "^5.15.4",
+    "@reduxjs/toolkit": "^2.0.1",
     "framer-motion": "^10.18.0",
     "gsap": "^3.12.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-redux": "^9.1.0",
     "react-router-dom": "^6.21.1"
   },
   "devDependencies": {
