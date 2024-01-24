@@ -1,0 +1,6 @@
+/* for ensuring that scrolling is possible on mobile device */
+@media (max-width: 767px) {
+    .canvas {
+        pointer-events: none !important;
+    }
+}

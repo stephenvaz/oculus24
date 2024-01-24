@@ -3,6 +3,7 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Sphere } from "@react-three/drei";
 // import { pointsInner, pointsOuter } from "./utils";
 import { pointsInner, pointsOuter } from "./utils";
+import "./particle.css"
 
 const ParticleRing = () => {
 
@@ -16,8 +17,7 @@ const ParticleRing = () => {
           height: "100vh",
           position: "fixed",
         }}
-        className="bg-slate-900"
-
+        className="canvas bg-slate-900"
         
       >
         <OrbitControls 
