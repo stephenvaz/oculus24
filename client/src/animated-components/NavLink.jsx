@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { motion, useInView, useAnimation } from "framer-motion";
 
-function Appear({ children }) {
+function NavLink({ children }) {
   const ref = useRef(null);
   const isInView = useInView(ref);
   const mainControls = useAnimation();
@@ -23,8 +23,8 @@ function Appear({ children }) {
     <div
       ref={ref}
       style={{
-        // position: "relative",
-        width: "100%",
+        position: "relative",
+        width: "fit-content",
         // overflow: "hidden",
         // height: '100%'
       }}
@@ -34,16 +34,16 @@ function Appear({ children }) {
           hidden: {
             opacity: 0,
             // x: -200,
-            y: 200,
+            // y: 200,
           },
           visible: {
             opacity: 1,
             // x: 0,
-            y: 0,
+            // y: 0,
           },
         }}
         transition={{
-          duration: 0.75,
+          duration: 0.5,
           delay: 0.2,
           ease: 'easeIn',
         }}
@@ -56,4 +56,4 @@ function Appear({ children }) {
   );
 }
 
-export default Appear;
+export default NavLink;
