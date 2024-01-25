@@ -6,6 +6,9 @@ import ErrorPage from './Pages/ErrorPage';
 import EventsPage from './Pages/EventsPage';
 import SponsorsPage from './Pages/SponsorsPage';
 import LoginPage from './Pages/LoginPage';
+import ContactPage from './Pages/ContactPage';
+import DonationPage from './Pages/DonationPage';
+import SchedulePage from './Pages/SchedulePage';
 import Navbar from './Components/Navbar';
 import Footer from './Components/Footer';
 import space from './assets/space1.jpg';
@@ -61,6 +64,24 @@ function App() {
           path: '/events',
           element: (
             <EventsPage />
+          ),
+        },
+        {
+          path: '/sponsors',
+          element: (
+            <SponsorsPage />
+          ),
+        },
+        {
+          path: '/contact',
+          element: (
+            <SponsorsPage />
+          ),
+        },
+        {
+          path: '/sponsors',
+          element: (
+            <SponsorsPage />
           ),
         },
         {

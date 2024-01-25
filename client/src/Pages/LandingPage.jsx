@@ -1,7 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import LandingData from './landing';
 import space from '../assets/space.png'
-import './landing.scss';
 import Appear from '../animated-components/Appear';
 import logo from '../assets/Full White.png'
 
