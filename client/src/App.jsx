@@ -75,19 +75,19 @@ function App() {
         {
           path: '/contact',
           element: (
-            <SponsorsPage />
+            <ContactPage />
           ),
         },
         {
-          path: '/sponsors',
+          path: '/schedule',
           element: (
-            <SponsorsPage />
+            <SchedulePage />
           ),
         },
         {
-          path: '/sponsors',
+          path: '/donations',
           element: (
-            <SponsorsPage />
+            <DonationPage />
           ),
         },
       ],
