@@ -20,27 +20,29 @@ import { useSelector } from 'react-redux';
 function App() {
 
   const isNavBarOpen = useSelector(state => state.ui.isNavBarOpen)
-  
+
   const router = createBrowserRouter([
     {
       path: '/',
-      element: 
-      (
+      element:
+        (
 
-        !isNavBarOpen ?
-        <>
+          // !isNavBarOpen ?
+          <>
 
-        {/* <NavBarv2 /> */}
-          <Navbar />
-          
-          <ParticleRing />
-          {/* <Appear> */}
-            <Outlet />
-          {/* </Appear> */}
-          <Footer />
-        </> :
-        <NavBarv2/>
-      ),
+            <NavBarv2 />
+            {/* <Navbar /> */}
+
+            {!isNavBarOpen && (
+              <>
+                <ParticleRing />
+                <Outlet />
+                <Footer />
+              </>)}
+          </>
+          // :
+          // <NavBarv2/>
+        ),
       errorElement: <ErrorPage />,
       children: [
         {
@@ -74,14 +76,14 @@ function App() {
   return (
     <AnimatePresence >
       <div className="h-screen w-full"
-      style={{
-        cursor: 'url("https://upload.wikimedia.org/wikipedia/commons/3/33/Cartoon_space_rocket.png")',
-      }} 
+        style={{
+          cursor: 'url("https://upload.wikimedia.org/wikipedia/commons/3/33/Cartoon_space_rocket.png")',
+        }}
       >
-        
-        
+
+
         <div className="h-full w-full">
-        
+
           <RouterProvider router={router} />
         </div>
       </div>

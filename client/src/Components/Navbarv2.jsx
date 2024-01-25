@@ -1,75 +1,132 @@
-import { useMotionValue, motion, useSpring, useTransform } from "framer-motion";
-import React, { useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import { useMotionValue, motion, useSpring, useTransform, useCycle } from "framer-motion";
 import { FiArrowRight } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
 import GlassmorphicButton from "./glassmorphic/CButtonv1";
 import { toggleNavBar } from "../redux/uislice";
+import NavButton from "../Components/NavButton";
+import { Sling as Hamburger } from 'hamburger-react';
+import logo from '../assets/Full White.png';
+import { useNavigate } from "react-router-dom";
+import { setNavBar } from "../redux/uislice";
+import Center from "../animated-components/Center";
 
 export const NavBarv2 = () => {
-
+    const [currPath, setCurrPath] = useState(window.location.pathname)
+    const [currWidth, setCurrWidth] = useState(window.innerWidth)
+    const navigate = useNavigate()
     const isNavBarOpen = useSelector(state => state.ui.isNavBarOpen)
-
     const dispatch = useDispatch()
 
+    useEffect(() => {
+        // console.log(currPath)
+        setCurrPath(window.location.pathname)
+    }, [currPath, window.location.pathname])
 
-    if (isNavBarOpen) {
-        return (
+    useEffect(() => {
+        // console.log(currWidth)
+        setCurrWidth(window.innerWidth)
+    }, [currWidth, window.innerWidth])
 
-            <section className="bg-neutral-950 p-4 md:p-8"
+    return (
+        <>
+            {/* <GlassmorphicButton
+                onClick={() => dispatch(toggleNavBar())}
+            // onClick={toggleOpen}
             >
-                <GlassmorphicButton
-          style={{
-            position: "absolute",
-            top: "4px",
-            right: "4px",
-          }}
-          onClick={() => dispatch(toggleNavBar())}
-        >
-          Close
-        </GlassmorphicButton>
-                <div className="mx-auto max-w-5xl">
+                {isNavBarOpen ? "Close" : "Open"}
+            </GlassmorphicButton> */}
+            <Center>
+                <button
+                    onClick={() => {
+                        navigate('/')
+                        dispatch(setNavBar(false))
+                    }}
+                    style={{
+                        display: (currPath !== '/' || isNavBarOpen) ? "block" : "none",
+                    }}     
+                className="fixed top-[-10px] left-4">
+                    <img src={logo} alt="" className="w-48" />
+                </button>
+            </Center>
+                <div className={`fixed top-4 right-4 bg-white bg-opacity-10 rounded-full ${currWidth > 400 ? "p-2" : "p-0"} hover:bg-opacity-25`}>
+                    <Hamburger rounded duration={0.5} size={currWidth < 768 ? 20 : 25} easing="ease-in" color="#C77DFF" toggled={isNavBarOpen} toggle={() => dispatch(toggleNavBar())} />
+                </div>
+            <motion.div
+                animate={{
+                    width: isNavBarOpen ? "100%" : "0px",
+                    display: isNavBarOpen ? "block" : "none",
+                    opacity: isNavBarOpen ? 1 : 0,
+                    left: isNavBarOpen ? "0px" : "100%",
+
+                    transition: {
+                        duration: 1,
+                        type: "spring",
+                        damping: 30,
+                    },
+                }}
+                className="bg-neutral-950 p-4 md:p-8 sm:mt-4 mt-12">
+                <motion.div
+                    variants={{
+                        hidden: {
+                            opacity: 0,
+                            x: -200,
+                            // y: -200,
+                        },
+                        visible: {
+                            opacity: 1,
+                            x: 0,
+                            // y: 0,
+                        },
+                    }}
+                    transition={{
+                        duration: 0.75,
+                        delay: 0.2,
+                        ease: 'easeIn',
+                    }}
+                    // initial="hidden"
+                    // animate="visible"
+                    // exit="hidden"
+                    className="container mx-auto max-w-5xl">
                     <Link
                         heading="Events"
                         subheading="Learn what we do here"
                         imgSrc="/about.webp"
-                        href="#"
+                        href="/events"
                     />
                     <Link
                         heading="Sponsors"
                         subheading="We work with great people"
                         imgSrc="/sponsors.webp"
-                        href="#"
+                        href="/sponsors"
                     />
                     <Link
                         heading="Contact"
                         subheading="Get in touch with us"
                         imgSrc="/contact.webp"
-                        href="#"
+                        href="/contact"
                     />
                     <Link
                         heading="Schedule"
                         subheading="See what's coming up"
                         imgSrc="/schedule.webp"
-                        href="#"
+                        href="/schedule"
                     />
                     <Link
                         heading="Donations"
                         subheading="Donate for a good cause"
                         imgSrc="/donation.webp"
-                        href="#"
+                        href="/donation"
                     />
                     <Link
                         heading="Login"
                         subheading="Get Started"
                         imgSrc="/login.webp"
-                        href="#"
+                        href="/login"
                     />
-                </div>
-            </section>
-        );
-    }
-    return (
-        <></>
+                </motion.div>
+            </motion.div>
+        </>
     )
 
 
@@ -110,6 +167,7 @@ const Link = ({ heading, imgSrc, subheading, href }) => {
             onMouseMove={handleMouseMove}
             initial="initial"
             whileHover="whileHover"
+            exit={{ opacity: 0 }}
             className="group relative flex items-center justify-between border-b-2 border-neutral-700 py-4 transition-colors duration-500 hover:border-neutral-50 md:py-8 text-white"
         >
             <div>

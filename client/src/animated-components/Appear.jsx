@@ -23,10 +23,9 @@ function Appear({ children }) {
     <div
       ref={ref}
       style={{
-        // position: "relative",
-        width: "100%",
-        // overflow: "hidden",
-        // height: '100%'
+        position: "relative",
+        width: "fit-content",
+        overflow: "hidden",
       }}
     >
       <motion.div

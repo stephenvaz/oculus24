@@ -14,6 +14,9 @@ const GlassmorphicButton = ({ children, onClick }) => {
         color: "white",
         cursor: "pointer",
         transition: "background 0.3s, box-shadow 0.3s",
+        position: "absolute",
+        top: "25px",
+        right: "10px",
       }}
     >
       {children}

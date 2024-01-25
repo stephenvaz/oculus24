@@ -16,6 +16,7 @@ const ParticleRing = () => {
         style={{
           height: "100vh",
           position: "fixed",
+          zIndex: -1,
         }}
         className="canvas bg-slate-900"
         
