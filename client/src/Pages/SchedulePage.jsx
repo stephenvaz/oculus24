@@ -107,14 +107,14 @@ const SchedulePage = () => {
     }
 
     initTimeline();
-  });
+  },[]);
 
   return (
-    <div className="h-full w-full " style={{zIndex:1200}}>
+    <div className=" " style={{zIndex:1200}}>
       <main id="main">
         <header>
           <h1>
-            <span>Banner</span>
+            <span>Day 1</span>
           </h1>
         </header>
 
@@ -122,7 +122,7 @@ const SchedulePage = () => {
           <div className="timeline-container z-40">
             <article className="year year-1" data-count="1">
               <hgroup>
-                <h2>1935</h2>
+                <h2>Event 1</h2>
                 <p>
                   Lorem Ipsum is simply dummy text of the printing and
                   typesetting industry. Lorem Ipsum has been the industry's
@@ -132,7 +132,7 @@ const SchedulePage = () => {
             </article>
             <article className="year year-2" data-count="2">
               <hgroup>
-                <h2>1949</h2>
+                <h2>Event 2</h2>
                 <p>
                   Lorem Ipsum is simply dummy text of the printing and
                   typesetting industry. Lorem Ipsum has been the industry's
@@ -142,7 +142,7 @@ const SchedulePage = () => {
             </article>
             <article className="year year-3" data-count="3">
               <hgroup>
-                <h2>1950</h2>
+                <h2>Event 3</h2>
                 <p>
                   Lorem Ipsum is simply dummy text of the printing and
                   typesetting industry. Lorem Ipsum has been the industry's
@@ -152,7 +152,7 @@ const SchedulePage = () => {
             </article>
             <article className="year year-4" data-count="4">
               <hgroup>
-                <h2>1965</h2>
+                <h2>Event 4</h2>
                 <p>
                   Lorem Ipsum is simply dummy text of the printing and
                   typesetting industry. Lorem Ipsum has been the industry's

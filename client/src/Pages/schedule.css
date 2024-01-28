@@ -14,7 +14,7 @@
 body {
   font: 16px/1.7 'Source Sans Pro', Helvetica, Helvetica Neue, Arial, sans-serif;
   color: var(--text-dark-color);
-  background-color: var(--blue);
+  /* background-color: var(--blue); */
 }
 
 header {
@@ -55,7 +55,7 @@ main {
   width: 100vw;
   overflow: hidden;
   height: 100vh;
-  background: #232323;
+  /* background: #232323; */
 
 }
 .test{
