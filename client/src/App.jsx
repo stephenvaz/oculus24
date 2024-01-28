@@ -7,6 +7,7 @@ import SponsorsPage from './Pages/SponsorsPage';
 import LoginPage from './Pages/LoginPage';
 import Navbar from './Components/Navbar';
 import Footer from './Components/Footer';
+import SchedulePage from './Pages/SchedulePage';
 
 function App() {
   const router = createBrowserRouter([
@@ -32,6 +33,10 @@ function App() {
         {
           path: '/events',
           element: <EventsPage />,
+        },
+        {
+          path: '/schedule',
+          element: <SchedulePage />,
         },
         {
           path: '/sponsors',
