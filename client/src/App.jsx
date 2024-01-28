@@ -21,9 +21,9 @@ import { NavBarv2 } from './Components/Navbarv2';
 import { useSelector } from 'react-redux';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { gsap } from 'gsap';
+  gsap.registerPlugin(ScrollTrigger);
 
 function App() {
-  // gsap.registerPlugin(ScrollTrigger);
 
   const isNavBarOpen = useSelector(state => state.ui.isNavBarOpen)
 
