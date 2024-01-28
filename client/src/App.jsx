@@ -19,8 +19,11 @@ import rocket from './assets/rocket.png';
 import ParticleRing from './Components/background/ParticleRing';
 import { NavBarv2 } from './Components/Navbarv2';
 import { useSelector } from 'react-redux';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { gsap } from 'gsap';
 
 function App() {
+  // gsap.registerPlugin(ScrollTrigger);
 
   const isNavBarOpen = useSelector(state => state.ui.isNavBarOpen)
 
