@@ -2,7 +2,7 @@ import React from 'react'
 
 function EventsPage() {
   return (
-    <div>EventsPage</div>
+    <div className='h-full w-full'>EventsPage</div>
   )
 }
 

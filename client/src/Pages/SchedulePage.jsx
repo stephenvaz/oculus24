@@ -1,10 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-function SchedulePage() {
+const SchedulePage = () => {
+    return (
+        <div className='h-full w-full'>
+            Schedule Page
+        </div>
+    );
+};
 
-  return (
-    <div>SchedulePage</div>
-  )
-}
-
-export default SchedulePage
+export default SchedulePage;
