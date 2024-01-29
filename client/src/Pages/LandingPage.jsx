@@ -10,7 +10,7 @@ function LandingPage() {
   return (
     <div className="w-full flex flex-col !items-center !justify-center gap-2">
       <Appear>
-      <div className='h-[100vh] z-[-999] w- flex items-center justify-center'>
+      <div className='h-screen z-[-999] w- flex items-center justify-center'>
         <img 
         src={logo} 
         alt=""
@@ -18,10 +18,10 @@ function LandingPage() {
         />
       </div>
       </Appear>
-      {/* <div className='h-[100vh] w-full flex items-center justify-center'>
+      {/* <div className='h-screen w-full flex items-center justify-center'>
         <ScrollComp />
       </div>
-      <div className='h-[100vh] w-full flex items-center justify-center'>
+      <div className='h-screen w-full flex items-center justify-center'>
         <ScrollComp />
       </div> */}
     </div>
