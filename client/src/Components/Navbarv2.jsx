@@ -30,12 +30,6 @@ export const NavBarv2 = () => {
 
     return (
         <>
-            {/* <GlassmorphicButton
-                onClick={() => dispatch(toggleNavBar())}
-            // onClick={toggleOpen}
-            >
-                {isNavBarOpen ? "Close" : "Open"}
-            </GlassmorphicButton> */}
             <Center>
                 <button
                     onClick={() => {
@@ -49,12 +43,15 @@ export const NavBarv2 = () => {
                     <img src={logo} alt="" className="w-48" />
                 </button>
             </Center>
-                <div className={`fixed top-4 right-4 bg-white bg-opacity-10 rounded-full ${currWidth > 400 ? "p-2" : "p-0"} hover:bg-opacity-25`}>
+                <div className={`fixed top-4 right-4 bg-white bg-opacity-10 rounded-full ${currWidth > 400 ? "p-2" : "p-0"} hover:bg-opacity-25 z-50`}>
                     <Hamburger rounded duration={0.5} size={currWidth < 768 ? 20 : 25} easing="ease-in" color="#C77DFF" toggled={isNavBarOpen} toggle={() => dispatch(toggleNavBar())} />
                 </div>
             <motion.div
+                style={{
+                    display: isNavBarOpen ? "block" : "none",
+                }}
                 animate={{
-                    width: isNavBarOpen ? "100%" : "0px",
+                    width: isNavBarOpen ? "100%" : "0%",
                     display: isNavBarOpen ? "block" : "none",
                     opacity: isNavBarOpen ? 1 : 0,
                     left: isNavBarOpen ? "0px" : "100%",
