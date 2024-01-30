@@ -20,7 +20,7 @@ function LandingPage() {
         />
       </div>
       </Appear>
-      <Center>
+      {/* <Center>
         <img src={voyage} alt="" className='w-40 absolute top-0 left-0 z-50' />
       </Center>
       <div className='h-screen w-full flex items-center justify-center'>
@@ -28,7 +28,7 @@ function LandingPage() {
       </div>
       <div className='h-screen w-full flex items-center justify-center'>
         <ScrollComp />
-      </div>
+      </div> */}
     </div>
   );
 }
