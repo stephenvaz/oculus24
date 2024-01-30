@@ -1,14 +1,32 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Sphere } from "@react-three/drei";
-// import { pointsInner, pointsOuter } from "./utils";
-import { pointsInner, pointsOuter } from "./utils";
-import "./particle.css"
+import { pointsOuter } from "./utils";
+import "./particle.css";
 
 const ParticleRing = () => {
+  const orbitControlsRef = useRef();
+
+  useEffect(() => {
+    const handleMouseMove = (event) => {
+      const { clientX, clientY } = event;
+      const mouseX = (clientX / window.innerWidth) * 2 - 1;
+      const mouseY = -(clientY / window.innerHeight) * 2 + 1;
+
+      // Update orbitControls rotation based on mouse position
+      orbitControlsRef.current.target.x = mouseX * 10;
+      orbitControlsRef.current.target.y = mouseY * 10;
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
 
   return (
-    <div >
+    <div>
       <Canvas
         camera={{
           position: [10, -7.5, -5],
@@ -16,24 +34,19 @@ const ParticleRing = () => {
         style={{
           height: "100vh",
           position: "fixed",
-          // zIndex: -1,
         }}
         className="canvas bg-slate-900"
-        
       >
-        <OrbitControls 
-        maxDistance={20} 
-        minDistance={10}
-        enableZoom={false}
+        <OrbitControls
+          ref={orbitControlsRef}
+          maxDistance={20}
+          minDistance={10}
+          enableZoom={false}
         />
         <directionalLight />
         <pointLight position={[-30, 0, -30]} power={10.0} />
         <PointCircle />
       </Canvas>
-
-      {/* <h1 className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] text-slate-200 font-medium text-2xl md:text-5xl pointer-events-none">
-        Drag & Zoom
-      </h1> */}
     </div>
   );
 };
@@ -49,9 +62,6 @@ const PointCircle = () => {
 
   return (
     <group ref={ref}>
-      {/* {pointsInner.map((point) => (
-        <Point key={point.idx} position={point.position} color={point.color} />
-      ))} */}
       {pointsOuter.map((point) => (
         <Point key={point.idx} position={point.position} color={point.color} />
       ))}
@@ -61,8 +71,7 @@ const PointCircle = () => {
 
 const Point = ({ position, color }) => {
   return (
-    <Sphere position={position} args={[0.1, 10, 10]}
-    >
+    <Sphere position={position} args={[0.1, 10, 10]}>
       <meshStandardMaterial
         emissive={color}
         emissiveIntensity={0.5}
