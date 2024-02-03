@@ -6,7 +6,6 @@ import Slider from '../slideshow/Slider';
 const ScrollComp = () => {
     return (
         <div>
-            {/* <Box image={testimg} /> */}
             <Box image={testimg} />
         </div>
     );
@@ -35,18 +34,18 @@ function Box({ image }) {
                 style={{
                     zIndex: 999,
                     position: 'absolute',
-                    transform: 'translate(160%, -480%)',
+                    transform: 'translate(265%, -350%)',
                 }}
                 className='font-bold text-6xl text-white'>
                 #001
             </div>
-            <h2 className="text-center text-5xl font-thin text-indigo">
+            {/* <h2 className="text-center text-5xl font-thin text-indigo">
                 {"Bubbbbbbbble text".split("").map((child, idx) => (
                     <span className='hoverText' key={idx}>
                         {child}
                     </span>
                 ))}
-            </h2>
+            </h2> */}
         </motion.div>
     )
 }

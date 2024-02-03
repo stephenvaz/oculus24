@@ -45,7 +45,7 @@ function Slider() {
                     >
                     </div>
                 ))}
-        </div>
+            </div>
         </div >
     );
 }
