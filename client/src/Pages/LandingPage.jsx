@@ -6,6 +6,7 @@ import logo from '../assets/Full White.png'
 import ScrollComp from '../Components/scroll/ScrollComp';
 import voyage from '../assets/cosmic voyage white (stroked).png';
 import Center from '../animated-components/Center';
+import TLeft from '../animated-components/TLeft';
 
 function LandingPage() {
 
@@ -20,15 +21,15 @@ function LandingPage() {
         />
       </div>
       </Appear>
-      {/* <Center>
-        <img src={voyage} alt="" className='w-40 absolute top-0 left-0 z-50' />
-      </Center>
+      <TLeft>
+        <img src={voyage} alt="" className='w-40 fixed top-0 left-0 z-[999]' />
+      </TLeft>
       <div className='h-screen w-full flex items-center justify-center'>
         <ScrollComp />
       </div>
       <div className='h-screen w-full flex items-center justify-center'>
         <ScrollComp />
-      </div> */}
+      </div>
     </div>
   );
 }

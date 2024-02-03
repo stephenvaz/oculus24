@@ -14,8 +14,8 @@ const ParticleRing = () => {
       const mouseY = -(clientY / window.innerHeight) * 2 + 1;
 
       // Update orbitControls rotation based on mouse position
-      orbitControlsRef.current.target.x = mouseX * 10;
-      orbitControlsRef.current.target.y = mouseY * 10;
+      orbitControlsRef.current.target.x = mouseX * 5;
+      orbitControlsRef.current.target.y = mouseY * 5;
     };
 
     window.addEventListener("mousemove", handleMouseMove);

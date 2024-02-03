@@ -11,6 +11,7 @@ import DonationPage from './Pages/DonationPage';
 import SchedulePage from './Pages/SchedulePage';
 import Navbar from './Components/Navbar';
 import Footer from './Components/Footer';
+import TLeft from './animated-components/TLeft';
 import space from './assets/space1.jpg';
 import { motion } from 'framer-motion';
 import { AnimatePresence } from 'framer-motion';
@@ -32,8 +33,9 @@ function App() {
 
           // !isNavBarOpen ?
           <>
-
+          <TLeft>
             <NavBarv2 />
+          </TLeft>
             {/* <Navbar /> */}
 
             {!isNavBarOpen && (

@@ -1,14 +1,14 @@
 import React, { useEffect, useRef } from "react";
 import { motion, useInView, useAnimation } from "framer-motion";
 
-function Center({ children }) {
+function TLeft({ children }) {
   const ref = useRef(null);
   const isInView = useInView(ref);
   const mainControls = useAnimation();
   const slideControls = useAnimation();
 
   useEffect(() => {
-    // console.log("isInView", isInView);
+    console.log("isInView", isInView);
     if (isInView) {
       mainControls.start("visible");
       slideControls.start("visible");
@@ -21,13 +21,13 @@ function Center({ children }) {
 
   return (
     <div
-      ref={ref}
+    //   ref={ref}
       style={{
         // position: "relative",
         // width: "fit-content",
         // overflow: "hidden",
         // height: '100%',
-        zIndex: 100
+        zIndex: 1000
       }}
     >
       <motion.div
@@ -49,7 +49,7 @@ function Center({ children }) {
           ease: 'easeIn',
         }}
         initial="hidden"
-        animate={mainControls}
+        animate="visible"
       >
         {children}
       </motion.div>
@@ -57,4 +57,4 @@ function Center({ children }) {
   );
 }
 
-export default Center;
+export default TLeft;
