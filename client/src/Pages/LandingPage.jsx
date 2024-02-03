@@ -24,12 +24,12 @@ function LandingPage() {
       <TLeft>
         <img src={voyage} alt="" className='w-40 fixed top-0 left-0 z-[999]' />
       </TLeft>
-      <div className='h-screen w-full flex items-center justify-center'>
+      {/* <div className='h-screen w-full flex items-center justify-center'>
         <ScrollComp />
       </div>
       <div className='h-screen w-full flex items-center justify-center'>
         <ScrollComp />
-      </div>
+      </div> */}
     </div>
   );
 }
