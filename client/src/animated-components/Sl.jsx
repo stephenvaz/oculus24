@@ -67,7 +67,7 @@ function Sl({ children }) {
                 variants={{
                     hidden: {
                         opacity: 0,
-                        x: -200,
+                        x: 200,
                     },
                     visible: {
                         opacity: 1,
