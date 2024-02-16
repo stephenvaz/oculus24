@@ -43,7 +43,7 @@ export const NavBarv2 = () => {
                     <img src={logo} alt="" className="w-48" />
                 </button>
             </Center>
-                <div className={`fixed top-4 right-4 bg-white bg-opacity-10 rounded-full ${currWidth > 400 ? "p-2" : "p-0"} hover:bg-opacity-25 z-50`}>
+                <div className={`fixed top-4 right-4 bg-white bg-opacity-10 rounded-full ${currWidth > 400 ? "p-2" : "p-0"} hover:bg-opacity-25 z-[2000]`}>
                     <Hamburger rounded duration={0.5} size={currWidth < 768 ? 20 : 25} easing="ease-in" color="#C77DFF" toggled={isNavBarOpen} toggle={() => dispatch(toggleNavBar())} />
                 </div>
             <motion.div
