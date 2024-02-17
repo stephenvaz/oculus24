@@ -1,25 +1,27 @@
-import jwt from "jsonwebtoken";
+// import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 
 dotenv.config();
 
-const SECRET_KEY = process.env.JWTkey;
+// const SECRET_KEY = process.env.JWTkey;
 
 const auth = (req, res, next) => {
-  try {
-    let token = req.headers.authorization;
-    if (token) {
-      token = token.split(" ")[1];
-      let user = jwt.verify(token, SECRET_KEY);
-      req.userID = user.uid;
-    } else {
-      return res.status(401).json({ message: "Unauthorized User" });
-    }
-    next();
-  } catch (error) {
-    console.log(error);
-    res.status(401).json({ message: "Unauthorized User", error: error });
-  }
+  // try {
+  //   let token = req.headers.authorization;
+  //   if (token) {
+  //     token = token.split(" ")[1];
+  //     let user = jwt.verify(token, SECRET_KEY);
+  //     req.userID = user.uid;
+  //   } else {
+  //     return res.status(401).json({ message: "Unauthorized User" });
+  //   }
+  //   next();
+  // } catch (error) {
+  //   console.log(error);
+  //   res.status(401).json({ message: "Unauthorized User", error: error });
+  // }
+  console.log("\x1b[31m","Implement firebase token middleware");
+  next()
 };
 
 export default auth;

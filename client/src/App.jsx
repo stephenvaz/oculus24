@@ -20,6 +20,7 @@ import rocket from './assets/rocket.png';
 import ParticleRing from './Components/background/ParticleRing';
 import { NavBarv2 } from './Components/Navbarv2';
 import { useSelector } from 'react-redux';
+import RazorPayTest from './Pages/cube_open/RazorPay';
 
 function App() {
 
@@ -92,6 +93,12 @@ function App() {
             <DonationPage />
           ),
         },
+        {
+          path: "cube_open",
+          element: (
+          <RazorPayTest />
+          )
+        }
       ],
     },
   ]);

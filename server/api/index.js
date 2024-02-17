@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import authRouter from "../router/Auth.js";
+import payRouter from "../router/payementRouter.js";
 
 const app = express();
 
@@ -16,10 +16,15 @@ const loggerMware = (req, res, next) => {
 
 app.use(loggerMware);
 
-app.get("/", (req, res) => {
-  res.send("API v0.0.1");
+
+const baseRouter = express.Router();
+
+app.use("/api", baseRouter);
+
+baseRouter.get("/", (req, res) => {
+  return res.send("API v0.0.1");
 });
-app.use("/auth", authRouter);
+baseRouter.use("/pay", payRouter)
 
 
 
