@@ -45,6 +45,14 @@ const RazorPayTest = () => {
   };
 
   useEffect(() => {
+    if (!redUser) {
+      setUserInfo({
+        ...userInfo,
+        name: "",
+        email: "",
+      })
+      return;
+    }
     const user = JSON.parse(localStorage.getItem("user"));
     console.log("-------", user)
     setUserInfo({
