@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { FiLock } from "react-icons/fi";
 import { motion } from "framer-motion";
-import displayRazorpay from "./PaymentGateway";
+// import displayRazorpay from "./PaymentGateway";
 
 // Pass icon component directly
 const CustButton = ({text, icon, mOnClick}) => {

@@ -13,7 +13,7 @@ const payC = new PayController();
 // will send that token to the server and the server will verify that token
 // but how will i verify it? i need to use the firebase admin sdk to verify the token ig
 
-payRouter.post("/", auth,payC.pay);
+payRouter.post("/", auth, auth,payC.pay);
 
 payRouter.get("/", auth, async (req, res) => {
     res.send("pay get");

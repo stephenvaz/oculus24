@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
-import displayRazorpay from "./components/PaymentGateway";
 import CustButton from "./components/CustButton";
-// import { SiRazorpay } from "react-icons/si";
 import { FaMoneyBillWave } from "react-icons/fa";
 import TextField from '@mui/material/TextField';
 import { useSelector } from "react-redux";
@@ -10,11 +8,9 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
-import Snackbar from '@mui/material/Snackbar';
-import Alert from '@mui/material/Alert';
-import { AlertTitle } from "@mui/material";
-import { toast } from "react-toastify";
 import ModToast from "../../Components/ModToast";
+import { useFBO } from "@react-three/drei";
+import APIRequests from "../../api";
 import Center from "../../animated-components/Center";
 
 const RazorPayTest = () => {
@@ -55,7 +51,7 @@ const RazorPayTest = () => {
       return;
     }
     const user = JSON.parse(localStorage.getItem("user"));
-    console.log("-------", user)
+    // console.log("-------", user)
     setUserInfo({
       ...userInfo,
       name: user?.displayName,
@@ -64,7 +60,7 @@ const RazorPayTest = () => {
   }, [localStorage.getItem("user"), redUser]);
 
   useEffect(() => {
-    console.log(userInfo);
+    // console.log(userInfo);
   }, [userInfo]);
 
   const loadScript = (src) => {
@@ -95,7 +91,7 @@ const RazorPayTest = () => {
 
   function timeout(delay) {
     return new Promise(res => setTimeout(res, delay));
-}
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -115,11 +111,53 @@ const RazorPayTest = () => {
       // toast.error("Phone number is invalid");
       return;
     }
+
+    // const res = APIRequests.pay(userInfo);
+    await displayRazorPay();
+
+
     // toast.success("Form submitted successfully");
     console.log("submitting form")
     setText("Form submitted successfully");
     setSeverity("success");
     setOpen(true);
+  }
+
+  const displayRazorPay = async () => {
+    try {
+      let data = await APIRequests.pay(userInfo);
+      console.log(data);
+      // data = data.json();
+      const options = {
+        key: import.meta.env.VITE_RAZORPAY_KEY_ID,
+        currency: data.currency,
+        amount: data.amount,
+        name: "Oculus X Cube Open",
+        description: "Wallet Transaction",
+        image: "O Black.png",
+        order_id: data.id,
+        handler: function (response) {
+          // alert("PAYMENT ID ::" + response.razorpay_payment_id);
+          // alert("ORDER ID :: " + response.razorpay_order_id);
+          if (response.razorpay_payment_id) {
+            setText("Payment successful");
+            setSeverity("success");
+            setOpen(true);
+          }
+        },
+        prefill: {
+          name: userInfo.name,
+          email: userInfo.email,
+          contact: userInfo.phone,
+        },
+      }
+      const paymentObject = new window.Razorpay(options);
+      paymentObject.open();
+
+    }
+    catch (err) { 
+      console.log(err);
+    }
   }
 
   return (

@@ -13,9 +13,16 @@ class PayController {
 
     pay = async (req, res) => {
         try {
-            // const { amount } = req.body;
-            //TODO: ideally amount should be calculated on the server side to avoid any manipulation
-            const amount = 499;
+            let amount = 1000;
+
+            const {name, email, wca_id, phone, event} = req.body;
+
+            const user = req.user;
+
+            // console.log(req.body);
+            if (event == 8) {
+                amount = 1200;
+            }
 
             
 
@@ -25,12 +32,6 @@ class PayController {
                 receipt: shortid.generate(),
                 payment_capture: 1
             };
-            // instance.orders.create(options, (err, order) => {
-            //     if (err) {
-            //         return res.status(500).json({ error: err });
-            //     }
-            //     return res.status(200).json(order);
-            // });
             const response = await instance.orders.create(options);
             console.log("response from razorpay");
             console.log(response);
