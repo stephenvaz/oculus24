@@ -11,6 +11,7 @@ import APIRequests from "../../api";
 import Center from "../../animated-components/Center";
 import { CircularProgress } from "@mui/material";
 import { auth } from "../../firebase/config";
+import Ticket from "../../Components/Ticket";
 
 const RazorPayTest = () => {
   const redUser = useSelector(state => state.user.user);
@@ -348,8 +349,11 @@ const RazorPayTest = () => {
         </div>
       </div>
     </div>) : (
-      <div className="h-screen w-full text-center p-2 flex items-center justify-center text-white md:text-3xl text-xl font-bold z-[10000] tracking-wide">
-        Please Login To Apply for Oculus Open Cube 2024
+      // <div className="h-screen w-full text-center p-2 flex items-center justify-center text-white md:text-3xl text-xl font-bold z-[10000] tracking-wide">
+      //   Please Login To Apply for Oculus Open Cube 2024
+      // </div>
+      <div className="w-full h-screen flex items-center justify-center">
+        <Ticket />
       </div>
     )}
     </Center>
