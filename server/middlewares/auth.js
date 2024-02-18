@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 import admin from 'firebase-admin';
-import mAdmin from "../db/Conn.js";
+import {mAdmin} from "../db/Conn.js";
 
 dotenv.config();
 

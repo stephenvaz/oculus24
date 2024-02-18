@@ -1,6 +1,7 @@
 import razorpay from 'razorpay';
 import shortid from 'shortid';
-import { db } from "../db/conn2.js";
+// import { db } from "../db/conn2.js";
+import { db } from "../db/Conn.js";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import dotenv from 'dotenv';
 
@@ -21,15 +22,18 @@ class PayController {
             const {name, email, wca_id, phone, event} = req.body;
 
             const user = req.user;
+            const uid = user.uid;
 
-            const userRef = doc(db, 'users', user.uid);
-            const userDoc = await getDoc(userRef);
-            const userDocData = userDoc.data();
-
+            // const userRef = doc(db, 'users', user.uid);
+            // const userDoc = await getDoc(userRef);
+            // const userDocData = userDoc.data();
+            const userRef = db.collection('users').doc(uid);
+            const userDoc = await userRef.get();
             if (!userDoc.exists) {
                 console.log('No such document!');
                 return res.status(400).json({error: "User not found"});
             }
+            const userDocData = userDoc.data();
             
             // check the transactions array, if there is an order with payments as not null, then return an error saying that the user has already paid for the event
             for (const t of userDocData.transactions) {
@@ -76,8 +80,8 @@ class PayController {
             }
             userDocData.transactions.push(data2add);
 
-            // save the transaction in the database
-            await setDoc(userRef, userDocData);
+            await userRef.set(userDocData);
+
 
             return res.json({
               id: response.id,
@@ -95,12 +99,21 @@ class PayController {
             const { payment } = req.body;
 
             const user = req.user;
+            const uid = user.uid;
 
-            const userRef = doc(db, 'users', user.uid);
-            const userDoc = await getDoc(userRef);
-            const userDocData = userDoc.data();
+            // const userRef = doc(db, 'users', user.uid);
+            // const userDoc = await getDoc(userRef);
+            // const userDocData = userDoc.data();
+            const userRef = db.collection('users').doc(uid);
+            const userDoc = await userRef.get();
+
+            if (!userDoc.exists) {
+                console.log('No such document!');
+                return res.status(400).json({error: "User not found"});
+            }
             // there will definitely be a transaction array
             // find the one with the order id (razorpay_order_id) and update it
+            const userDocData = userDoc.data();
             
             for (const t of userDocData.transactions) {
                 if (t.order.id === payment.razorpay_order_id) {
@@ -109,7 +122,7 @@ class PayController {
                 }
             }
 
-            await setDoc(userRef, userDocData);
+            await userRef.set(userDocData);
 
             for (const t of userDocData.transactions) {
                 if (t.payment) {
