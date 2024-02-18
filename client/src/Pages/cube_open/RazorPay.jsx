@@ -15,7 +15,7 @@ import Alert from '@mui/material/Alert';
 import { AlertTitle } from "@mui/material";
 import { toast } from "react-toastify";
 import ModToast from "../../Components/ModToast";
-import { useFBO } from "@react-three/drei";
+import Center from "../../animated-components/Center";
 
 const RazorPayTest = () => {
   // const user = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
@@ -31,6 +31,7 @@ const RazorPayTest = () => {
   const [open, setOpen] = useState(false);
   const [text, setText] = useState("");
   const [severity, setSeverity] = useState("");
+  const isLoggedIn = localStorage.getItem("user") ? true : false;
 
   const handleClick = () => {
     setOpen(true);
@@ -98,12 +99,11 @@ const RazorPayTest = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setText("Form submitted successfully");
-    setSeverity("success");
-    setOpen(true);
-
     if (userInfo.name === "" || userInfo.phone === "" || userInfo.event === "") {
       // toast.error("Please fill all the fields!");
+    setText("Please fill all the fields!");
+    setSeverity("error");
+    setOpen(true);
       return;
     }
     const regex = /^\d{10}$/;
@@ -114,11 +114,16 @@ const RazorPayTest = () => {
     }
     // toast.success("Form submitted successfully");
     console.log("submitting form")
+    setText("Form submitted successfully");
+    setSeverity("success");
+    setOpen(true);
   }
 
   return (
+    <Center>
+    {isLoggedIn ? (
     <div
-      className="h-screen w-full flex items-center justify-center gap-2 overflow-x-clip"
+      className="h-screen w-full flex items-center justify-center gap-2"
     >
       {open && (<ModToast text={text} severity={severity} />)}
       <div
@@ -131,10 +136,10 @@ const RazorPayTest = () => {
           backdropFilter: 'blur( 4px )',
           border: '1px solid rgba( 255, 255, 255, 0.18 )',
         }}
-        className="w-1/2 flex flex-col items-center justify-center gap-4 p-8 rounded-xl shadow-md"
+        className="md:w-1/2 w-[90%] flex flex-col items-center justify-center gap-4 p-8 rounded-xl shadow-md"
       >
         <div className="w-full h-full flex flex-col items-center justify-center gap-4">
-          <div className="w-full text-3xl text-center text-white font-bold tracking-wide">
+          <div className="w-full md:text-3xl text-xl text-center text-white font-bold tracking-wide">
             Register for Oculus Cube Open 2024
           </div>
           <form
@@ -274,7 +279,12 @@ const RazorPayTest = () => {
           </form>
         </div>
       </div>
-    </div>
+    </div>) : (
+      <div className="h-screen w-full flex items-center justify-center text-white text-3xl font-bold z-[10000] tracking-wide">
+        Please Login To Apply for Oculus Open Cube 2024
+      </div>
+    )}
+    </Center>
   );
 };
 
