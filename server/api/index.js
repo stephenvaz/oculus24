@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import payRouter from "../router/payementRouter.js";
+import userRouter from "../router/userRouter.js";
 
 const app = express();
 
@@ -25,6 +26,7 @@ baseRouter.get("/", (req, res) => {
   return res.send("API v0.0.1");
 });
 baseRouter.use("/pay", payRouter)
+baseRouter.use("/user", userRouter)
 
 
 

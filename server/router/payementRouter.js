@@ -15,9 +15,9 @@ const payC = new PayController();
 
 payRouter.post("/", auth, auth,payC.pay);
 
-payRouter.get("/", auth, async (req, res) => {
-    res.send("pay get");
-});
+// payRouter.get("/", auth, async (req, res) => {
+//     res.send("pay get");
+// });
 
 export default payRouter;
 

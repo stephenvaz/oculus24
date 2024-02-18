@@ -19,13 +19,16 @@ class PayController {
 
             const user = req.user;
 
-            // console.log(req.body);
             if (event == 8) {
                 amount = 1200;
             }
-
+            else if (event == 4) { 
+                amount = 1000;
+            }
+            else {
+                return res.status(400).json({error: "Invalid event"});
+            }
             
-
             const options = {
                 amount: amount *100,
                 currency: "INR",

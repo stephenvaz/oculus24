@@ -5,7 +5,7 @@ const API = axios.create({
   baseURL: import.meta.env.VITE_API_URL ?? "http://localhost:5000/api",
 });
 
-API.interceptors.request.use((req) => {
+API.interceptors.request.use(async (req) => {
 
     // const user = JSON.parse(localStorage.getItem("user"));
 
@@ -13,7 +13,7 @@ API.interceptors.request.use((req) => {
 
   if (user !== null) {
     req.headers.authorization = user.accessToken;
-    // console.log("req.headers.authorization:", req.headers.authorization);
+    console.log("req.headers.authorization:", req.headers.authorization);
     console.log("token exp", new Date(user.stsTokenManager.expirationTime));
   }
 
@@ -41,6 +41,14 @@ class APIRequests {
   static async pay(data) {
     // return await API.post("/pay", data).then((t) => t.json());
     return await API.post("/pay", data).then((t) => t.data);
+  }
+  static async getTransactions() {
+    return await API.get("/user/transactions").then((t) => {
+      if (t.status === 200) {
+        return t.data;
+      }
+      return "error";
+    });
   }
 }
 

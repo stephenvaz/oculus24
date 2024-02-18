@@ -3,18 +3,16 @@ import CustButton from "./components/CustButton";
 import { FaMoneyBillWave } from "react-icons/fa";
 import TextField from '@mui/material/TextField';
 import { useSelector } from "react-redux";
-import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import ModToast from "../../Components/ModToast";
-import { useFBO } from "@react-three/drei";
 import APIRequests from "../../api";
 import Center from "../../animated-components/Center";
+import { CircularProgress } from "@mui/material";
+import { auth } from "../../firebase/config";
 
 const RazorPayTest = () => {
-  // const user = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
   const redUser = useSelector(state => state.user.user);
   const [userInfo, setUserInfo] = useState({
     name: "",
@@ -23,11 +21,13 @@ const RazorPayTest = () => {
     phone: "",
     event: "",
   })
-  const [isRegistered, setIsRegistered] = useState(false);
+  // const [isRegistered, setIsRegistered] = useState(false);
   const [open, setOpen] = useState(false);
   const [text, setText] = useState("");
   const [severity, setSeverity] = useState("");
   const isLoggedIn = localStorage.getItem("user") ? true : false;
+
+  const [isLoading, setIsLoading] = useState(true);
 
   const handleClick = () => {
     setOpen(true);
@@ -48,20 +48,38 @@ const RazorPayTest = () => {
         name: "",
         email: "",
       })
+      setIsLoading(false);
       return;
     }
     const user = JSON.parse(localStorage.getItem("user"));
-    // console.log("-------", user)
-    setUserInfo({
-      ...userInfo,
-      name: user?.displayName,
-      email: user?.email,
-    })
+    auth.onAuthStateChanged( async(user) => {
+      // this callback is to ensure that firebase app has been initialized
+      if (user) {
+        // console.log("usertest", user)
+        await getUserTransactions();
+      }
+
+      setUserInfo({
+        ...userInfo,
+        name: user?.displayName,
+        email: user?.email,
+      })
+      setIsLoading(false);
+
+    });
+
+
+
   }, [localStorage.getItem("user"), redUser]);
 
   useEffect(() => {
     // console.log(userInfo);
   }, [userInfo]);
+
+  const getUserTransactions = async () => {
+    const transactions = await APIRequests.getTransactions();
+    console.log("transactions",transactions);
+  }
 
   const loadScript = (src) => {
     return new Promise((resolve) => {
@@ -89,9 +107,9 @@ const RazorPayTest = () => {
     }
   }, [open]);
 
-  function timeout(delay) {
-    return new Promise(res => setTimeout(res, delay));
-  }
+  // function timeout(delay) {
+  //   return new Promise(res => setTimeout(res, delay));
+  // }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -111,23 +129,20 @@ const RazorPayTest = () => {
       // toast.error("Phone number is invalid");
       return;
     }
-
-    // const res = APIRequests.pay(userInfo);
     await displayRazorPay();
 
 
     // toast.success("Form submitted successfully");
-    console.log("submitting form")
-    setText("Form submitted successfully");
-    setSeverity("success");
-    setOpen(true);
+    // console.log("submitting form")
+    // setText("Form submitted successfully");
+    // setSeverity("success");
+    // setOpen(true);
   }
 
   const displayRazorPay = async () => {
     try {
       let data = await APIRequests.pay(userInfo);
-      console.log(data);
-      // data = data.json();
+      // console.log(data);
       const options = {
         key: import.meta.env.VITE_RAZORPAY_KEY_ID,
         currency: data.currency,
@@ -137,8 +152,6 @@ const RazorPayTest = () => {
         image: "O Black.png",
         order_id: data.id,
         handler: function (response) {
-          // alert("PAYMENT ID ::" + response.razorpay_payment_id);
-          // alert("ORDER ID :: " + response.razorpay_order_id);
           if (response.razorpay_payment_id) {
             setText("Payment successful");
             setSeverity("success");
@@ -158,6 +171,20 @@ const RazorPayTest = () => {
     catch (err) { 
       console.log(err);
     }
+  }
+
+  if (isLoading) {
+    return (
+      <div className="h-screen w-full flex items-center justify-center text-white md:text-3xl text-xl font-bold z-[10000] tracking-wide">
+        <CircularProgress
+          size={80}
+          style={{
+            color: "white",
+            filter: "drop-shadow(0 0 5px white)"
+          }}
+        />
+      </div>
+    )
   }
 
   return (
