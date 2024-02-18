@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 
-// import "./App.css";
-// import "./components/test.css"
-import CourseCard from "./components/CourseCard";
-import { Button } from "@mui/material";
 import displayRazorpay from "./components/PaymentGateway";
 import CustButton from "./components/CustButton";
+// import { SiRazorpay } from "react-icons/si";
+import { FaMoneyBillWave } from "react-icons/fa";
+
+
 
 const RazorPayTest = () => {
   const loadScript = (src) => {
@@ -51,6 +51,11 @@ const RazorPayTest = () => {
         Pay Now
     </Button> */}
     <CustButton 
+      text={"Pay Now"}
+      icon={<FaMoneyBillWave size={30} />}
+      mOnClick={() => {
+        displayRazorpay();
+      }}
 
     />
     </div>

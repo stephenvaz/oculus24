@@ -19,6 +19,7 @@
     "@react-three/drei": "^9.96.1",
     "@react-three/fiber": "^8.15.15",
     "@reduxjs/toolkit": "^2.0.1",
+    "firebase": "^10.8.0",
     "framer-motion": "^10.18.0",
     "gsap": "^3.12.4",
     "hamburger-react": "^2.5.0",
