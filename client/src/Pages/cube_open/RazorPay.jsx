@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import displayRazorpay from "./components/PaymentGateway";
+// import displayRazorpay from "./components/PaymentGateway";
 import CustButton from "./components/CustButton";
 // import { SiRazorpay } from "react-icons/si";
 import { FaMoneyBillWave } from "react-icons/fa";
@@ -16,6 +16,7 @@ import { AlertTitle } from "@mui/material";
 import { toast } from "react-toastify";
 import ModToast from "../../Components/ModToast";
 import { useFBO } from "@react-three/drei";
+import APIRequests from "../../api";
 
 const RazorPayTest = () => {
   // const user = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
@@ -94,7 +95,7 @@ const RazorPayTest = () => {
 
   function timeout(delay) {
     return new Promise(res => setTimeout(res, delay));
-}
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -112,170 +113,212 @@ const RazorPayTest = () => {
       // toast.error("Phone number is invalid");
       return;
     }
+
+    // const res = APIRequests.pay(userInfo);
+    await displayRazorPay();
+
+
     // toast.success("Form submitted successfully");
     console.log("submitting form")
   }
 
-  return (
+  const displayRazorPay = async () => {
+    try {
+      let data = await APIRequests.pay(userInfo);
+      console.log(data);
+      // data = data.json();
+      const options = {
+        key: import.meta.env.VITE_RAZORPAY_KEY_ID,
+        currency: data.currency,
+        amount: data.amount,
+        name: "Oculus X Cube Open",
+        description: "Wallet Transaction",
+        image: "O Black.png",
+        order_id: data.id,
+        handler: function (response) {
+          // alert("PAYMENT ID ::" + response.razorpay_payment_id);
+          // alert("ORDER ID :: " + response.razorpay_order_id);
+          if (response.razorpay_payment_id) {
+            setText("Payment successful");
+            setSeverity("success");
+            setOpen(true);
+          }
+        },
+        prefill: {
+          name: userInfo.name,
+          email: userInfo.email,
+          contact: userInfo.phone,
+        },
+      }
+      const paymentObject = new window.Razorpay(options);
+      paymentObject.open();
+
+    }
+    catch (err) { 
+      console.log(err);
+    }
+  }
+
+return (
+  <div
+    className="h-screen w-full flex items-center justify-center gap-2 overflow-x-clip"
+  >
+    {open && (<ModToast text={text} severity={severity} />)}
     <div
-      className="h-screen w-full flex items-center justify-center gap-2 overflow-x-clip"
+      style={{
+        backgroundColor: 'rgba(255, 255, 255, 0.25)',
+        backdropFilter: 'blur(20px)',
+        // padding: '10px',
+        // borderRadius: '1rem',
+        boxShadow: '0 8px 32px 0 rgba( 31, 38, 135, 0.37 )',
+        backdropFilter: 'blur( 4px )',
+        border: '1px solid rgba( 255, 255, 255, 0.18 )',
+      }}
+      className="w-1/2 flex flex-col items-center justify-center gap-4 p-8 rounded-xl shadow-md"
     >
-      {open && (<ModToast text={text} severity={severity} />)}
-      <div
-        style={{
-          backgroundColor: 'rgba(255, 255, 255, 0.25)',
-          backdropFilter: 'blur(20px)',
-          // padding: '10px',
-          // borderRadius: '1rem',
-          boxShadow: '0 8px 32px 0 rgba( 31, 38, 135, 0.37 )',
-          backdropFilter: 'blur( 4px )',
-          border: '1px solid rgba( 255, 255, 255, 0.18 )',
-        }}
-        className="w-1/2 flex flex-col items-center justify-center gap-4 p-8 rounded-xl shadow-md"
-      >
-        <div className="w-full h-full flex flex-col items-center justify-center gap-4">
-          <div className="w-full text-3xl text-center text-white font-bold tracking-wide">
-            Register for Oculus Cube Open 2024
-          </div>
-          <form
-            className="w-full mt-8 flex flex-col gap-8 items-center justify-center"
-            onSubmit={handleSubmit}>
-            <TextField
-              required
-              error={userInfo.name === "" ? true : false}
-              helperText={userInfo.name === "" ? "Name is required" : ""}
-              id="outlined-required"
-              label="Name"
-              value={userInfo.name}
-              fullWidth
-              sx={{
-                '&& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline': {
-                  borderColor: "white",
-                },
-                '&& .MuiInputBase-input': {
-                },
-                fontFamily: `"Inter", sans-serif`,
-
-              }}
-              InputLabelProps={{
-                style: {
-                  color: "white",
-                }
-              }}
-              inputProps={{
-                style: {
-                  color: "white",
-                }
-              }}
-              onChange={(e) => {
-                setUserInfo({
-                  ...userInfo,
-                  name: e.target.value
-                })
-              }}
-            />
-            <TextField
-              required
-              id="outlined-required"
-              label="Email"
-              value={userInfo.email}
-              fullWidth
-              sx={{
-                '&& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline': {
-                  borderColor: "white",
-                },
-                '&& .MuiInputBase-input': {
-                },
-                fontFamily: `"Inter", sans-serif`,
-
-              }}
-              InputProps={{
-                readOnly: true
-              }}
-              InputLabelProps={{
-                style: {
-                  color: "white",
-                }
-              }}
-              inputProps={{
-                style: {
-                  color: "white",
-                }
-              }}
-            />
-            <TextField
-              required
-              error={userInfo.phone === "" ? true : false}
-              helperText={userInfo.phone === "" ? "Phone Number is required" : ""}
-              id="outlined-required"
-              label="Phone Number"
-              value={userInfo.phone}
-              fullWidth
-              sx={{
-                '&& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline': {
-                  borderColor: "white",
-                },
-                '&& .MuiInputBase-input': {
-                },
-                fontFamily: `"Inter", sans-serif`,
-
-              }}
-              InputLabelProps={{
-                style: {
-                  color: "white",
-                }
-              }}
-              inputProps={{
-                style: {
-                  color: "white",
-                }
-              }}
-              onChange={(e) => {
-                setUserInfo({
-                  ...userInfo,
-                  phone: e.target.value
-                })
-              }}
-            />
-            {/* <div className="w-full flex items-center justify-around"> */}
-            <RadioGroup
-              row
-              aria-labelledby="demo-row-radio-buttons-group-label"
-              name="row-radio-buttons-group"
-              sx={{
-                width: "100%",
-                display: "flex",
-                flexDirection: "row",
-                alignItems: "center",
-                justifyContent: "space-around"
-              }}
-              onChange={(e) => {
-                // console.log(e.target.value)
-                setUserInfo({
-                  ...userInfo,
-                  event: e.target.value
-                })
-              }}
-            >
-              <FormControlLabel sx={{ color: "white" }} value="4" control={<Radio sx={{ color: "white" }} />} label="Upto 4 Events" />
-              <FormControlLabel sx={{ color: "white" }} value="8" control={<Radio sx={{ color: "white" }} />} label="Upto 8 Events" />
-            </RadioGroup>
-            {/* </div> */}
-            <button type="submit">
-              <CustButton
-                text={"Pay Now"}
-                icon={<FaMoneyBillWave size={30} />}
-                mOnClick={() => {
-                  // displayRazorpay();
-                }}
-
-              />
-            </button>
-          </form>
+      <div className="w-full h-full flex flex-col items-center justify-center gap-4">
+        <div className="w-full text-3xl text-center text-white font-bold tracking-wide">
+          Register for Oculus Cube Open 2024
         </div>
+        <form
+          className="w-full mt-8 flex flex-col gap-8 items-center justify-center"
+          onSubmit={handleSubmit}>
+          <TextField
+            required
+            error={userInfo.name === "" ? true : false}
+            helperText={userInfo.name === "" ? "Name is required" : ""}
+            id="outlined-required"
+            label="Name"
+            value={userInfo.name}
+            fullWidth
+            sx={{
+              '&& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline': {
+                borderColor: "white",
+              },
+              '&& .MuiInputBase-input': {
+              },
+              fontFamily: `"Inter", sans-serif`,
+
+            }}
+            InputLabelProps={{
+              style: {
+                color: "white",
+              }
+            }}
+            inputProps={{
+              style: {
+                color: "white",
+              }
+            }}
+            onChange={(e) => {
+              setUserInfo({
+                ...userInfo,
+                name: e.target.value
+              })
+            }}
+          />
+          <TextField
+            required
+            id="outlined-required"
+            label="Email"
+            value={userInfo.email}
+            fullWidth
+            sx={{
+              '&& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline': {
+                borderColor: "white",
+              },
+              '&& .MuiInputBase-input': {
+              },
+              fontFamily: `"Inter", sans-serif`,
+
+            }}
+            InputProps={{
+              readOnly: true
+            }}
+            InputLabelProps={{
+              style: {
+                color: "white",
+              }
+            }}
+            inputProps={{
+              style: {
+                color: "white",
+              }
+            }}
+          />
+          <TextField
+            required
+            error={userInfo.phone === "" ? true : false}
+            helperText={userInfo.phone === "" ? "Phone Number is required" : ""}
+            id="outlined-required"
+            label="Phone Number"
+            value={userInfo.phone}
+            fullWidth
+            sx={{
+              '&& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline': {
+                borderColor: "white",
+              },
+              '&& .MuiInputBase-input': {
+              },
+              fontFamily: `"Inter", sans-serif`,
+
+            }}
+            InputLabelProps={{
+              style: {
+                color: "white",
+              }
+            }}
+            inputProps={{
+              style: {
+                color: "white",
+              }
+            }}
+            onChange={(e) => {
+              setUserInfo({
+                ...userInfo,
+                phone: e.target.value
+              })
+            }}
+          />
+          {/* <div className="w-full flex items-center justify-around"> */}
+          <RadioGroup
+            row
+            aria-labelledby="demo-row-radio-buttons-group-label"
+            name="row-radio-buttons-group"
+            sx={{
+              width: "100%",
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "space-around"
+            }}
+            onChange={(e) => {
+              // console.log(e.target.value)
+              setUserInfo({
+                ...userInfo,
+                event: e.target.value
+              })
+            }}
+          >
+            <FormControlLabel sx={{ color: "white" }} value="4" control={<Radio sx={{ color: "white" }} />} label="Upto 4 Events" />
+            <FormControlLabel sx={{ color: "white" }} value="8" control={<Radio sx={{ color: "white" }} />} label="Upto 8 Events" />
+          </RadioGroup>
+          {/* </div> */}
+          <button type="submit">
+            <CustButton
+              text={"Pay Now"}
+              icon={<FaMoneyBillWave size={30} />}
+              mOnClick={() => {
+                // displayRazorpay();
+              }}
+
+            />
+          </button>
+        </form>
       </div>
     </div>
-  );
+  </div>
+);
 };
 
 export default RazorPayTest;

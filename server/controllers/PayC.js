@@ -15,7 +15,17 @@ class PayController {
         try {
             // const { amount } = req.body;
             //TODO: ideally amount should be calculated on the server side to avoid any manipulation
-            const amount = 499;
+            let amount = 1000;
+
+            const {name, email, wca_id, phone, event} = req.body;
+
+            const user = req.user;
+
+            // console.log("user:", user);
+            console.log(req.body);
+            if (event == 8) {
+                amount = 1200;
+            }
 
             
 

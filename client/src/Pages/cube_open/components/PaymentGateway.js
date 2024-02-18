@@ -1,4 +1,8 @@
-export default async function displayRazorpay() {
+export default async function displayRazorpay(
+  {
+    userInfo,
+  }
+) {
   const data = await fetch("http://localhost:5000/api/pay", {
     method: "POST",
   }).then((t) => t.json());
