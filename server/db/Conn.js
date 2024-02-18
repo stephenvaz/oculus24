@@ -1,21 +1,14 @@
-import firebase from 'firebase/app';
-import 'firebase/database';
-import dotenv from 'dotenv';
+import admin from "firebase-admin";
+// import firebaseConfig from "../env/fb.json";
+import service from "../env/service.js";
 
-dotenv.config();
 
-const firebaseConfig = {
-  apiKey: process.env.apiKey,
-  authDomain: process.env.authDomain,
-  projectId: process.env.projectId,
-  storageBucket: process.env.storageBucket ,
-  messagingSenderId: process.env.messagingSenderId,
-  appId: process.env.appId,
-  measurementId: process.env.measurementId
-};
+const mAdmin =  admin.initializeApp({
+  credential: admin.credential.cert(service),
+  databaseURL: "https://oculus2024-3bf29-default-rtdb.asia-southeast1.firebasedatabase.app"
 
-firebase.initializeApp(firebaseConfig);
+});
 
-const database = firebase.database();
+export default mAdmin;
 
-export default database;
+
