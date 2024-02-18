@@ -21,6 +21,7 @@ import ParticleRing from './Components/background/ParticleRing';
 import { NavBarv2 } from './Components/Navbarv2';
 import { useSelector } from 'react-redux';
 import RazorPayTest from './Pages/cube_open/RazorPay';
+import { Bounce, ToastContainer } from 'react-toastify';
 
 function App() {
 
@@ -34,9 +35,9 @@ function App() {
 
           // !isNavBarOpen ?
           <>
-          <TLeft>
-            <NavBarv2 />
-          </TLeft>
+            <TLeft>
+              <NavBarv2 />
+            </TLeft>
             {/* <Navbar /> */}
 
             {!isNavBarOpen && (
@@ -96,7 +97,7 @@ function App() {
         {
           path: "cube_open",
           element: (
-          <RazorPayTest />
+            <RazorPayTest />
           )
         }
       ],
@@ -110,8 +111,6 @@ function App() {
           cursor: 'url("https://upload.wikimedia.org/wikipedia/commons/3/33/Cartoon_space_rocket.png")',
         }}
       >
-
-
         <div className="h-full w-full">
 
           <RouterProvider router={router} />
