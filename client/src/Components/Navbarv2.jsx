@@ -95,7 +95,7 @@ export const NavBarv2 = () => {
                                 await auth.signOut()
                                 localStorage.clear()
                                 dispatch(setUser(null))
-                                console.log("should be logged out")
+                                // console.log("should be logged out")
                             }}
                         > 
                             {user.displayName.charAt(0)}
