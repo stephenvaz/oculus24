@@ -1,8 +1,6 @@
 import razorpay from 'razorpay';
 import shortid from 'shortid';
-// import { db } from "../db/conn2.js";
 import { db } from "../db/Conn.js";
-import { doc, getDoc, setDoc } from "firebase/firestore";
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -101,9 +99,6 @@ class PayController {
             const user = req.user;
             const uid = user.uid;
 
-            // const userRef = doc(db, 'users', user.uid);
-            // const userDoc = await getDoc(userRef);
-            // const userDocData = userDoc.data();
             const userRef = db.collection('users').doc(uid);
             const userDoc = await userRef.get();
 
@@ -131,8 +126,6 @@ class PayController {
                 }
             }
 
-
-            // return res.status(200).json({message: "Payment added successfully", order: });
             return res.status(400).json({error: "Payment not added"});
 
         }

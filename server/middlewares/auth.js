@@ -1,6 +1,5 @@
 import dotenv from "dotenv";
-import admin from 'firebase-admin';
-import {mAdmin} from "../db/Conn.js";
+import {authF} from "../db/Conn.js";
 
 dotenv.config();
 
@@ -13,7 +12,7 @@ const auth = async (req, res, next) => {
       throw new Error('No token provided');
     }
 
-    const decodedToken = await admin.auth(mAdmin).verifyIdToken(idToken);
+    const decodedToken = await authF.verifyIdToken(idToken);
     req.user = decodedToken;
     // console.log('decodedToken:', decodedToken);
     next();
