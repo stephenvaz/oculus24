@@ -1,4 +1,6 @@
-import mAdmin from "../db/Conn.js";
+// import mAdmin from "../db/Conn.js";
+import { db } from "../db/conn2.js";
+import { doc, getDoc } from "firebase/firestore";
 
 class UserController {
     constructor () {}
@@ -6,24 +8,31 @@ class UserController {
     transactions = async (req, res) => {
         try {
             const user = req.user;
-            const transactions = []
-            // const transactions = await user.getTransactions();
-            // fetch data from firestore
-            // transactions should only have 1 sucessful transaction
-            // if there is more than 1, then there is a problem
-            // but such a scenario will never arise
-            console.log(user);
+            let success;
+            const pending = [];
             const uid = user.uid;
-            const userRef = mAdmin.collection('users').doc(uid);
-            const userDoc = await userRef.get();
+
+            const userRef = doc(db, 'users', uid);
+            const userDoc = await getDoc(userRef);
             if (!userDoc.exists) {
                 console.log('No such document!');
             } else {
-                console.log('Document data:', userDoc.data());
+                // console.log('Document data:', userDoc.data());
                 const data = userDoc.data();
-                transactions.push(data.transaction);
+                if (!data.transactions) {
+                    return res.status(200).json({success, pending});
+                }
+                for (const t of data.transactions) {
+                    if (t.payment) {
+                        // success.push(t);
+                        success = t;
+                    }
+                    else {
+                        pending.push(t);
+                    }
+                }
             }
-            return res.status(200).json({transactions});
+            return res.status(200).json({success, pending});
         } catch (err) {
             console.log(err);
             return res.status(500).json({ error: err });

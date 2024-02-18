@@ -15,9 +15,8 @@ const payC = new PayController();
 
 payRouter.post("/", auth, auth,payC.pay);
 
-// payRouter.get("/", auth, async (req, res) => {
-//     res.send("pay get");
-// });
+// update the order payment status
+payRouter.put("/", auth, payC.addPayment);
 
 export default payRouter;
 

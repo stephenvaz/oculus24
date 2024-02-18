@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { useMotionValue, motion, useSpring, useTransform, useCycle } from "framer-motion";
+import { useMotionValue, motion, useSpring, useTransform } from "framer-motion";
 import { FiArrowRight } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleNavBar } from "../redux/uislice";
@@ -29,24 +29,23 @@ export const NavBarv2 = () => {
     }, [currPath, window.location.pathname])
 
     useEffect(() => {
-        // console.log(currWidth)
         setCurrWidth(window.innerWidth)
     }, [currWidth, window.innerWidth])
 
     useEffect(() => {
-        const user = JSON.parse(localStorage.getItem('user'))
-        // console.log("userget", user)
-        if (user) {
-            dispatch(setUser(user))
-        }
+        auth.onAuthStateChanged((user) => {
+            if (user) {
+                dispatch(setUser(user.toJSON()))
+            }
+        })
     }, [])
 
     const handleLogin = async () => {
         signInWithPopup(auth, provider)
             .then(async (result) => {
                 const user = result.user;
-                localStorage.setItem('user', JSON.stringify(user))
-                dispatch(setUser(user))
+                localStorage.setItem("loggedIn", true);
+                dispatch(setUser(user.toJSON()))
                 const userDocRef = doc(db, 'users', user.uid);
                 const userDoc = await getDoc(userDocRef);
 
@@ -92,9 +91,11 @@ export const NavBarv2 = () => {
                             style={{
                                 color: "#C77DFF"
                             }}
-                            onClick={() => {
+                            onClick={async() => {
+                                await auth.signOut()
                                 localStorage.clear()
                                 dispatch(setUser(null))
+                                console.log("should be logged out")
                             }}
                         > 
                             {user.displayName.charAt(0)}
