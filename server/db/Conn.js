@@ -1,11 +1,11 @@
 import admin from "firebase-admin";
 // import firebaseConfig from "../env/fb.json";
 import service from "../env/service.js";
-
+import dotenv from "dotenv";
 
 const mAdmin =  admin.initializeApp({
   credential: admin.credential.cert(service),
-  databaseURL: "https://oculus2024-3bf29-default-rtdb.asia-southeast1.firebasedatabase.app"
+  databaseURL: process.env.databaseURL
 
 });
 
