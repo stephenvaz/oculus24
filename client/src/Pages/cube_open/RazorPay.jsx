@@ -109,6 +109,9 @@ const RazorPayTest = () => {
     const regex = /^\d{10}$/;
     if (!regex.test(userInfo.phone)) {
       console.log("phone wrong")
+      setText("Phone number is invalid");
+      setSeverity("error");
+      setOpen(true);
       // toast.error("Phone number is invalid");
       return;
     }
@@ -136,14 +139,14 @@ const RazorPayTest = () => {
           backdropFilter: 'blur( 4px )',
           border: '1px solid rgba( 255, 255, 255, 0.18 )',
         }}
-        className="md:w-1/2 w-[90%] flex flex-col items-center justify-center gap-4 p-8 rounded-xl shadow-md"
+        className="md:w-1/2 w-[90%] mt-16 flex flex-col items-center justify-center gap-4 p-8 rounded-xl shadow-md"
       >
         <div className="w-full h-full flex flex-col items-center justify-center gap-4">
-          <div className="w-full md:text-3xl text-xl text-center text-white font-bold tracking-wide">
+          <div className="w-full md:text-3xl text-2xl text-center text-white font-bold tracking-wide">
             Register for Oculus Cube Open 2024
           </div>
           <form
-            className="w-full mt-8 flex flex-col gap-8 items-center justify-center"
+            className="w-full mt-4 flex flex-col md:gap-8 gap-5 items-center justify-center"
             onSubmit={handleSubmit}>
             <TextField
               required
@@ -280,7 +283,7 @@ const RazorPayTest = () => {
         </div>
       </div>
     </div>) : (
-      <div className="h-screen w-full flex items-center justify-center text-white text-3xl font-bold z-[10000] tracking-wide">
+      <div className="h-screen w-full text-center p-2 flex items-center justify-center text-white md:text-3xl text-xl font-bold z-[10000] tracking-wide">
         Please Login To Apply for Oculus Open Cube 2024
       </div>
     )}

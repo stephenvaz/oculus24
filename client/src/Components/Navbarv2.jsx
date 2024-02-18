@@ -91,7 +91,7 @@ export const NavBarv2 = () => {
                          <RiLoginCircleLine className=""   size={currWidth < 768 ? 25 : 35} color="#C77DFF"/>
                      </div>
                     ) : (
-                        <div className={`flex items-center bg-white bg-opacity-10 rounded-full ${currWidth > 400 ? "px-5" : "p-0"} hover:bg-opacity-25 text-white text-4xl`}
+                        <div className={`flex items-center bg-white bg-opacity-10 rounded-full ${currWidth > 400 ? "px-4" : "px-4"} hover:bg-opacity-25 text-white text-4xl`}
                             style={{
                                 color: "#C77DFF"
                             }}
