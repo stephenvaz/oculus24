@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import displayRazorpay from "./components/PaymentGateway";
 import CustButton from "./components/CustButton";
-// import { SiRazorpay } from "react-icons/si";
 import { FaMoneyBillWave } from "react-icons/fa";
 import TextField from '@mui/material/TextField';
 import { useSelector } from "react-redux";
@@ -10,10 +8,6 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
-import Snackbar from '@mui/material/Snackbar';
-import Alert from '@mui/material/Alert';
-import { AlertTitle } from "@mui/material";
-import { toast } from "react-toastify";
 import ModToast from "../../Components/ModToast";
 import { useFBO } from "@react-three/drei";
 import APIRequests from "../../api";
@@ -55,7 +49,7 @@ const RazorPayTest = () => {
       return;
     }
     const user = JSON.parse(localStorage.getItem("user"));
-    console.log("-------", user)
+    // console.log("-------", user)
     setUserInfo({
       ...userInfo,
       name: user?.displayName,
@@ -64,7 +58,7 @@ const RazorPayTest = () => {
   }, [localStorage.getItem("user"), redUser]);
 
   useEffect(() => {
-    console.log(userInfo);
+    // console.log(userInfo);
   }, [userInfo]);
 
   const loadScript = (src) => {
@@ -109,7 +103,7 @@ const RazorPayTest = () => {
     }
     const regex = /^\d{10}$/;
     if (!regex.test(userInfo.phone)) {
-      console.log("phone wrong")
+      // console.log("phone wrong")
       // toast.error("Phone number is invalid");
       return;
     }
