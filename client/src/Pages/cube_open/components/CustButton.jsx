@@ -3,30 +3,31 @@ import { FiLock } from "react-icons/fi";
 import { motion } from "framer-motion";
 import displayRazorpay from "./PaymentGateway";
 
-const CustButton = () => {
+// Pass icon component directly
+const CustButton = ({text, icon, mOnClick}) => {
   return (
     <div className="grid min-h-[200px] place-content-center p-4 z-100">
-      <EncryptButton />
+      <EncryptButton textTarget={text} icon={icon} mOnClick={mOnClick} />
     </div>
   );
 };
 
-const TARGET_TEXT = "Pay Now";
+// const textTarget = "Pay Now";
 const CYCLES_PER_LETTER = 2;
 const SHUFFLE_TIME = 50;
 
 const CHARS = "!@#$%^&*():{};|,.<>/?";
 
-const EncryptButton = () => {
+const EncryptButton = ({textTarget, icon, mOnClick}) => {
   const intervalRef = useRef(null);
 
-  const [text, setText] = useState(TARGET_TEXT);
+  const [text, setText] = useState(textTarget);
 
   const scramble = () => {
     let pos = 0;
 
     intervalRef.current = setInterval(() => {
-      const scrambled = TARGET_TEXT.split("")
+      const scrambled = textTarget.split("")
         .map((char, index) => {
           if (pos / CYCLES_PER_LETTER > index) {
             return char;
@@ -42,7 +43,7 @@ const EncryptButton = () => {
       setText(scrambled);
       pos++;
 
-      if (pos >= TARGET_TEXT.length * CYCLES_PER_LETTER) {
+      if (pos >= textTarget.length * CYCLES_PER_LETTER) {
         stopScramble();
       }
     }, SHUFFLE_TIME);
@@ -51,12 +52,12 @@ const EncryptButton = () => {
   const stopScramble = () => {
     clearInterval(intervalRef.current || undefined);
 
-    setText(TARGET_TEXT);
+    setText(textTarget);
   };
 
   return (
     <motion.button
-    onClick={displayRazorpay}
+    onClick={mOnClick}
       whileHover={{
         scale: 1.025,
       }}
@@ -68,7 +69,8 @@ const EncryptButton = () => {
       className="group relative overflow-hidden rounded-lg border-[1px] border-slate-500 bg-white   px-4 py-2 font-mono font-medium uppercase text-slate-300 transition-colors hover:text-white-300"
     >
       <div className="relative z-10 flex items-center gap-2">
-        <FiLock />
+        {/* <FiLock /> */}
+        {icon}
         <span>{text}</span>
       </div>
       <motion.span

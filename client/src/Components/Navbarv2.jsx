@@ -2,24 +2,28 @@ import React, { useState, useRef, useEffect } from "react";
 import { useMotionValue, motion, useSpring, useTransform, useCycle } from "framer-motion";
 import { FiArrowRight } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
-import GlassmorphicButton from "./glassmorphic/CButtonv1";
 import { toggleNavBar } from "../redux/uislice";
-import NavButton from "../Components/NavButton";
 import { Sling as Hamburger } from 'hamburger-react';
 import logo from '../assets/Full White.png';
 import { useNavigate } from "react-router-dom";
 import { setNavBar } from "../redux/uislice";
 import Center from "../animated-components/Center";
+import { RiLoginCircleLine } from "react-icons/ri";
+import { auth, provider } from "../firebase/config";
+import { signInWithPopup } from "firebase/auth";
+import { getUser, setUser } from "../redux/userslice";
+import { Avatar } from "@mui/material";
+
 
 export const NavBarv2 = () => {
     const [currPath, setCurrPath] = useState(window.location.pathname)
     const [currWidth, setCurrWidth] = useState(window.innerWidth)
     const navigate = useNavigate()
     const isNavBarOpen = useSelector(state => state.ui.isNavBarOpen)
+    const user = useSelector(state => state.user.user)
     const dispatch = useDispatch()
 
     useEffect(() => {
-        // console.log(currPath)
         setCurrPath(window.location.pathname)
     }, [currPath, window.location.pathname])
 
@@ -27,6 +31,29 @@ export const NavBarv2 = () => {
         // console.log(currWidth)
         setCurrWidth(window.innerWidth)
     }, [currWidth, window.innerWidth])
+
+    useEffect(() => {
+        
+        const user = JSON.parse(localStorage.getItem('user'))
+        console.log("userget", user)
+        if (user) {
+            dispatch(setUser(user))
+        }
+    }, [])
+
+    const handleLogin = () => {
+        signInWithPopup(auth, provider)
+            .then((result) => {
+                const user = result.user;
+                localStorage.setItem('user', JSON.stringify(user))
+                dispatch(setUser(user))
+                console.log(user)
+                alert("Logged in successfully" + user.displayName)
+            })
+            .catch((error) => {
+                console.log(error.message)
+            })
+    }
 
     return (
         <>
@@ -43,8 +70,28 @@ export const NavBarv2 = () => {
                     <img src={logo} alt="" className="w-48" />
                 </button>
             </Center>
-                <div className={`fixed top-4 right-4 bg-white bg-opacity-10 rounded-full ${currWidth > 400 ? "p-2" : "p-0"} hover:bg-opacity-25 z-[2000]`}>
-                    <Hamburger rounded duration={0.5} size={currWidth < 768 ? 20 : 25} easing="ease-in" color="#C77DFF" toggled={isNavBarOpen} toggle={() => dispatch(toggleNavBar())} />
+                <div className="fixed top-4 right-4 flex flex-row space-x-4 z-[2000]">
+                    {!user ? (
+                         <div className={`flex items-center bg-white bg-opacity-10 rounded-full ${currWidth > 400 ? "px-4" : "px-3"} hover:bg-opacity-25`}
+                         onClick={handleLogin}
+                     >
+                         <RiLoginCircleLine className=""   size={currWidth < 768 ? 25 : 35} color="#C77DFF"/>
+                     </div>
+                    ) : (
+                        <div className={`flex items-center bg-white bg-opacity-10 rounded-full ${currWidth > 400 ? "px-5" : "p-0"} hover:bg-opacity-25 text-white text-4xl`}
+                            style={{
+                                color: "#C77DFF"
+                            }}
+                        > 
+                            {user.displayName.charAt(0)}
+                        </div>
+                       
+
+                    )}
+                   
+                    <div className={` bg-white bg-opacity-10 rounded-full ${currWidth > 400 ? "p-2" : "p-0"} hover:bg-opacity-25`}>
+                        <Hamburger rounded duration={0.5} size={currWidth < 768 ? 20 : 25} easing="ease-in" color="#C77DFF" toggled={isNavBarOpen} toggle={() => dispatch(toggleNavBar())} />
+                    </div>
                 </div>
             <motion.div
                 style={{
