@@ -11,8 +11,8 @@ import Center from "../animated-components/Center";
 import { RiLoginCircleLine } from "react-icons/ri";
 import { auth, provider, db } from "../firebase/config";
 import { signInWithPopup } from "firebase/auth";
-import { getUser, setUser } from "../redux/userslice";
-import { collection, doc, getDoc, setDoc } from 'firebase/firestore';
+import { setUser } from "../redux/userslice";
+import { doc, getDoc, setDoc } from 'firebase/firestore';
 
 
 
@@ -34,9 +34,8 @@ export const NavBarv2 = () => {
     }, [currWidth, window.innerWidth])
 
     useEffect(() => {
-        
         const user = JSON.parse(localStorage.getItem('user'))
-        console.log("userget", user)
+        // console.log("userget", user)
         if (user) {
             dispatch(setUser(user))
         }
@@ -48,8 +47,6 @@ export const NavBarv2 = () => {
                 const user = result.user;
                 localStorage.setItem('user', JSON.stringify(user))
                 dispatch(setUser(user))
-                console.log(user)
-                // alert("Logged in successfully" + user.displayName)
                 const userDocRef = doc(db, 'users', user.uid);
                 const userDoc = await getDoc(userDocRef);
 
