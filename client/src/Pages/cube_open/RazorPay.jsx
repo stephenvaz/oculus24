@@ -12,6 +12,7 @@ import ModToast from "../../Components/ModToast";
 import { useFBO } from "@react-three/drei";
 import APIRequests from "../../api";
 import Center from "../../animated-components/Center";
+import Ticket from "../../Components/Ticket";
 
 const RazorPayTest = () => {
   // const user = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null;
@@ -321,8 +322,11 @@ const RazorPayTest = () => {
         </div>
       </div>
     </div>) : (
-      <div className="h-screen w-full text-center p-2 flex items-center justify-center text-white md:text-3xl text-xl font-bold z-[10000] tracking-wide">
-        Please Login To Apply for Oculus Open Cube 2024
+      // <div className="h-screen w-full text-center p-2 flex items-center justify-center text-white md:text-3xl text-xl font-bold z-[10000] tracking-wide">
+      //   Please Login To Apply for Oculus Open Cube 2024
+      // </div>
+      <div className="w-full h-screen flex items-center justify-center">
+        <Ticket />
       </div>
     )}
     </Center>
