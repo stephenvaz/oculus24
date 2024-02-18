@@ -9,10 +9,11 @@ import { useNavigate } from "react-router-dom";
 import { setNavBar } from "../redux/uislice";
 import Center from "../animated-components/Center";
 import { RiLoginCircleLine } from "react-icons/ri";
-import { auth, provider } from "../firebase/config";
+import { auth, provider, db } from "../firebase/config";
 import { signInWithPopup } from "firebase/auth";
 import { getUser, setUser } from "../redux/userslice";
-import { Avatar } from "@mui/material";
+import { collection, doc, getDoc, setDoc } from 'firebase/firestore';
+
 
 
 export const NavBarv2 = () => {
@@ -41,14 +42,25 @@ export const NavBarv2 = () => {
         }
     }, [])
 
-    const handleLogin = () => {
+    const handleLogin = async () => {
         signInWithPopup(auth, provider)
-            .then((result) => {
+            .then(async (result) => {
                 const user = result.user;
                 localStorage.setItem('user', JSON.stringify(user))
                 dispatch(setUser(user))
                 console.log(user)
-                alert("Logged in successfully" + user.displayName)
+                // alert("Logged in successfully" + user.displayName)
+                const userDocRef = doc(db, 'users', user.uid);
+                const userDoc = await getDoc(userDocRef);
+
+                if (!userDoc.exists()) {
+                    await setDoc(userDocRef, {
+                    name: user.displayName,
+                    id: user.uid,
+                    email: user.email,
+                    transactions: [],
+                    });
+                }
             })
             .catch((error) => {
                 console.log(error.message)
@@ -81,6 +93,10 @@ export const NavBarv2 = () => {
                         <div className={`flex items-center bg-white bg-opacity-10 rounded-full ${currWidth > 400 ? "px-5" : "p-0"} hover:bg-opacity-25 text-white text-4xl`}
                             style={{
                                 color: "#C77DFF"
+                            }}
+                            onClick={() => {
+                                localStorage.clear()
+                                dispatch(setUser(null))
                             }}
                         > 
                             {user.displayName.charAt(0)}

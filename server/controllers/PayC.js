@@ -16,6 +16,9 @@ class PayController {
             // const { amount } = req.body;
             //TODO: ideally amount should be calculated on the server side to avoid any manipulation
             const amount = 499;
+
+            
+
             const options = {
                 amount: amount *100,
                 currency: "INR",
@@ -29,7 +32,12 @@ class PayController {
             //     return res.status(200).json(order);
             // });
             const response = await instance.orders.create(options);
+            console.log("response from razorpay");
             console.log(response);
+
+            // TODO: save the order id in the database
+
+            
 
             //TODO: use this id to notify user that their payment was successful
                     // payments by order id endpoint is available in the razorpay api
