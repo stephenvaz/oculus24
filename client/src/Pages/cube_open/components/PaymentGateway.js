@@ -17,6 +17,8 @@ export default async function displayRazorpay() {
     handler: function (response) {
       alert("PAYMENT ID ::" + response.razorpay_payment_id);
       alert("ORDER ID :: " + response.razorpay_order_id);
+      //TODO: api call, to save the payment id 
+
     },
     prefill: {
       name: "Stephen",
