@@ -1,12 +1,12 @@
 import { useRef, useState } from "react";
 import { FiLock } from "react-icons/fi";
 import { motion } from "framer-motion";
-import displayRazorpay from "./PaymentGateway";
+// import displayRazorpay from "./PaymentGateway";
 
 // Pass icon component directly
 const CustButton = ({text, icon, mOnClick}) => {
   return (
-    <div className="grid min-h-[100px] place-content-center p-4 z-100">
+    <div className="grid place-content-center p-4 z-100">
       <EncryptButton textTarget={text} icon={icon} mOnClick={mOnClick} />
     </div>
   );
