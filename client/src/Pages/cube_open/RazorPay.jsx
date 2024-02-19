@@ -46,7 +46,7 @@ const RazorPayTest = () => {
   };
 
   useEffect(() => {
-    console.log("this flow");
+    // console.log("this flow");
     setIsLoading(true);
 
     if (!redUser) {

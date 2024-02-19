@@ -24,8 +24,8 @@ img {
 	border-radius: 50%;
 	position: absolute;
 	left:50%;
-	margin-left: ($circle-size / -2) + px;
-	top: ($circle-size / -2) + px;
+	margin-left: calc(($circle-size ) / -2) + px;
+	top: calc(($circle-size ) / -2) + px;
 	// background: transparent;
 	&:before,
 	&:after {
@@ -37,10 +37,10 @@ img {
 		border-radius: 50%;
 	}
 	&:before {
-		left: ($width / -2) + px;
+		left: calc(($width ) / -2) + px;
 	}
 	&:after {
-		left: ($width / 2) + px;
+		left: calc(($width ) / 2) + px;
 	}
 }
 
@@ -60,7 +60,7 @@ img {
 	
 	&:before {
 		top: -25px;
-		left: ($circle-size / -1) + px;
+		left: calc(($circle-size ) / -1) + px;
 	}
 	&:after {
 		top: -25px;

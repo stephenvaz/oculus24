@@ -171,7 +171,7 @@ export const NavBarv2 = () => {
                         imgSrc="/schedule.webp"
                         href="/schedule"
                     />
-                    <Link
+                    {/* <Link
                         heading="Donations"
                         subheading="Donate for a good cause"
                         imgSrc="/donation.webp"
@@ -182,7 +182,7 @@ export const NavBarv2 = () => {
                         subheading="Get Started"
                         imgSrc="/login.webp"
                         href="/login"
-                    />
+                    /> */}
                 </motion.div>
             </motion.div>
         </>
