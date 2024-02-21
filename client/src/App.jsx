@@ -6,8 +6,12 @@ import ErrorPage from './Pages/ErrorPage';
 import EventsPage from './Pages/EventsPage';
 import SponsorsPage from './Pages/SponsorsPage';
 import LoginPage from './Pages/LoginPage';
+import ContactPage from './Pages/ContactPage';
+import DonationPage from './Pages/DonationPage';
+import SchedulePage from './Pages/SchedulePage';
 import Navbar from './Components/Navbar';
 import Footer from './Components/Footer';
+import TLeft from './animated-components/TLeft';
 import space from './assets/space1.jpg';
 import { motion } from 'framer-motion';
 import { AnimatePresence } from 'framer-motion';
@@ -20,27 +24,30 @@ import { useSelector } from 'react-redux';
 function App() {
 
   const isNavBarOpen = useSelector(state => state.ui.isNavBarOpen)
-  
+
   const router = createBrowserRouter([
     {
       path: '/',
-      element: 
-      (
+      element:
+        (
 
-        !isNavBarOpen ?
-        <>
+          // !isNavBarOpen ?
+          <>
+          <TLeft>
+            <NavBarv2 />
+          </TLeft>
+            {/* <Navbar /> */}
 
-        {/* <NavBarv2 /> */}
-          <Navbar />
-          
-          <ParticleRing />
-          {/* <Appear> */}
-            <Outlet />
-          {/* </Appear> */}
-          <Footer />
-        </> :
-        <NavBarv2/>
-      ),
+            {!isNavBarOpen && (
+              <>
+                <ParticleRing />
+                <Outlet />
+                <Footer />
+              </>)}
+          </>
+          // :
+          // <NavBarv2/>
+        ),
       errorElement: <ErrorPage />,
       children: [
         {
@@ -67,6 +74,24 @@ function App() {
             <SponsorsPage />
           ),
         },
+        {
+          path: '/contact',
+          element: (
+            <ContactPage />
+          ),
+        },
+        {
+          path: '/schedule',
+          element: (
+            <SchedulePage />
+          ),
+        },
+        {
+          path: '/donations',
+          element: (
+            <DonationPage />
+          ),
+        },
       ],
     },
   ]);
@@ -74,14 +99,14 @@ function App() {
   return (
     <AnimatePresence >
       <div className="h-screen w-full"
-      style={{
-        cursor: 'url("https://upload.wikimedia.org/wikipedia/commons/3/33/Cartoon_space_rocket.png")',
-      }} 
+        style={{
+          cursor: 'url("https://upload.wikimedia.org/wikipedia/commons/3/33/Cartoon_space_rocket.png")',
+        }}
       >
-        
-        
+
+
         <div className="h-full w-full">
-        
+
           <RouterProvider router={router} />
         </div>
       </div>

@@ -1,35 +1,34 @@
 import React, { useRef, useEffect } from 'react';
 import LandingData from './landing';
 import space from '../assets/space.png'
-import './landing.scss';
 import Appear from '../animated-components/Appear';
 import logo from '../assets/Full White.png'
+import ScrollComp from '../Components/scroll/ScrollComp';
+import voyage from '../assets/cosmic voyage white (stroked).png';
+import Center from '../animated-components/Center';
+import TLeft from '../animated-components/TLeft';
 
 function LandingPage() {
 
   return (
-    <div className="h-full w-full flex flex-col items-center justify-center gap-2">
+    <div className="w-full flex flex-col !items-center !justify-center gap-2">
       <Appear>
+      <div className='h-screen z-[-999] w- flex items-center justify-center select-none'>
         <img 
         src={logo} 
         alt=""
-        className='fixed z-50 h-80 object-contain object-center px-8'
-        style={{
-          filter: 'drop-shadow(0px 8px 16px rgba(0, 0, 0, 0.75))',
-          top: '168px',
-          height: '320px'
-        }} 
+        className='z-10 w-3/4 md:w-1/2 select-none' 
         />
-        </Appear>
-      {/* <div className='w-full h-full flex flex-col items-center justify-center'>
-        <div
-        style={{
-          // upside down
-          transform: 'rotate(180deg)',
-        }} 
-        className='holo'></div>
-        <div className='card'></div>
-        <div className='holo'></div>
+      </div>
+      </Appear>
+      <TLeft>
+        <img src={voyage} alt="" className='w-40 fixed top-0 left-0 z-[999]' />
+      </TLeft>
+      {/* <div className='h-screen w-full flex items-center justify-center'>
+        <ScrollComp />
+      </div>
+      <div className='h-screen w-full flex items-center justify-center'>
+        <ScrollComp />
       </div> */}
     </div>
   );

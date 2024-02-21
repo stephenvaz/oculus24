@@ -23,10 +23,11 @@ function Center({ children }) {
     <div
       ref={ref}
       style={{
-        position: "relative",
-        width: "fit-content",
+        // position: "relative",
+        // width: "fit-content",
         // overflow: "hidden",
-        // height: '100%'
+        // height: '100%',
+        zIndex: 100
       }}
     >
       <motion.div
@@ -44,7 +45,7 @@ function Center({ children }) {
         }}
         transition={{
           duration: 0.5,
-          delay: 0.2,
+          delay: 0.25,
           ease: 'easeIn',
         }}
         initial="hidden"
