@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import LandingData from './landing';
 import space from '../assets/space.png'
 import Appear from '../animated-components/Appear';
-import logo from '../assets/Full White.png'
+import logo from '../assets/Full White (stroked).png'
 import ScrollComp from '../Components/scroll/ScrollComp';
 import voyage from '../assets/cosmic voyage white (stroked).png';
 import Center from '../animated-components/Center';
