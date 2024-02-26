@@ -62,7 +62,7 @@ export const NavBarv2 = () => {
                         damping: 30,
                     },
                 }}
-                className="bg-neutral-950 p-4 md:p-8 sm:mt-8 md:mt-8 mt-12">
+                className="p-4 md:p-8 sm:mt-8 md:mt-8 mt-12">
                 <motion.div
                     variants={{
                         hidden: {

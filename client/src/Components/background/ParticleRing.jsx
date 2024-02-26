@@ -35,7 +35,7 @@ const ParticleRing = () => {
           height: "100vh",
           position: "fixed",
         }}
-        className="canvas bg-slate-900"
+        className="canvas"
       >
         <OrbitControls
           ref={orbitControlsRef}

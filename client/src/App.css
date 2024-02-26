@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'rocket';
+  src: url('./font/RocketRinder-yV5d.ttf') format('truetype');
+  /* You can add more formats (e.g., woff, woff2) for better compatibility */
+}
+
 html {
   background-color: #000;
 }
@@ -26,3 +32,33 @@ body {
 ::-webkit-scrollbar-corner {
   background: white;
 }
+
+.neon {
+  color: #fff;
+  text-shadow:
+    0 0 1px rgba(255, 255, 255, 0.5),
+    0 0 2px rgba(255, 255, 255, 0.5),
+    0 0 4px rgba(255, 255, 255, 0.5),
+    0 0 8px rgba(123, 44, 191, 0.5),
+    0 0 16px rgba(123, 44, 191, 0.5),
+    0 0 18px rgba(123, 44, 191, 0.5),
+    0 0 20px rgba(123, 44, 191, 0.5),
+    0 0 30px rgba(123, 44, 191, 0.5);
+}
+
+.animated-gradient-text {
+  background: linear-gradient(45deg, #8a2be2, #ff00ff, #7B2CBF); /* Define your gradient */
+  -webkit-background-clip: text; /* Clip the gradient to the text */
+  -webkit-text-fill-color: transparent; /* Hide the original text color */
+  animation: animateTextGradient 5s linear infinite; /* Define the animation */
+}
+
+@keyframes animateTextGradient {
+  0% {
+      background-position: 0% 50%; /* Start position of the gradient */
+  }
+  100% {
+      background-position: 100% 50%; /* End position of the gradient */
+  }
+}
+
