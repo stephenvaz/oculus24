@@ -26,3 +26,7 @@ body {
 ::-webkit-scrollbar-corner {
   background: white;
 }
+.logo {
+  display: none;
+  visibility: hidden;
+}
