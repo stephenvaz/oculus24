@@ -21,15 +21,15 @@ function LandingPage() {
             className='z-10 w-3/4 md:w-1/2 select-none'
           /> */}
           <Spline
-              scene="https://prod.spline.design/5fAYzCZXCfJK1ab5/scene.splinecode"
-              style={{
-                position: "absolute",
-                top: 0,
-                left: 0,
-                right: 20,
-                zIndex: 3,
-              }}
-            />
+            scene="https://prod.spline.design/oNjfXSplRKV2iLcL/scene.splinecode"
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              right: 20,
+              zIndex: 3,
+            }}
+          />
         </div>
       </Appear>
       {/* <TLeft>
