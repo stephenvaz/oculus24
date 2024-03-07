@@ -24,7 +24,7 @@ function Sl({ children }) {
             //   ref={ref}
             style={{
                 position: "relative",
-                // width: "fit-content",
+                width: "fit-content",
                 // overflow: "hidden",
                 // height: '100%',
                 zIndex: 1000
@@ -56,14 +56,14 @@ function Sl({ children }) {
             <motion.div
                 style={{
                     position: "absolute",
-                    top: 20,
-                    left: 20,
+                    top: 16,
+                    left: 16,
                     zIndex: -1,
                     width: "100%",
                     height: "100%",
                     backdropFilter: "blur(5px)",
                 }}
-                className="border-4 bg-secondary-purple bg-opacity-25 "
+                className="border-2 border-slate-700 bg-secondary-purple bg-opacity-25 "
                 variants={{
                     hidden: {
                         opacity: 0,

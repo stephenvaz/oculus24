@@ -19,7 +19,7 @@ function Box({ image }) {
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 // exit={{ opacity: 0, scale: 0 }}
-                transition={{ duration: 1 }}
+                transition={{ duration: 1, delay: 0.5}}
             >
                 {/* Adjusted image styling */}
                 {/* <div>
@@ -33,23 +33,6 @@ function Box({ image }) {
                 <Sl>
                 <Slider />
                 </Sl>
-                {/* </div> */}
-                {/* <div
-                    style={{
-                        zIndex: 999,
-                        position: 'absolute',
-                        transform: 'translate(265%, -350%)',
-                    }}
-                    className='font-bold text-6xl text-white'>
-                    #001
-                </div> */}
-                {/* <h2 className="text-center text-5xl font-thin text-indigo">
-                {"Bubbbbbbbble text".split("").map((child, idx) => (
-                    <span className='hoverText' key={idx}>
-                        {child}
-                    </span>
-                ))}
-            </h2> */}
             </motion.div>
         </>
     )

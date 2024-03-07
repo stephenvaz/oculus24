@@ -10,6 +10,7 @@ import TLeft from '../animated-components/TLeft';
 import SlideLeft from '../animated-components/SlideLeft';
 import SlideRight from '../animated-components/SlideRight';
 import Shuffle from '../Components/Shuffle';
+import Cosmic from '../Components/Cosmic';
 
 function LandingPage() {
 
@@ -54,9 +55,14 @@ function LandingPage() {
           <Shuffle />
         </Center>
       </div>
-      <div className='h-screen w-full flex items-center justify-center'>
-        <ScrollComp />
+      <div className='w-full h-screen z-[100]'>
+        <Center>
+          <Cosmic />
+        </Center>
       </div>
+      {/* <div className='h-screen w-full flex items-center justify-center'>
+        <ScrollComp />
+      </div> */}
     </div>
   );
 }
