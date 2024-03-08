@@ -17,7 +17,7 @@ function LandingPage() {
   return (
     <div className="w-full flex flex-col !items-center !justify-center gap-2 overflow-x-clip">
       <Appear>
-        <div className='h-screen z-[-999] w- flex items-center justify-center select-none'>
+        <div className='h-screen z-[-999] flex items-center justify-center select-none'>
           <img
             src={logo}
             alt=""
@@ -25,40 +25,36 @@ function LandingPage() {
           />
         </div>
       </Appear>
-      {/* <TLeft>
-        <img src={voyage} alt="" className='w-40 fixed top-0 left-0 z-[999]' />
-      </TLeft> */}
-      {/* <div className='h-screen w-full flex items-center justify-around'>
-        <SlideLeft>
-        <div style={{ backdropFilter: "blur(30px)" }} className='relative z-[900] w-full flex flex-col items-start justify-start gap-4 bg-white bg-opacity-10 p-5 rounded-xl text-justify pt-8'>
-          <div className="text-lg font-extralight text-secondary-purple">
-            {"Sardar Patel Institute of Technology is back with much more energy and enthusiasm with its 6th edition of the Annual Techno-Cultural Fest, OCULUS. The fest has a galore of events from hopping on to cultural events to brainstorming at the Technical ones and ending with the euphoric pronites. Oculus is aiming to make a significant difference in society by donating the proceeds from all events to support CRY, an esteemed NGO under the Oculus for a Cause initiative.".split("").map((child, idx) => (
-              <span className='hoverText' key={idx}>
-                {child}
-              </span>
-            ))}
-          </div>
-          <div className='absolute top-[-25px] left-[14px] text-white text-5xl font-bold'>
-            ABOUT OCULUS
-          </div>
-        </div>
-      </SlideLeft>
-      <SlideRight>
-        <ScrollComp />
-      </SlideRight>
-      </div>
-      <div className='h-screen w-full flex items-center justify-center'>
-        <ScrollComp />
-      </div> */}
-      <div className='w-full h-screen z-[100]'>
+      <div className='w-full h-[90vh] flex items-start justify-center z-[100]'>
         <Center>
           <Shuffle />
         </Center>
       </div>
-      <div className='w-full h-screen z-[100]'>
+      <div className='w-full h-[90vh] flex items-start justify-center z-[100]'>
         <Center>
           <Cosmic />
         </Center>
+      </div>
+      <div className='w-full h-[75vh] z-[100] flex items-start justify-center'>
+        <div className='relative'>
+          <div className='h-2 bg-secondary-purple w-1/2 absolute top-8'>
+          </div>
+          <iframe
+            className='relative'
+            width="500"
+            height="350"
+            src="https://www.youtube.com/embed/Oflbho9ZG2U?start=103"
+            title="YouTube video player"
+            frameborder="5"
+            allow="accelerometer; 
+  autoplay; 
+  clipboard-write; 
+  encrypted-media; 
+  gyroscope; 
+  picture-in-picture; 
+  web-share" allowfullscreen>
+          </iframe>
+        </div>
       </div>
       {/* <div className='h-screen w-full flex items-center justify-center'>
         <ScrollComp />
