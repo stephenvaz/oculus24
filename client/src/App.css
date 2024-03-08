@@ -62,3 +62,43 @@ body {
   }
 }
 
+.grad {
+  background: linear-gradient(
+      to right,
+      #f719c7 0%, 
+      #8a2be2 20%, 
+      #fabef4 40%, 
+      #ff00ff 50%, 
+      #7B2CBF 60%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 500% auto;
+  animation: textShine 5s ease-in-out infinite alternate;
+}
+
+.grad-border {
+  background: linear-gradient(
+      to right,
+      #f719c7 0%, 
+      #8a2be2 20%, 
+      #fabef4 40%, 
+      #ff00ff 50%, 
+      #7B2CBF 60%
+  );
+  /* -webkit-background-clip: text; */
+  /* background-clip: text; */
+  /* -webkit-text-fill-color: transparent; */
+  background-size: 500% auto;
+  animation: textShine 5s ease-in-out infinite alternate;
+}
+
+@keyframes textShine {
+  0% {
+      background-position: 0% 50%;
+  }
+  100% {
+      background-position: 100% 50%;
+  }
+}

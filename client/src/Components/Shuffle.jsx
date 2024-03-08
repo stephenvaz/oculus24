@@ -8,15 +8,15 @@ const Shuffle = () => {
         {/* <span className="block mb-4 text-xs md:text-sm text-indigo font-medium">
           Better every day
         </span> */}
-        <h3 className="text-4xl text-white md:text-6xl font-extrabold animated-gradient-text ">
+        <h3 className="grad text-4xl text-white md:text-6xl font-extrabold">
           About Oculus
         </h3>
         <p className="text-base text-justify md:text-lg text-white my-4 md:my-6">
         Sardar Patel Institute of Technology is back with much more energy and enthusiasm with its 6th edition of the Annual Techno-Cultural Fest, OCULUS. The fest has a galore of events from hopping on to cultural events to brainstorming at the Technical ones and ending with the euphoric pronites. Oculus is aiming to make a significant difference in society by donating the proceeds from all events to support CRY, an esteemed NGO under the Oculus for a Cause initiative.
         </p>
-        <button className="bg-primary-purple text-white font-medium py-2 px-4 rounded transition-all hover:bg-indigo-600 active:scale-95">
+        {/* <button className="bg-primary-purple text-white font-medium py-2 px-4 rounded transition-all hover:bg-indigo-600 active:scale-95">
           Find a class
-        </button>
+        </button> */}
       </div>
       <ShuffleGrid />
     </section>

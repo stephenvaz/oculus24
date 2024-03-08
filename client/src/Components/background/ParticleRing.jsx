@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls, Sphere } from "@react-three/drei";
+import { OrbitControls, Octahedron, Sphere } from "@react-three/drei";
 import { pointsOuter } from "./utils";
 import "./particle.css";
 
@@ -71,7 +71,7 @@ const PointCircle = () => {
 
 const Point = ({ position, color }) => {
   return (
-    <Sphere position={position} args={[0.1, 10, 10]}>
+    <Sphere position={position} args={[0.08, 10, 10]}>
       <meshStandardMaterial
         emissive={color}
         emissiveIntensity={0.5}

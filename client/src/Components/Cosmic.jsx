@@ -11,7 +11,7 @@ const Cosmic = () => {
         {/* <span className="block mb-4 text-xs md:text-sm text-indigo font-medium">
           Better every day
         </span> */}
-        <h3 className="text-4xl text-white md:text-5xl font-extrabold animated-gradient-text ">
+        <h3 className="grad text-4xl text-white md:text-5xl font-extrabold">
           The Cosmic Voyage
         </h3>
         <p className="text-base text-justify md:text-lg text-white my-4 md:my-6">

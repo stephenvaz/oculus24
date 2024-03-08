@@ -25,34 +25,48 @@ function LandingPage() {
           />
         </div>
       </Appear>
-      <div className='w-full h-[90vh] flex items-start justify-center z-[100]'>
+      <div className='w-full h-screen flex items-start justify-center z-[100]'>
         <Center>
           <Shuffle />
         </Center>
       </div>
-      <div className='w-full h-[90vh] flex items-start justify-center z-[100]'>
+      <div className='w-full h-screen flex items-start justify-center z-[100]'>
         <Center>
           <Cosmic />
         </Center>
       </div>
-      <div className='w-full h-[75vh] z-[100] flex items-start justify-center'>
+      <div className='w-full h-screen z-[100] flex flex-col items-center justify-start gap-20'>
+        <div className='grad text-5xl font-bold'>
+          Have a look at our last year's aftermovie
+        </div>
         <div className='relative'>
-          <div className='h-2 bg-secondary-purple w-1/2 absolute top-8'>
+          <div className='grad-border h-[5px] w-1/2 absolute top-[-4%]'>
+          </div>
+          <div className='grad-border h-[5px] w-1/5 absolute top-[-4%] right-[-1.6%]'>
+          </div>
+          <div className='grad-border h-[5px] w-1/5 rotate-90 absolute top-[14%] right-[-11.3%]'>
+          </div>
+          <div className='grad-border h-[5px] w-1/2 absolute bottom-[-4%] right-0'>
+          </div>
+          <div className='grad-border h-[5px] w-1/5 absolute bottom-[-4%] left-[-1.5%]'>
+          </div>
+          <div className='grad-border h-[5px] w-1/5 rotate-90 absolute bottom-[14%] left-[-11.2%]'>
           </div>
           <iframe
             className='relative'
-            width="500"
-            height="350"
-            src="https://www.youtube.com/embed/Oflbho9ZG2U?start=103"
+            width="800"
+            height="450"
+            src="https://www.youtube.com/embed/W8asaoyvgNY?si=JVf-qfKw7MEdxDrh"
             title="YouTube video player"
             frameborder="5"
             allow="accelerometer; 
-  autoplay; 
-  clipboard-write; 
-  encrypted-media; 
-  gyroscope; 
-  picture-in-picture; 
-  web-share" allowfullscreen>
+                    autoplay; 
+                    clipboard-write; 
+                    encrypted-media; 
+                    gyroscope; 
+                    picture-in-picture; 
+                    web-share" 
+            allowfullscreen>
           </iframe>
         </div>
       </div>
