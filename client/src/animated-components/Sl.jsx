@@ -56,14 +56,15 @@ function Sl({ children }) {
             <motion.div
                 style={{
                     position: "absolute",
-                    top: 16,
-                    left: 16,
+                    // top: 16,
+                    // left: 16,
                     zIndex: -1,
                     width: "100%",
                     height: "100%",
                     backdropFilter: "blur(5px)",
+                    // media query for screen size
                 }}
-                className="border-2 border-slate-700 bg-secondary-purple bg-opacity-25 "
+                className="border-2 border-slate-700 bg-secondary-purple bg-opacity-25 left-4 top-4 x1s:left-2 x1s:top-2"
                 variants={{
                     hidden: {
                         opacity: 0,

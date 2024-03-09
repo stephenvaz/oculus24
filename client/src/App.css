@@ -47,30 +47,35 @@ body {
 }
 
 .animated-gradient-text {
-  background: linear-gradient(45deg, #8a2be2, #ff00ff, #7B2CBF); /* Define your gradient */
-  -webkit-background-clip: text; /* Clip the gradient to the text */
-  -webkit-text-fill-color: transparent; /* Hide the original text color */
-  animation: animateTextGradient 5s linear infinite; /* Define the animation */
+  background: linear-gradient(45deg, #8a2be2, #ff00ff, #7B2CBF);
+  /* Define your gradient */
+  -webkit-background-clip: text;
+  /* Clip the gradient to the text */
+  -webkit-text-fill-color: transparent;
+  /* Hide the original text color */
+  animation: animateTextGradient 5s linear infinite;
+  /* Define the animation */
 }
 
 @keyframes animateTextGradient {
   0% {
-      background-position: 0% 50%; /* Start position of the gradient */
+    background-position: 0% 50%;
+    /* Start position of the gradient */
   }
+
   100% {
-      background-position: 100% 50%; /* End position of the gradient */
+    background-position: 100% 50%;
+    /* End position of the gradient */
   }
 }
 
 .grad {
-  background: linear-gradient(
-      to right,
-      #f719c7 0%, 
-      #8a2be2 20%, 
-      #fabef4 40%, 
-      #ff00ff 50%, 
-      #7B2CBF 60%
-  );
+  background: linear-gradient(to right,
+      #f719c7 0%,
+      #8a2be2 20%,
+      #fabef4 40%,
+      #ff00ff 50%,
+      #7B2CBF 60%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -79,26 +84,40 @@ body {
 }
 
 .grad-border {
-  background: linear-gradient(
-      to right,
-      #f719c7 0%, 
-      #8a2be2 20%, 
-      #fabef4 40%, 
-      #ff00ff 50%, 
-      #7B2CBF 60%
-  );
-  /* -webkit-background-clip: text; */
-  /* background-clip: text; */
-  /* -webkit-text-fill-color: transparent; */
+  background: linear-gradient(to right,
+      #f719c7 0%,
+      #8a2be2 20%,
+      #fabef4 40%,
+      #ff00ff 50%,
+      #7B2CBF 60%);
   background-size: 500% auto;
   animation: textShine 5s ease-in-out infinite alternate;
 }
 
 @keyframes textShine {
   0% {
-      background-position: 0% 50%;
+    background-position: 0% 50%;
   }
+
   100% {
-      background-position: 100% 50%;
+    background-position: 100% 50%;
   }
+}
+
+.box-e {
+  padding: 10px;
+  line-height: 1;
+  background-position: 0 0, 0 0, 100% 0, 0 100%;
+  background-size: 3px 100%, 100% 3px, 3px 100%, 100% 3px;
+  background-repeat: no-repeat;
+  background-image:
+    linear-gradient(0deg, #8a2be2, #ff00ff 25%, transparent 25%, transparent 75%, #7B2CBF 75%),
+    /* left */
+    linear-gradient(90deg, #8a2be2, #ff00ff 25%, transparent 25%, transparent 75%, #7B2CBF 75%),
+    /* top */
+    linear-gradient(180deg, #8a2be2, #ff00ff 25%, transparent 25%, transparent 75%, #7B2CBF 75%),
+    /* right */
+    linear-gradient(270deg, #8a2be2, #ff00ff 25%, transparent 25%, transparent 75%, #7B2CBF 75%)
+    /* bottom */
+  ;
 }

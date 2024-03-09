@@ -17,9 +17,15 @@ export default {
         'red': '#FF0000',
         'dark-gray': '#BDBDBD',
         'indigo': '#3F51B5',
-        
-       //  rest of the colors
        },
+       screens: {
+        'slm': {max: '880px', min: '768px'},
+        'x2s': {max: '639px', min: '450px'},
+        'x1s': {max: '449px', min: '300px'},
+        'sw': {max: '767px', min: '0px'},
+        'max-xs': {max: '375px'},
+        'max-sm': {max: '639px'},
+       }
     },
   },
   plugins: [],

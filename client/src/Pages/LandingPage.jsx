@@ -25,37 +25,23 @@ function LandingPage() {
           />
         </div>
       </Appear>
-      <div className='w-full h-screen flex items-start justify-center z-[100]'>
+      <div className='w-full h-screen max-sm:h-full x2s:h-full x1s:h-full flex items-start justify-center z-[100]'>
         <Center>
           <Shuffle />
         </Center>
       </div>
-      <div className='w-full h-screen flex items-start justify-center z-[100]'>
+      <div className='w-full h-screen max-sm:h-full x2s:h-full x1s:h-full flex items-start justify-center z-[100]'>
         <Center>
           <Cosmic />
         </Center>
       </div>
-      <div className='w-full h-screen z-[100] flex flex-col items-center justify-start gap-20'>
-        <div className='grad text-5xl font-bold'>
+      <div className='w-full  h-screen x2s:h-full x2s:mb-16 x1s:h-full x1s:mb-16 z-[100] flex flex-col items-center justify-start gap-20'>
+        <div className='grad text-5xl sw:text-4xl font-bold text-center px-2'>
           Have a look at our last year's aftermovie
         </div>
-        <div className='relative'>
-          <div className='grad-border h-[5px] w-1/2 absolute top-[-4%]'>
-          </div>
-          <div className='grad-border h-[5px] w-1/5 absolute top-[-4%] right-[-1.6%]'>
-          </div>
-          <div className='grad-border h-[5px] w-1/5 rotate-90 absolute top-[14%] right-[-11.3%]'>
-          </div>
-          <div className='grad-border h-[5px] w-1/2 absolute bottom-[-4%] right-0'>
-          </div>
-          <div className='grad-border h-[5px] w-1/5 absolute bottom-[-4%] left-[-1.5%]'>
-          </div>
-          <div className='grad-border h-[5px] w-1/5 rotate-90 absolute bottom-[14%] left-[-11.2%]'>
-          </div>
+        <div className='relative box-e lg:w-1/2 lg:h-[50%] md:w-3/4 md:h-1/2 sm:w-3/4 sm:h-[40%] max-sm:w-3/4 max-sm:h-1/4'>
           <iframe
-            className='relative'
-            width="800"
-            height="450"
+            className='relative w-full h-full'
             src="https://www.youtube.com/embed/W8asaoyvgNY?si=JVf-qfKw7MEdxDrh"
             title="YouTube video player"
             frameborder="5"

@@ -39,7 +39,7 @@ export const NavBarv2 = () => {
                     style={{
                         display: (currPath !== '/' || isNavBarOpen) ? "block" : "none",
                     }}     
-                className="fixed top-[-10px] left-4">
+                className="fixed top-[-10px] left-4 z-[1001]">
                     <img src={logo} alt="" className="w-48" />
                 </button>
             </Center>
