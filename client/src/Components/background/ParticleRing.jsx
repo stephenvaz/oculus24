@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls, Sphere } from "@react-three/drei";
+import { OrbitControls, Octahedron, Sphere } from "@react-three/drei";
 import { pointsOuter } from "./utils";
 import "./particle.css";
 
@@ -14,8 +14,8 @@ const ParticleRing = () => {
       const mouseY = -(clientY / window.innerHeight) * 2 + 1;
 
       // Update orbitControls rotation based on mouse position
-      orbitControlsRef.current.target.x = mouseX * 5;
-      orbitControlsRef.current.target.y = mouseY * 5;
+      orbitControlsRef.current.target.x = mouseX * 4;
+      orbitControlsRef.current.target.y = mouseY * 4;
     };
 
     window.addEventListener("mousemove", handleMouseMove);
@@ -35,7 +35,7 @@ const ParticleRing = () => {
           height: "100vh",
           position: "fixed",
         }}
-        className="canvas bg-slate-900"
+        className="canvas"
       >
         <OrbitControls
           ref={orbitControlsRef}
@@ -71,7 +71,7 @@ const PointCircle = () => {
 
 const Point = ({ position, color }) => {
   return (
-    <Sphere position={position} args={[0.1, 10, 10]}>
+    <Sphere position={position} args={[0.08, 10, 10]}>
       <meshStandardMaterial
         emissive={color}
         emissiveIntensity={0.5}

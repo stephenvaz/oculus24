@@ -39,11 +39,11 @@ export const NavBarv2 = () => {
                     style={{
                         display: (currPath !== '/' || isNavBarOpen) ? "block" : "none",
                     }}     
-                className="fixed top-[-10px] left-4">
+                className="fixed top-[-10px] left-4 z-[1001]">
                     <img src={logo} alt="" className="w-48" />
                 </button>
             </Center>
-                <div className={`fixed top-4 right-4 bg-white bg-opacity-10 rounded-full ${currWidth > 400 ? "p-2" : "p-0"} hover:bg-opacity-25 z-50`}>
+                <div className={`fixed top-4 right-4 bg-white bg-opacity-10 rounded-full ${currWidth > 400 ? "p-2" : "p-0"} hover:bg-opacity-25 z-[2000]`}>
                     <Hamburger rounded duration={0.5} size={currWidth < 768 ? 20 : 25} easing="ease-in" color="#C77DFF" toggled={isNavBarOpen} toggle={() => dispatch(toggleNavBar())} />
                 </div>
             <motion.div
@@ -62,7 +62,7 @@ export const NavBarv2 = () => {
                         damping: 30,
                     },
                 }}
-                className="bg-neutral-950 p-4 md:p-8 sm:mt-8 md:mt-8 mt-12">
+                className="p-4 md:p-8 sm:mt-8 md:mt-8 mt-12">
                 <motion.div
                     variants={{
                         hidden: {

@@ -29,7 +29,7 @@ function Slider() {
     }, [index]);
 
     return (
-        <div className="slideshow">
+        <div className="slideshow xl:w-[550px] xl:h-[400px] lg:w-[450px] lg:h-[300px] md:w-[400px] md:h-[300px] slm:w-[350px] slm:h-[250px] sm:w-[500px] sm:h-[350px] x2s:w-[420px] x2s:h-[250px] x1s:w-[300px] x1s:h-[250px]">
             <div
                 className="slideshowSlider"
                 style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
@@ -45,7 +45,7 @@ function Slider() {
                     >
                     </div>
                 ))}
-        </div>
+            </div>
         </div >
     );
 }
