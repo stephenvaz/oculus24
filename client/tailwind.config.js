@@ -16,6 +16,8 @@ export default {
         'gray': '#E5E5E5',
         'red': '#FF0000',
         'dark-gray': '#BDBDBD',
+        'indigo': '#3F51B5',
+        'vsm': "#0b4637"
        },
        screens: {
         'slm': {max: '880px', min: '768px'},

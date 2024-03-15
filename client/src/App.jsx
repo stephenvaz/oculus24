@@ -20,10 +20,12 @@ import rocket from './assets/rocket.png';
 import ParticleRing from './Components/background/ParticleRing';
 import { NavBarv2 } from './Components/Navbarv2';
 import { useSelector } from 'react-redux';
+import EventDetailsPage from './Pages/EventDetailsPage';
 
 function App() {
 
   const isNavBarOpen = useSelector(state => state.ui.isNavBarOpen)
+  const showParticleRing = useSelector(state => state.ui.showParticleRing)
 
   const router = createBrowserRouter([
     {
@@ -40,7 +42,7 @@ function App() {
 
             {!isNavBarOpen && (
               <>
-                <ParticleRing />
+                {showParticleRing && <ParticleRing />}
                 <Outlet />
                 <Footer />
               </>)}
@@ -66,6 +68,12 @@ function App() {
           path: '/events',
           element: (
             <EventsPage />
+          ),
+        },
+        {
+          path: '/event/:id',
+          element: (
+            <EventDetailsPage />
           ),
         },
         {

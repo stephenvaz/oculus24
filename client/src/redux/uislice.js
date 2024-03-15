@@ -4,6 +4,7 @@ export const uiSlice = createSlice({
     name: 'ui',
     initialState: {
         isNavBarOpen: false,
+        showParticleRing: true,
     },
     reducers: {
         toggleNavBar: (state) => {
@@ -12,7 +13,10 @@ export const uiSlice = createSlice({
         setNavBar: (state, action) => {
             state.isNavBarOpen = action.payload;
         },
+        setShowParticleRing: (state, action) => {
+            state.showParticleRing = action.payload;
+        },
     },
 });
 
-export const { toggleNavBar, setNavBar } = uiSlice.actions;
+export const { toggleNavBar, setNavBar, setShowParticleRing } = uiSlice.actions;
