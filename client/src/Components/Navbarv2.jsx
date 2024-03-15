@@ -109,12 +109,12 @@ export const NavBarv2 = () => {
                         imgSrc="/schedule.webp"
                         href="/schedule"
                     />
-                    <Link
+                    {/* <Link
                         heading="Donations"
                         subheading="Donate for a good cause"
                         imgSrc="/donation.webp"
                         href="/donation"
-                    />
+                    /> */}
                     {/* <Link
                         heading="Login"
                         subheading="Get Started"
