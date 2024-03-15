@@ -4,16 +4,15 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 const ContactCard = ({ text, number }) => {
     return (
-        <div className="w-full p-4">
             <div className="flex flex-col items-center gap-4 w-full">
-                <div className="h-full w-1/2 flex">
+                <div className="h-full w-1/2 max-md:w-full flex">
                     <Card
                         title="Darsh Shah (CP)"
                         subtitle="+91 97699 39040"
                         Icon={FiUser}
                     />
                 </div>
-                <div className="h-full w-full flex items-center gap-4">
+                <div className="h-full w-full flex items-center max-md:flex-col gap-4">
                     <Card
                         title="Hrim Doshi (VCP)"
                         subtitle="+91 73038 21905"
@@ -25,7 +24,7 @@ const ContactCard = ({ text, number }) => {
                         Icon={FiUser}
                     />
                 </div>
-                <div className="h-full w-full flex items-center gap-4">
+                <div className="h-full w-full flex items-center max-md:flex-col gap-4">
                     <Card
                         title="Sejal Patil (VCP)"
                         subtitle="+91 96075 31374"
@@ -38,7 +37,7 @@ const ContactCard = ({ text, number }) => {
                     />
                 </div>
             </div>
-        </div>
+
     );
 };
 

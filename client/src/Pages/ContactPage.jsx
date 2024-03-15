@@ -8,18 +8,18 @@ import ContactCard from '../Components/contact/ContactCard';
 const ContactPage = () => {
     return (
         <Center>
-            <div className='h-full w-full flex flex-col items-center justify-center gap-8 p-8 px-24'>
+            <div className='h-full w-full flex flex-col items-center justify-center gap-8 p-8 md:px-24'>
                 <div className='w-full h-full flex flex-col gap-4'>
-                    <div className='h-screen w-full flex flex-col items-center justify-center gap-8'>
-                    <div className='text-white text-5xl font-bold grad w-full text-left'>
+                    <div className='h-screen max-md:h-full w-full flex flex-col items-center justify-center gap-8 max-md:gap-5'>
+                    <div className='text-white text-5xl max-md:text-4xl font-bold grad w-full text-left max-md:mt-16'>
                         Contact Us
                     </div>
                     <div className='w-full flex items-center justify-between gap-4 '>
-                        <div className="py-8 w-[60%] p-4 rounded-xl flex items-center justify-between gap-4">
+                        <div className="py-8 max-md:py-0 w-[60%] max-md:w-full md:p-4 rounded-xl flex items-center justify-between gap-4">
                             {/* <NewLink /> */}
                             <ContactCard  />
                         </div>
-                        <div className='w-[40%]'>
+                        <div className='w-[40%] max-md:hidden'>
                             <FloatPhone />
                         </div>
                     </div>

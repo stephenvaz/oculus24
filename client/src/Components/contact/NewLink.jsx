@@ -239,12 +239,12 @@ const TextBox = ({ Icon, text, href }) => {
             className="cursor-pointer relative grid h-20 w-full text-center font-semibold place-content-center sm:h-28 md:h-36"
         >
             {/* <Icon className="text-xl sm:text-3xl lg:text-4xl" /> */}
-            <div className="w-full flex flex-col items-center gap-2">
-                <span className={`${text === 'Location' ? 'text-2xl font-bold flex items-center gap-1' : 'text-2xl font-bold'}`}>
+            <div className="w-full flex flex-col items-center sm:gap-2">
+                <span className={`text-2xl x2s:text-lg x1s:text-base font-bold ${text === 'Location' ? ' flex items-center gap-1' : ''}`}>
                    {/* {text === 'Location' && <PlaceIcon sx={{ fontSize: "30px" }} />}  */}
                    {text}
                 </span>
-                <span className={`${text === 'Location' ? "px-2" : ""}`}>
+                <span className={`x2s:text-sm x1s:text-xs ${text === 'Location' ? "px-2" : ""}`}>
                     {text !== 'Location' ? "oculus_thefest@spit.ac.in" : "Bhavans Campus, Old D N Nagar, Munshi Nagar, Andheri West, Mumbai, Maharashtra 400058"}
                 </span>
             </div>
@@ -258,10 +258,10 @@ const TextBox = ({ Icon, text, href }) => {
             >
                 {/* <Icon className="text-xl sm:text-3xl md:text-4xl" /> */}
                 <div className="w-full flex flex-col items-center gap-2">
-                    <span  className={`${text === 'Location' ? 'text-2xl font-bold' : 'text-2xl font-bold'}`}>
+                    <span  className={`text-2xl x2s:text-lg x1s:text-base`}>
                         {text}
                     </span>
-                    <span className="px-2" >
+                    <span className="px-2 x2s:text-sm x1s:text-xs" >
                         {text !== 'Location' ? "oculus_thefest@spit.ac.in" : "Bhavans Campus, Old D N Nagar, Munshi Nagar, Andheri West, Mumbai, Maharashtra 400058"}
                     </span>
                 </div>
