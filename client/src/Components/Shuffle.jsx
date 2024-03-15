@@ -4,19 +4,13 @@ import { useEffect, useRef, useState } from "react";
 const Shuffle = () => {
   return (
     <section className="w-full px-8 py-12 grid grid-cols-1 md:grid-cols-2 items-center gap-8 max-w-7xl mx-auto z-[100]">
-      <div className="md:mr-16">
-        {/* <span className="block mb-4 text-xs md:text-sm text-indigo font-medium">
-          Better every day
-        </span> */}
-        <h3 className="text-4xl text-white md:text-6xl font-semibold">
+      <div style={{ backdropFilter: "blur(10px)" }} className="xl:mr-16 bg-opacity-[0.075] border-[0.25px] border-slate-600 bg-white p-4 rounded-xl ">
+        <h3 className="grad text-4xl text-white lg:text-6xl md:text-5xl font-extrabold">
           About Oculus
         </h3>
-        <p className="text-base text-justify md:text-lg text-white my-4 md:my-6">
+        <p className="text-base text-justify lg:text-xl md:text-base max-xs:text-sm text-white my-4 md:my-6">
         Sardar Patel Institute of Technology is back with much more energy and enthusiasm with its 6th edition of the Annual Techno-Cultural Fest, OCULUS. The fest has a galore of events from hopping on to cultural events to brainstorming at the Technical ones and ending with the euphoric pronites. Oculus is aiming to make a significant difference in society by donating the proceeds from all events to support CRY, an esteemed NGO under the Oculus for a Cause initiative.
         </p>
-        <button className="bg-indigo text-white font-medium py-2 px-4 rounded transition-all hover:bg-indigo-600 active:scale-95">
-          Find a class
-        </button>
       </div>
       <ShuffleGrid />
     </section>
