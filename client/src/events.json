@@ -1,86 +1,226 @@
 [
   {
-    "id": "hackathon",
-    "title": "Hackathon",
-    "img_front": "/hackathon.png",
-    "img_back": "/hackathon-back.png",
-    "category": "Pre - Events",
-    "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nullam vel eros sit amet arcu vestibulum accumsan in in leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nullam vel eros sit amet arcu vestibulum accumsan in in leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nullam vel eros sit amet arcu vestibulum accumsan in in leo.",
+    "id": "aej",
+    "title": "Aelaan-E-Jung",
+    "img_front": "/aej/front.png",
+    "img_back": "/aej/back.png",
+    "category": ["Cultural"],
+    "summary": "It is an electrifying dance event where dance professionals compete with each other gathering attention from all over Mumbai. If you're someone who loves dancing your heart out (solo/group) , its your chance Participate now ! One stage.One competition. One Motive- to win big! Its time for AELAAN-e-JUNG .The winners await exciting prizes",
     "faq": [
-      {"question": "What is the hackathon about?", "answer": "Answer for Event 1"},
-      {"question": "Who can participate?", "answer": "Answer for Event 1"},
-      {"question": "How do I register?", "answer": "Answer for Event 1"}
+      {"question": "Who all can participate?", "answer": "Whether you are a group of 2-25 people or a solo you are eligible to take part the ultimate dance arena. Age limit 26 years."},
+      {"question": "How many rounds?", "answer": "2 rounds will be conducted. 1st round would be the showcase round of each team. The top teams will qualify for 2nd round i.e. battle round."},
+      {"question": "What is the theme and criteria for judging?", "answer": "The theme is hip-hop/Bollywood music belonging to Mumbai theme. Judging would be based on overall impact, creativity, energy, sync & audience cheering."},
+      {"question": "How do we stay updated with timings and other details?", "answer": "The participants would be receiving a WhatsApp group link via mail through which they would be updated about the event."},
+      {"question": "Can you bring your friends to the event?", "answer": "All your friends and family are welcome to be in the audience and enjoy."}
     ],
-    "rules": ["Rule 1 for Event 1", "Rule 2 for Event 1", "Rule 3 for Event 1"],
-    "bg_img": "/hackathon_web.png",
-    "color": "green",
+    "rules": [
+      "In case of any discrepancies, the decision of the organizing committee and the judges will be final.",
+      "Participants could be solo/duo/group all judged under ONE bracket.",
+      "All participants must carry their ID proofs (Aadhar Card/Driving License/PAN Card) along with them.",
+      "Dance performances must be without any vulgarity.",
+      "Participants need to get their own soundtracks and submit them beforehand.",
+      "Violation of any of the rules will lead to a deduction of points/disqualification.",
+      "Event consists of two rounds (showcase & battle).",
+      "All participants must strictly adhere to the given time limits of the respective categories.",
+      "Performance time for the group: 8 mins maximum, for solo/duo: 4 mins maximum.",
+      "Top participant teams get to qualify for the ultimate battle round.",
+      "Battle will consist of a face-off round which will be decided on by judges.",
+      "Music tracks will be random and no argument related to it will be entertained.",
+      "Decision of the judges will be final in the final round."
+    ],
+    "bg_img": "/aej/web.png",
+    "color": "#B33968",
     "eventDate": {
       "month": "March",
-      "year": 2022
+      "year": 2024
     },
-    "registrationUrl": "https://example.com/register/hackathon"
+    "registrationUrl": "https://forms.gle/XjxGbLNVesuwUaCu8"
   },
   {
-    "id": "tech",
-    "title": "Event 2",
-    "img_front": "/hackathon.png",
-    "img_back": "/hackathon-back.png",
-    "category": "Technical",
-    "summary": "Summary for Event 2",
+    "id": "carnival",
+    "title": "Carnival",
+    "img_front": "/carnival/front.png",
+    "img_back": "/carnival/back.png",
+    "category": ["Cultural"],
+    "summary": "Where fashion enthusiasts all over the country congregate to compete for the greatest designs. Step into the spotlight and showcase your unique designs at our highly esteemed fashion show. This is your opportunity to express yourself and make your mark upon the fashion world.",
     "faq": [
-      {"question": "What is Event 2 about?", "answer": "Answer for Event 2"},
-      {"question": "Who can participate in Event 2?", "answer": "Answer for Event 2"},
-      {"question": "How do I register for Event 2?", "answer": "Answer for Event 2"}
+      {"question": "My college doesn't have a fashion team, can I still participate?", "answer": "You can form a group of interested individuals and apply."},
+      {"question": "Will our hair and make-up be looked after?", "answer": "Participants are expected to look after their own make-up for the event."},
+      {"question": "Will we be provided refreshments?", "answer": "Light snacks and nourishment shall be provided."},
+      {"question": "Wil travel expenditure be accounted for?", "answer": "Participants are expected to look after their own travel and accommodations."},
+      {"question": "Where will the event take place?", "answer": "The event will take place in the quadrangle of S.P.I.T."}
     ],
-    "rules": ["Rule 1 for Event 2", "Rule 2 for Event 2", "Rule 3 for Event 2"],
-    "bg_img": "/event2-bg.jpg",
-    "color": "bg-green-400",
+    "rules": [
+      "A team can have up to 20 members.",
+      "Each team has to decide their own theme for the fashion show.",
+      "Each team will get around 10 - 15 minutes for their performance.",
+      "Participants are expected to dress decently in order to maintain decorum.",
+      "Use of drugs, cigarettes and alcoholic beverages are strictly prohibited.",
+      "No explicit gestures, comments and movements shall be entertained.",
+      "Scores will be given on Creativity, Performance, Use of props/unique elements and synchronization.",
+      "Teams are to prepare their own CD and pen drive for their performance.",
+      "The decisions of the judges will be final.",
+      "The organizing committee has the right to disqualify the team in case of grave disturbance. The decisions of the organizing committee shall be final."
+    ],
+    "bg_img": "/carnival/web.png",
+    "color": "#4B0082",
     "eventDate": {
-      "month": "April",
-      "year": 2022
+      "month": "March",
+      "year": 2024
     },
     "registrationUrl": "https://example.com/register/tech"
   },
   {
-    "id": "fun",
-    "title": "Event 3",
-    "img_front": "/hackathon.png",
-    "img_back": "/hackathon-back.png",
-    "category": "Fun",
-    "summary": "Summary for Event 3",
+    "id": "esports",
+    "title": "Oculus E-Sports",
+    "img_front": "/esports/front.png",
+    "img_back": "/esports/back.png",
+    "category": ["Fun"],
+    "summary": "e-Sports: The phenomenon to shatter the world of gaming. Starting as a mere segment of the gaming industry, e-Sports has risen to the point where it is considered as a thriving sector in its own right. Cash Prizes, Rising Viewership, Worldwide Recognition, and much more! Are you ready to be part of this booming movement, a gaming revolution? Join us at Oculus e-Sports, and we assure you the best competitive gaming experience!",
     "faq": [
-      {"question": "What activities are included in Event 3?", "answer": "Answer for Event 3"},
-      {"question": "Who can join Event 3?", "answer": "Answer for Event 3"},
-      {"question": "How can I participate in Event 3?", "answer": "Answer for Event 3"}
+      { "question": "Do I need to be a hardcore gamer to take part?", "answer": "No, Casual or Hardcore, Oculus e-Sports is Open For All." },
+      { "question": "Will I have fun?", "answer": "Say what? Of course!!" },
+      { "question": "What kind of games are available to play?", "answer": "We have a lot of exciting games for you to play, competitively or casually, like Valorant, CODM, FIFA on PS5, etc." },
+      { "question": "Can I play with my friends?", "answer": "A resounding YES! We want all of you to have fun!" },
+      { "question": "Do I have to pay for taking part?", "answer": "Each event, pre-event will have registration charges associated with them, which will be disclosed during their announcement." }
     ],
-    "rules": ["Rule 1 for Event 3", "Rule 2 for Event 3", "Rule 3 for Event 3"],
-    "bg_img": "/event3-bg.jpg",
-    "color": "bg-green-400",
+    "rules": [
+      "All events, pre-events associated with e-Sports is Open For All",
+      "Rules depend on the type of game played; Rulebooks for which are provided.",
+      "Violation of Rules, as provided in the rulebooks pertaining to a pre-event, will not be tolerated"
+    ],
+    "bg_img": "/esports/web.png",
+    "color": "#000080",
     "eventDate": {
-      "month": "May",
-      "year": 2022
+      "month": "March",
+      "year": 2024
+    },
+    "registrationUrl": "https://forms.gle/BgwGjdViPSWp4y8u7"
+  },
+  {
+    "id": "funzone",
+    "title": "Funzone",
+    "img_front": "/funzone/front.png",
+    "img_back": "/funzone/back.png",
+    "category": ["Fun"],
+    "summary": "Battle the enemy in a simulated field with barriers and hideouts, the mask and safety jackets save you from the plastic bullets. The bullets are plastic encapsulations filled with edible oil with edible color dye. Use your strategic thinking, teamwork, and quick reflexes to outmaneuver and outshoot the opposing team. Enjoy this exciting and immersive experience that combines physical activity, planning, and teamwork, making it a thrilling and memorable activity.",
+    "faq": [],
+    "rules": [
+      "Teams: Each team should consist of 4 players.",
+      "Equipment: All necessary equipment, including guns, masks, and paintballs, will be provided on the spot. Participants are not allowed to bring their own equipment.",
+      "Paintballs: Each player will receive 15 paintballs at the start of the game. Additional paintballs can be purchased on the spot if needed at Rs. 5 per ball.",
+      "Safety Equipment: Participants must always wear the provided masks and goggles while on the playing field. This is for their own safety and to ensure a fun and injury-free experience for everyone.",
+      "Conduct: Paintball is a non-contact sport. Physical contact with other players is not allowed. Participants should avoid rough play and focus on having fun.",
+      "Respect: Participants must respect the referees and their decisions. Referees are there to ensure a safe and fair experience for everyone.",
+      "The main focus of this paintball event is to have fun, meet new people, and enjoy a day of thrilling action. Participants are encouraged to play fair, follow the guidelines, and treat each other respectfully. The event organizers are there to ensure everyone has a safe and enjoyable experience, so let's get ready to have some fun!"
+    ],
+    "bg_img": "/funzone/web.png",
+    "color": "#8526B5",
+    "eventDate": {
+      "month": "March",
+      "year": 2024
     },
     "registrationUrl": "https://example.com/register/fun"
   },
   {
-    "id": "cultural",
-    "title": "Event 4",
-    "img_front": "/hackathon.png",
-    "img_back": "/hackathon-back.png",
-    "category": "Cultural",
-    "summary": "Summary for Event 4",
+    "id": "ipl",
+    "title": "IPL Auction",
+    "img_front": "/ipl/front.png",
+    "img_back": "/ipl/back.png",
+    "category": ["Fun"],
+    "summary": "The IPL auctions are all about big bucks, hot bids and plenty of action. All the auctions over the years have been action-packed and players have walked away with millions in their pocket. IPL auction is an ideal platform where fans get together to strategize and form ideal squads for their favorite teams.We connect fans who have an unparalleled enthusiasm for the irresistible sport of cricket. Raise your plaque card and buy the best 11 for your team using your money.",
     "faq": [
-      {"question": "What cultural activities are part of Event 4?", "answer": "Answer for Event 4"},
-      {"question": "Who can attend Event 4?", "answer": "Answer for Event 4"},
-      {"question": "How do I get tickets for Event 4?", "answer": "Answer for Event 4"}
+      { "question": "Do we need to be a cricket freak for this event?", "answer": "No, not at all. Basic calculations and maths will do! Even girls participate actively in our event." },
+      { "question": "Can I join solo?", "answer": "Yes" },
+      { "question": "Who all can participate?", "answer": "Literally anybody. It’s not necessary that the participant should be of SPIT." },
+      { "question": "What is the mode of auction?", "answer": "Both online and offline" },
+      { "question": "What is the venue of the event for offline auction?", "answer": "Sardar Patel Institute of Technology." },
+      { "question": "What rewards do we get?", "answer": "Prizes worth ₹20,000!!" }
     ],
-    "rules": ["Rule 1 for Event 4", "Rule 2 for Event 4", "Rule 3 for Event 4"],
-    "bg_img": "/event4-bg.jpg",
-    "color": "bg-green-400",
+    "rules": [
+      "The group of participants would comprise of max 4 members and min 1 member.",
+      "A total of around 150 players will go under the hammer.",
+      "The team has to buy a minimum of 11 players.",
+      "The players are categorized into several categories and each team needs to fulfill the criteria of each category.",
+      "Each player is given certain ratings. After fulfilling all criteria, the team with maximum points will be declared the winner on adding all ratings."
+    ],
+    "bg_img": "/ipl/web.png",
+    "color": "#0E4195",
     "eventDate": {
-      "month": "June",
-      "year": 2022
+      "month": "March",
+      "year": 2024
     },
-    "registrationUrl": "https://example.com/register/cultural"
+    "registrationUrl": "https://forms.gle/BgwGjdViPSWp4y8u7"
+  },
+  {
+    "id": "hackathon",
+    "title": "SPIT Hackathon",
+    "img_front": "/hackathon/front.png",
+    "img_back": "/hackathon/back.png",
+    "category": ["Technical", "Pre - Event"],
+    "summary": "Following tradition, CSI-SPIT is conducting the annual 24-hour SPIT Hackathon in February 2023. This year, we are going back to organizing the hackathon completely in Offline Mode. With a great team and skilled panel of judges, this hackathon will be an ideal platform to put student's knowledge to use and something.",
+    "faq": [
+      { "question": "Is it free?", "answer": "Yes it is" }
+    ],
+    "rules": [
+      "No cheating",
+      "Proper coding practices to be followed"
+    ],
+    "bg_img": "/hackathon/web.png",
+    "color": "#139412",
+    "eventDate": {
+      "month": "February",
+      "year": 2024
+    },
+    "registrationUrl": "https://forms.gle/BgwGjdViPSWp4y8u7"
+  },
+  {
+    "id": "vsm",
+    "title": "Virtual Stock Market",
+    "img_front": "/vsm/front.png",
+    "img_back": "/vsm/back.png",
+    "category": ["Technical"],
+    "summary": "Are you ready to test your investment skills and financial acumen in a virtual stock market simulation event? Join us as we bring you an exciting opportunity to experience the thrill of trading in the stock market without risking your real money. Virtual stock market is all about u showcasing your trading skills and have real time experience of trading and handling all the ups and down's among your friends. VSM is more than just a game. It's a chance to understand how the stock market works and how to make informed decisions about investments.",
+    "faq": [
+      {
+        "question": "What is VSM?",
+        "answer": "VSM is a simulation of the real world stock market but with a twist. Here, the main objective is to maximize your profits by actively buying and selling your shares. It's the perfect place for beginners to have hands-on experience with trading and strategizing"
+      },
+      {
+        "question": "Do I have to prepare for anything before I participate?",
+        "answer": "NO PRIOR KNOWLEDGE of the actual stock market is required, ANYONE can participate. Also, here's an advantage for you. We will be posting links and tips for VSM on our social media handles and a weekly newsletter to boost your confidence. So stay tuned!"
+      },
+      {
+        "question": "I still don't understand the rules and the working of VSM, what do I do?",
+        "answer": "Don't worry, we have a brief introduction and a pre-event before the final countdown. This will help you get familiar with the working as well as the app"
+      },
+      {
+        "question": "I want to learn more about the stock market, can VSM help?",
+        "answer": "Yes! For every participant, we will provide free courses to help you educate yourself about the stock market"
+      },
+      {
+        "question": "Will I get an event certificate for attending?",
+        "answer": "Yes! A certificate will be given to all the participants."
+      },
+      {
+        "question": "I have additional questions about VSM, where should I contact?",
+        "answer": "Feel free to reach out to our Instagram handle for any more queries! https://instagram.com/virtualstockmarket?igshid=MDM4ZDc5MmU="
+      },
+      {
+        "question": "What are Pre-Events?",
+        "answer": "Pre-Events are mini competitions that will help you to gain a much-needed kickstart on the day of the V$M event and have a cash pool of ₹30,000. Most of the pre-events will be available only for the registered members, so make sure you REGISTER SOON!"
+      }
+    ],    
+    "rules": [
+      "No prior knowledge of the stock market is required for VSM",
+      "Only one android phone is required regardless of whether you are participating as an individual or a team of 2"
+    ],
+    "bg_img": "/vsm/web.png",
+    "color": "#359C8F",
+    "eventDate": {
+      "month": "March",
+      "year": 2024
+    },
+    "registrationUrl": "https://forms.gle/AisU3A6YpjDLpSvRA"
   }
 ]

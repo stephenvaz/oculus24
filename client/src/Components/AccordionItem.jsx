@@ -13,7 +13,7 @@ const AccordionItem = ({ question, answer, color }) => {
         className="w-full p-4 flex items-center justify-between focus:outline-none"
         onClick={toggleAccordion}
       >
-        <span className="font-semibold">{question}</span>
+        <span className="font-semibold text-start">{question}</span>
         <svg
           className={`w-6 h-6 transition-transform transform ${isOpen ? 'rotate-180' : ''}`}
           fill="none"
@@ -26,7 +26,7 @@ const AccordionItem = ({ question, answer, color }) => {
       </button>
       {isOpen && (
         <div className="pt-0 px-4 pb-4 bg-gray-100 dark:bg-gray-800">
-          <p className='font-semibold'>{answer}</p>
+          <p className='font-semibold text-start'>{answer}</p>
         </div>
       )}
     </div>

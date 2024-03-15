@@ -11,7 +11,7 @@ const EventsPage = () => {
     if (selected === 'All') {
       setFilteredEvents(allEvents);
     } else {
-      const filteredEvents = allEvents.filter((event) => event.category === selected);
+      const filteredEvents = allEvents.filter((event) => event.category.includes(selected));
       setFilteredEvents(filteredEvents);
     }
   }, [selected]);
@@ -28,8 +28,8 @@ const EventsPage = () => {
             All
           </button>
           <button
-            className={`custom-btn btn-9 ${selected === 'Pre - Events' ? 'selected' : ''}`}
-            onClick={() => setSelected('Pre - Events')}
+            className={`custom-btn btn-9 ${selected === 'Pre - Event' ? 'selected' : ''}`}
+            onClick={() => setSelected('Pre - Event')}
           >
             Pre - Events
           </button>
@@ -52,13 +52,13 @@ const EventsPage = () => {
             Cultural
           </button>
         </div>
-        <div className='flex flex-col sm:flex-row flex-wrap gap-4 mt-4 items-center justify-between'>
+        <div className='grid grid-cols-1 lg:grid-cols-3'>
           {filteredEvents.map((event, index) => {
             return <EventCard key={index} event={event} />;
           })}
         </div>
       </div>
-    </AnimatePresence>
+    </AnimatePresence >
   );
 };
 
