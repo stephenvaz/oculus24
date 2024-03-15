@@ -1,0 +1,86 @@
+[
+  {
+    "id": "hackathon",
+    "title": "Hackathon",
+    "img_front": "/hackathon.png",
+    "img_back": "/hackathon-back.png",
+    "category": "Pre - Events",
+    "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nullam vel eros sit amet arcu vestibulum accumsan in in leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nullam vel eros sit amet arcu vestibulum accumsan in in leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nullam vel eros sit amet arcu vestibulum accumsan in in leo.",
+    "faq": [
+      {"question": "What is the hackathon about?", "answer": "Answer for Event 1"},
+      {"question": "Who can participate?", "answer": "Answer for Event 1"},
+      {"question": "How do I register?", "answer": "Answer for Event 1"}
+    ],
+    "rules": ["Rule 1 for Event 1", "Rule 2 for Event 1", "Rule 3 for Event 1"],
+    "bg_img": "/hackathon_web.png",
+    "color": "green",
+    "eventDate": {
+      "month": "March",
+      "year": 2022
+    },
+    "registrationUrl": "https://example.com/register/hackathon"
+  },
+  {
+    "id": "tech",
+    "title": "Event 2",
+    "img_front": "/hackathon.png",
+    "img_back": "/hackathon-back.png",
+    "category": "Technical",
+    "summary": "Summary for Event 2",
+    "faq": [
+      {"question": "What is Event 2 about?", "answer": "Answer for Event 2"},
+      {"question": "Who can participate in Event 2?", "answer": "Answer for Event 2"},
+      {"question": "How do I register for Event 2?", "answer": "Answer for Event 2"}
+    ],
+    "rules": ["Rule 1 for Event 2", "Rule 2 for Event 2", "Rule 3 for Event 2"],
+    "bg_img": "/event2-bg.jpg",
+    "color": "bg-green-400",
+    "eventDate": {
+      "month": "April",
+      "year": 2022
+    },
+    "registrationUrl": "https://example.com/register/tech"
+  },
+  {
+    "id": "fun",
+    "title": "Event 3",
+    "img_front": "/hackathon.png",
+    "img_back": "/hackathon-back.png",
+    "category": "Fun",
+    "summary": "Summary for Event 3",
+    "faq": [
+      {"question": "What activities are included in Event 3?", "answer": "Answer for Event 3"},
+      {"question": "Who can join Event 3?", "answer": "Answer for Event 3"},
+      {"question": "How can I participate in Event 3?", "answer": "Answer for Event 3"}
+    ],
+    "rules": ["Rule 1 for Event 3", "Rule 2 for Event 3", "Rule 3 for Event 3"],
+    "bg_img": "/event3-bg.jpg",
+    "color": "bg-green-400",
+    "eventDate": {
+      "month": "May",
+      "year": 2022
+    },
+    "registrationUrl": "https://example.com/register/fun"
+  },
+  {
+    "id": "cultural",
+    "title": "Event 4",
+    "img_front": "/hackathon.png",
+    "img_back": "/hackathon-back.png",
+    "category": "Cultural",
+    "summary": "Summary for Event 4",
+    "faq": [
+      {"question": "What cultural activities are part of Event 4?", "answer": "Answer for Event 4"},
+      {"question": "Who can attend Event 4?", "answer": "Answer for Event 4"},
+      {"question": "How do I get tickets for Event 4?", "answer": "Answer for Event 4"}
+    ],
+    "rules": ["Rule 1 for Event 4", "Rule 2 for Event 4", "Rule 3 for Event 4"],
+    "bg_img": "/event4-bg.jpg",
+    "color": "bg-green-400",
+    "eventDate": {
+      "month": "June",
+      "year": 2022
+    },
+    "registrationUrl": "https://example.com/register/cultural"
+  }
+]
