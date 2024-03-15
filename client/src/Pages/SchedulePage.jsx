@@ -61,7 +61,7 @@ const SchedulePage = () => {
 
   return (
     <div
-      className="h-full w-full py-28 x-container mb-24"
+      className=" py-28 x-container mb-24"
       // style={{ height: '2000px' }}
     >
       <h1 className="text-5xl neon font-bold mb-7">Schedule</h1>
@@ -91,7 +91,7 @@ const SchedulePage = () => {
           Cultural
         </button>
       </div> */}
-<div>
+<div className='mt-5 mb-5'>
       <div className="flex flex-col align-middle justify-center ">
         <div className="text-white lg:grid lg:grid-cols-[1fr,3fr,3fr,3fr] text-center border-white hidden ">
           <TimeLine startTime={new Time(9, 0)} endTime={new Time(22, 0)} />
