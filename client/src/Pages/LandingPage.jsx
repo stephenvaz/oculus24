@@ -8,7 +8,7 @@ import Spline from "@splinetool/react-spline";
 function LandingPage() {
 
   return (
-    <div className="w-full flex flex-col !items-center !justify-center gap-2 overflow-x-clip">
+    <div className="w-full flex flex-col !justify-center gap-2 overflow-x-clip">
       <Appear>
         <div className='h-screen z-[-999] flex items-center justify-center select-none'>
           {/* <img
@@ -16,8 +16,12 @@ function LandingPage() {
             alt=""
             className='z-10 w-3/4 md:w-1/2 select-none'
           /> */}
+          {/* 
+          backup scene link
+          scene="https://prod.spline.design/P2d1xXGfY9MX-KmA/scene.splinecode" 
+           */}
           <Spline
-            scene="https://prod.spline.design/oNjfXSplRKV2iLcL/scene.splinecode"
+            scene="https://prod.spline.design/ONaBJBp8KtepcaTS/scene.splinecode"
             style={{
               position: "absolute",
               top: 0,
@@ -42,7 +46,7 @@ function LandingPage() {
         <div className='grad text-5xl sw:text-4xl font-bold text-center px-2'>
           Have a look at our last year's aftermovie
         </div>
-        <div className='relative box-e lg:w-1/2 lg:h-[50%] md:w-3/4 md:h-1/2 sm:w-3/4 sm:h-[40%] max-sm:w-3/4 max-sm:h-1/4'>
+        <div className='relative box-e lg:w-1/2 lg:h-[60%] md:w-3/4 md:h-1/2 sm:w-3/4 sm:h-[40%] max-sm:w-3/4 max-sm:h-1/4'>
           <iframe
             className='relative w-full h-full'
             src="https://www.youtube.com/embed/W8asaoyvgNY?si=JVf-qfKw7MEdxDrh"
