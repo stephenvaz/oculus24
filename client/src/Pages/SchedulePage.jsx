@@ -8,6 +8,8 @@ import ScheduleColumn, {
   ColumnPosition,
 } from '../Components/schedulecolumn/ScheduleColumn';
 import TimeLine from '../Components/schedulecolumn/TimeLine';
+import Appear from '../animated-components/Appear';
+import Center from '../animated-components/Center';
 
 const day1Schedule = [
   new ScheduleItem('VSM', new Time(9, 0), new Time(12, 0)),
@@ -64,6 +66,7 @@ const SchedulePage = () => {
       className=" py-28 x-container mb-24"
       // style={{ height: '2000px' }}
     >
+        <Center>
       <h1 className="text-5xl neon font-bold mb-7">Schedule</h1>
       {/* <div className="flex flex-row gap-4 flex-wrap">
         <button className="custom-btn btn-9" onClick={() => setSelected('All')}>
@@ -159,6 +162,7 @@ const SchedulePage = () => {
         </div>
       </div>
       </div>
+      </Center>
     </div>
   );
 };
