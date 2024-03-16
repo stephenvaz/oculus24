@@ -14,6 +14,10 @@ const EventDetailsPage = () => {
 
   useEffect(() => {
     dispatch(setShowParticleRing(false));
+    // cleanup
+    return () => {
+      dispatch(setShowParticleRing(true));
+    };
   }, [dispatch]);
 
   return (

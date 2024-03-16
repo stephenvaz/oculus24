@@ -26,9 +26,9 @@ export const NavBarv2 = () => {
         //     dispatch(setNavBar(true))
         // }
         // do wildcard search for /event/*
-        if (!window.location.pathname.includes('/event/') && !showParticleRing) {
-            dispatch(setShowParticleRing(true))
-        }
+        // if (!window.location.pathname.includes('/event/') && !showParticleRing) {
+        //     dispatch(setShowParticleRing(true))
+        // }
     }, [currPath, window.location.pathname])
 
     useEffect(() => {
