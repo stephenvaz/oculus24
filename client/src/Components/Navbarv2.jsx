@@ -1,10 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
-import { useMotionValue, motion, useSpring, useTransform, useCycle } from "framer-motion";
+import { useMotionValue, motion, useSpring, useTransform } from "framer-motion";
 import { FiArrowRight } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
-import GlassmorphicButton from "./glassmorphic/CButtonv1";
 import { toggleNavBar } from "../redux/uislice";
-import NavButton from "../Components/NavButton";
 import { Sling as Hamburger } from 'hamburger-react';
 import logo from '../assets/Full White.png';
 import { useNavigate } from "react-router-dom";
@@ -16,6 +14,9 @@ export const NavBarv2 = () => {
     const [currWidth, setCurrWidth] = useState(window.innerWidth)
     const navigate = useNavigate()
     const isNavBarOpen = useSelector(state => state.ui.isNavBarOpen)
+
+    const isNavBarOpenInitial = isNavBarOpen
+
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -28,6 +29,11 @@ export const NavBarv2 = () => {
         setCurrWidth(window.innerWidth)
     }, [currWidth, window.innerWidth])
 
+    useEffect(() => {
+        console.log("bCheck",isNavBarOpen)
+
+    }, [isNavBarOpen])
+
     return (
         <>
             <Center>
@@ -38,21 +44,24 @@ export const NavBarv2 = () => {
                     }}
                     style={{
                         display: (currPath !== '/' || isNavBarOpen) ? "block" : "none",
-                    }}     
-                className="fixed top-[-10px] left-4 z-[1001]">
+                    }}
+                    className="fixed top-[-10px] left-4 z-[1001]">
                     <img src={logo} alt="" className="w-48" />
                 </button>
             </Center>
-                <div className={`fixed top-4 right-4 bg-white bg-opacity-10 rounded-full ${currWidth > 400 ? "p-2" : "p-0"} hover:bg-opacity-25 z-[2000]`}>
-                    <Hamburger rounded duration={0.5} size={currWidth < 768 ? 20 : 25} easing="ease-in" color="#C77DFF" toggled={isNavBarOpen} toggle={() => dispatch(toggleNavBar())} />
-                </div>
+            <div className={`fixed top-4 right-4 bg-white bg-opacity-10 rounded-full ${currWidth > 400 ? "p-2" : "p-0"} hover:bg-opacity-25 z-[2000]`}>
+                <Hamburger rounded duration={0.5} size={currWidth < 768 ? 20 : 25} easing="ease-in" color="#C77DFF" toggled={isNavBarOpen} toggle={() => dispatch(toggleNavBar())} />
+            </div>
+
+
             <motion.div
                 style={{
-                    display: isNavBarOpen ? "block" : "none",
+                    display: isNavBarOpenInitial ? "block" : "none",
                 }}
                 animate={{
                     width: isNavBarOpen ? "100%" : "0%",
-                    display: isNavBarOpen ? "block" : "none",
+                    height: isNavBarOpen ? "100%" : "0%",
+                    // display: isNavBarOpen ? "block" : "none",
                     opacity: isNavBarOpen ? 1 : 0,
                     left: isNavBarOpen ? "0px" : "100%",
 
@@ -61,6 +70,9 @@ export const NavBarv2 = () => {
                         type: "spring",
                         damping: 30,
                     },
+                    transitionEnd: {
+                        display: isNavBarOpen ? "block" : "none",
+                      },
                 }}
                 className="p-4 md:p-8 sm:mt-8 md:mt-8 mt-12">
                 <motion.div
