@@ -35,7 +35,7 @@ const EventCard = ({ event }) => {
             onHoverEnd={handleMouseLeave}
             onTap={() => handleTap(event.id)}
             transition={{duration: 0.6}}
-            className='grid place-content-center'
+            className='w-full'
         >
             <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal" flipSpeedBackToFront={0.6} flipSpeedFrontToBack={0.6}>
                 <motion.img
