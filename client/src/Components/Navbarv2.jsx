@@ -15,8 +15,6 @@ export const NavBarv2 = () => {
     const navigate = useNavigate()
     const isNavBarOpen = useSelector(state => state.ui.isNavBarOpen)
 
-    const isNavBarOpenInitial = isNavBarOpen
-
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -29,10 +27,10 @@ export const NavBarv2 = () => {
         setCurrWidth(window.innerWidth)
     }, [currWidth, window.innerWidth])
 
-    useEffect(() => {
-        console.log("bCheck",isNavBarOpen)
+    // useEffect(() => {
+    //     console.log("bCheck",isNavBarOpen)
 
-    }, [isNavBarOpen])
+    // }, [isNavBarOpen])
 
     return (
         <>
@@ -55,13 +53,24 @@ export const NavBarv2 = () => {
 
 
             <motion.div
+                animate={{
+                    transition: {
+                        duration: 1,
+                        type: "spring",
+                        damping: 30,
+                    },
+                    transitionEnd: {
+                        display : isNavBarOpen ? "block" : "none",
+                      },
+                }}
+            >
+            <motion.div
                 style={{
-                    display: isNavBarOpenInitial ? "block" : "none",
+                    display: isNavBarOpen ? "block" : "none",
                 }}
                 animate={{
                     width: isNavBarOpen ? "100%" : "0%",
                     height: isNavBarOpen ? "100%" : "0%",
-                    // display: isNavBarOpen ? "block" : "none",
                     opacity: isNavBarOpen ? 1 : 0,
                     left: isNavBarOpen ? "0px" : "100%",
 
@@ -70,9 +79,7 @@ export const NavBarv2 = () => {
                         type: "spring",
                         damping: 30,
                     },
-                    transitionEnd: {
-                        display: isNavBarOpen ? "block" : "none",
-                      },
+                    
                 }}
                 className="p-4 md:p-8 sm:mt-8 md:mt-8 mt-12">
                 <motion.div
@@ -134,6 +141,7 @@ export const NavBarv2 = () => {
                         href="/login"
                     /> */}
                 </motion.div>
+            </motion.div>
             </motion.div>
         </>
     )
