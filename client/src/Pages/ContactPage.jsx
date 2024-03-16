@@ -8,9 +8,9 @@ import ContactCard from '../Components/contact/ContactCard';
 const ContactPage = () => {
     return (
         <Center>
-            <div className='h-full w-full flex flex-col items-center justify-center gap-8 p-8 md:px-24'>
-                <div className='w-full h-full flex flex-col gap-4'>
-                    <div className='h-screen max-md:h-full w-full flex flex-col items-center justify-center gap-8 max-md:gap-5'>
+            <div className='h-full w-full flex flex-col items-center justify-center gap- p-8 md:px-24'>
+                <div className='w-full h-full flex flex-col items-center justify-center'>
+                    <div className='h-screen max-md:h-full w-full flex flex-col items-center md:mt-16 justify-start gap-8 max-md:gap-5'>
                     <div className='text-white text-5xl max-md:text-4xl font-bold grad w-full text-left max-md:mt-16'>
                         Contact Us
                     </div>
