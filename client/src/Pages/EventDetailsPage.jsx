@@ -31,8 +31,8 @@ const EventDetailsPage = () => {
             <div className='flex flex-row gap-2 items-center'>
               <img src={event.img_front} alt="hackathon logo" className="w-32 lg:w-48" />
               <div className='flex flex-col items-center lg:items-start'>
-                <h1 className='text-2xl lg:text-4xl font-bold text-white'>{event.title}</h1>
-                <p className='text-xl lg:text-2xl text-white text-center'>{event.category[0]} • {event.eventDate.month} {event.eventDate.year}</p>
+                <h1 className='text-lg lg:text-4xl font-bold text-white'>{event.title}</h1>
+                <p className='text-md lg:text-2xl text-white text-center'>{event.category[0]} • {event.eventDate.month} {event.eventDate.year}</p>
               </div>
             </div>
             <a type='button' href={event.registrationUrl} style={{ backgroundColor: event.color }} className={`event-btn register`}>Register</a>
