@@ -17,7 +17,7 @@ const EventDetailsPage = () => {
   }, [dispatch]);
 
   return (
-    <div className='w-full min-h-[screen] relative pb-12'>
+    <div className='w-full min-h-screen relative pb-12'>
       <div className='w-full h-[400px] overflow-hidden'>
         <img
           className='w-full h-full object-cover bg-no-repeat'
