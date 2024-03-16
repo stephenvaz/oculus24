@@ -16,7 +16,7 @@ function LandingPage() {
            */}
           <div className="relative w-full h-full">
             <Spline
-              scene="https://prod.spline.design/ONaBJBp8KtepcaTS/scene.splinecode"
+              scene="https://prod.spline.design/mQ1M6KDQ3-WXDnnc/scene.splinecode"
               style={{
                 position: "absolute",
                 top: 0,
