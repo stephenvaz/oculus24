@@ -24,7 +24,7 @@ function LandingPage() {
                 right: 20,
                 zIndex: 3,
               }}
-              onMouseHover={() => console.log("hovered")}
+              // onMouseHover={() => console.log("hovered")}
               // onMouseLeave={() => console.log("unhovered")}
             />
             {/* <span

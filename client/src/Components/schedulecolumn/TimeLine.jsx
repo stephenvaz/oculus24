@@ -9,10 +9,10 @@ const generateTimeLine = (startTime, endTime) => {
   while (Time.timeDiff(temp, endTime) > 0) {
     timeLine.push(new Time(temp.hour, temp.minute));
     temp.hour += 1;
-    console.log('start', timeLine);
+    // console.log('start', timeLine);
   } 
   if (Time.timeDiff(timeLine[timeLine.length -1], endTime) > 0) timeLine.push(new Time(endTime.hour, endTime.minute));
-  console.log('timeline ===========================================',timeLine);
+  // console.log('timeline ===========================================',timeLine);
   
   return timeLine;
 };

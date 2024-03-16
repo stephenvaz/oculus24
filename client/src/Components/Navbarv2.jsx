@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { useMotionValue, motion, useSpring, useTransform } from "framer-motion";
 import { FiArrowRight } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
-import { toggleNavBar } from "../redux/uislice";
+import { setShowParticleRing, toggleNavBar } from "../redux/uislice";
 import { Sling as Hamburger } from 'hamburger-react';
 import logo from '../assets/Full White.png';
 import { useNavigate } from "react-router-dom";
@@ -14,12 +14,21 @@ export const NavBarv2 = () => {
     const [currWidth, setCurrWidth] = useState(window.innerWidth)
     const navigate = useNavigate()
     const isNavBarOpen = useSelector(state => state.ui.isNavBarOpen)
+    const showParticleRing = useSelector(state => state.ui.showParticleRing)
 
     const dispatch = useDispatch()
 
     useEffect(() => {
         // console.log(currPath)
         setCurrPath(window.location.pathname)
+        // console.log("nav path",window.location.pathname)
+        // if (window.location.pathname !== '/') {
+        //     dispatch(setNavBar(true))
+        // }
+        // do wildcard search for /event/*
+        if (!window.location.pathname.includes('/event/') && !showParticleRing) {
+            dispatch(setShowParticleRing(true))
+        }
     }, [currPath, window.location.pathname])
 
     useEffect(() => {
