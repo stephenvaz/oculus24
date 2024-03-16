@@ -9,26 +9,34 @@ function LandingPage() {
   return (
     <div className="w-full flex flex-col !justify-center gap-2 overflow-x-clip">
       <Appear>
-        <div className='h-screen z-[-999] flex items-center justify-center select-none'>
-          {/* <img
-            src={logo}
-            alt=""
-            className='z-10 w-3/4 md:w-1/2 select-none'
-          /> */}
+        <div className='h-screen z-[999] relative flex items-center justify-center select-none'>
           {/* 
           backup scene link
           scene="https://prod.spline.design/P2d1xXGfY9MX-KmA/scene.splinecode" 
            */}
-          <Spline
-            scene="https://prod.spline.design/ONaBJBp8KtepcaTS/scene.splinecode"
+          <div className="relative w-full h-full">
+            <Spline
+              scene="https://prod.spline.design/ONaBJBp8KtepcaTS/scene.splinecode"
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 20,
+                zIndex: 3,
+              }}
+              onMouseHover={() => console.log("hovered")}
+              // onMouseLeave={() => console.log("unhovered")}
+            />
+            {/* <span
             style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              right: 20,
-              zIndex: 3,
-            }}
-          />
+              top: "75%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+            }} 
+            className="absolute z-[1001] text-white text-xl text-opacity-40 font-bold">
+              Do not hover over the planet!
+            </span> */}
+          </div>
         </div>
       </Appear>
       <div className='w-full h-screen max-sm:h-full x2s:h-full x1s:h-full flex items-start justify-center z-[100]'>
