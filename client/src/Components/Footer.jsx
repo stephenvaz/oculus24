@@ -92,7 +92,7 @@ function Footer() {
           className='w-[90%] opacity-20' 
         />
         <div className='mb-[-10px]'>
-          <div className='opacity-60'>
+          <div className='opacity-60 max-xs:text-sm w-full '>
             © Oculus The Fest 2024. All rights reserved
           </div>
         </div>
