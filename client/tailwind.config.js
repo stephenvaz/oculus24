@@ -27,6 +27,7 @@ export default {
         'max-xs': {max: '375px'},
         'max-sm': {max: '639px'},
         'max-md': {max: '850px', min: '0px'},
+        'logo-md': {max: '767px', min: '0px'},
        }
     },
   },

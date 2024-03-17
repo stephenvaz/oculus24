@@ -24,8 +24,18 @@ function LandingPage() {
                 right: 20,
                 zIndex: 3,
               }}
-              // onMouseHover={() => console.log("hovered")}
-              // onMouseLeave={() => console.log("unhovered")}
+              className="logo-md:hidden"
+            />
+            <Spline
+              scene="https://prod.spline.design/TZHTav7XU5hIR3uT/scene.splinecode"
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 20,
+                zIndex: 3,
+              }}
+              className="md:hidden"
             />
             {/* <span
             style={{
