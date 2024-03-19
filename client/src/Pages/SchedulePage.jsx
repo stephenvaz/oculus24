@@ -8,156 +8,197 @@ import ScheduleColumn, {
   ColumnPosition,
 } from '../Components/schedulecolumn/ScheduleColumn';
 import TimeLine from '../Components/schedulecolumn/TimeLine';
+import AEJ_image from '../assets/schedule/aej_schedule@4x.png';
+import VSM_image from '../assets/schedule/vsm_schedule@4x.png';
+import WOBD_image from '../assets/schedule/wob dance@4x.png';
+import WOBM_image from '../assets/schedule/Artboard 2@4x.png';
+import TKD_image from '../assets/schedule/takedown_schedule@4x.png';
+import CRN_image from '../assets/schedule/Carnival_schedule@4x.png';
+import PNT1_image from '../assets/schedule/pronite_schedule@4x.png';
+import PNT2_image from '../assets/schedule/pronite@4x.png';
+import SRG_image from '../assets/schedule/sargam_schedule@4x.png';
 
-const day1Schedule = [
-  new ScheduleItem('VSM', new Time(9, 0), new Time(12, 0)),
-  // new ScheduleItem('Break', new Time(11, 0), new Time(11, 30)),
-  // new ScheduleItem('Technical', new Time(11, 30), new Time(12, 30 )),
-  new ScheduleItem('Lunch', new Time(12, 30), new Time(13, 30)),
-  // new ScheduleItem('Fun', new Time(13, 30), new Time(14, 30)),
-  new ScheduleItem('Cultural', new Time(14, 30), new Time(15, 30)),
-  new ScheduleItem('VSM', new Time(15, 30), new Time(16, 30)),
-  new ScheduleItem(
-    'Last',
-    new Time(22, 0),
-    new Time(22, 0),
-    ScheduleItemType.END
-  ),
+
+const day1 = [
+  new ScheduleItem({
+    startTime: new Time(9, 0),
+    endTime: new Time(12, 0),
+    image: VSM_image,
+  }),
+  new ScheduleItem({
+    startTime: new Time(14, 0),
+    endTime: new Time(17, 0),
+    image: AEJ_image,
+  }),
+  new ScheduleItem({
+    startTime: new Time(17, 0),
+    endTime: new Time(19, 30),
+    image: WOBM_image,
+  }),
+  new ScheduleItem({
+    startTime: new Time(19, 30),
+    endTime: new Time(22, 0),
+    image: WOBD_image,
+  }),
 ];
 
-const day2Schedule = [
-  new ScheduleItem('VSM', new Time(10, 0), new Time(11, 0)),
-  // new ScheduleItem('Technical', new Time(11, 30), new Time(12, 30 )),
-  // new ScheduleItem('Lunch',9ew Time(12, 30), new Time(13, 30)),
-  // new ScheduleItem('Fun', new Time(13, 30), new Time(14, 30)),
-  new ScheduleItem('Cultural', new Time(14, 30), new Time(15, 30)),
-  new ScheduleItem('VSM', new Time(15, 30), new Time(16, 30)),
-  new ScheduleItem(
-    'Last',
-    new Time(22, 0),
-    new Time(22, 0),
-    ScheduleItemType.END
-  ),
+const day2 = [
+  new ScheduleItem({
+    startTime: new Time(9, 0),
+    endTime: new Time(12, 0),
+    image: VSM_image,
+  }),
+  new ScheduleItem({
+    startTime: new Time(12, 0),
+    endTime: new Time(14, 0),
+    image: TKD_image,
+  }),
+  new ScheduleItem({
+    startTime: new Time(14, 0),
+    endTime: new Time(17, 0),
+    image: CRN_image,
+  }),
+  new ScheduleItem({
+    startTime: new Time(19, 0),
+    endTime: new Time(22, 0),
+    image: PNT1_image,
+  }),
 ];
 
-const day3Schedule = [
-  new ScheduleItem('VSM', new Time(10, 0), new Time(11, 0)),
-  new ScheduleItem('Technical', new Time(11, 30), new Time(12, 30)),
-  // new ScheduleItem('Lunch', new Time(12, 30), new Time(13, 30)),
-  new ScheduleItem('Fun', new Time(13, 30), new Time(14, 30)),
-  new ScheduleItem('Cultural', new Time(14, 30), new Time(15, 30)),
-  // new ScheduleItem('VSM', new Time(15, 30), new Time(16, 30)),
-  new ScheduleItem('Another Event', new Time(17, 30), new Time(18, 0)),
-  new ScheduleItem('Another Event', new Time(20, 30), new Time(22, 0)),
+const day3 = [
+  new ScheduleItem({
+    startTime: new Time(9, 0),
+    endTime: new Time(12, 0),
+    image: VSM_image,
+  }),
+  
+  new ScheduleItem({
+    startTime: new Time(14, 0),
+    endTime: new Time(17, 0),
+    image: SRG_image,
+  }),
+  new ScheduleItem({
+    startTime: new Time(19, 0),
+    endTime: new Time(22, 0),
+    image: PNT2_image,
+  }),
 ];
 
 const SchedulePage = () => {
-  let scheduleItems = [
-    new ScheduleItem('Pre - Events', '10:00 AM', '11:00 AM', 'Event 1'),
-  ];
 
   const startTime = new Time(9, 0);
   const endTime = new Time(22, 0);
 
+  const [day, setDay] = React.useState(1);
+
   return (
     <div
-      className=" py-28 x-container mb-24"
+      className=" py-28 mb-24  px-3 sm:px-20"
       // style={{ height: '2000px' }}
     >
-      <h1 className="text-5xl neon font-bold mb-7">Schedule</h1>
-      {/* <div className="flex flex-row gap-4 flex-wrap">
-        <button className="custom-btn btn-9" onClick={() => setSelected('All')}>
-          All
-        </button>
-        <button
-          className="custom-btn btn-9"
-          onClick={() => setSelected('Pre - Events')}
-        >
-          Pre - Events
-        </button>
-        <button
-          className="custom-btn btn-9"
-          onClick={() => setSelected('Technical')}
-        >
-          Technical
-        </button>
-        <button className="custom-btn btn-9" onClick={() => setSelected('Fun')}>
-          Fun
-        </button>
-        <button
-          className="custom-btn btn-9"
-          onClick={() => setSelected('Cultural')}
-        >
-          Cultural
-        </button>
-      </div> */}
-<div className='mt-5 mb-5'>
-      <div className="flex flex-col align-middle justify-center ">
-        <div className="text-white lg:grid lg:grid-cols-[1fr,3fr,3fr,3fr] text-center border-white hidden ">
-          <TimeLine startTime={new Time(9, 0)} endTime={new Time(22, 0)} />
-          <ScheduleColumn
-            scheduleItems={day1Schedule}
-            title={'Parking lot'}
-            position={ColumnPosition.LEFT}
-            startTime={startTime}
-            endTime={endTime}
-          />
-          <ScheduleColumn
-            scheduleItems={day2Schedule}
-            title={'Seminar hall'}
-            position={ColumnPosition.MID}
-            startTime={startTime}
-            endTime={endTime}
-          />
-          <ScheduleColumn
-            scheduleItems={day3Schedule}
-            title={'Place 999'}
-            position={ColumnPosition.RIGHT}
-            startTime={startTime}
-            endTime={endTime}
-          />
-        </div>
+      <h1 className="text-5xl neon font-bold mb-7 pl-7 lg:pl-0">Schedule</h1>
 
-        <div className="text-white   text-center border-white">
-          <div className="text-white lg:hidden text-center border-white grid grid-cols-[1fr,3fr] ">
+      <div className="mt-5 mb-5">
+        <div className="gap-6 flex justify-center my-8 lg:hidden">
+          <button
+            className={`custom-btn btn-9 ${day === 1 && 'selected'}`}
+            onClick={() => setDay(1)}
+          >
+            DAY 1
+          </button>
+          <button
+            className={`custom-btn btn-9 ${day === 2 && 'selected'}`}
+            onClick={() => setDay(2)}
+          >
+            DAY 2
+          </button>
+          <button
+            className={`custom-btn btn-9 ${day === 3 && 'selected'}`}
+            onClick={() => setDay(3)}
+          >
+            DAY 3
+          </button>
+        </div>
+        <div className="flex flex-col align-middle justify-center ">
+          <div className="text-white lg:grid lg:grid-cols-[1fr,3fr,3fr,3fr] text-center border-white hidden ">
             <TimeLine startTime={new Time(9, 0)} endTime={new Time(22, 0)} />
             <ScheduleColumn
-              scheduleItems={day1Schedule}
-              title={'Parking lot'}
+              scheduleItems={day1}
+              title={'DAY 1'}
               position={ColumnPosition.LEFT}
               startTime={startTime}
               endTime={endTime}
             />
-         
-          </div>
-        </div>
-
-        <div className="text-white   text-center border-white">
-          <div className="text-white lg:hidden text-center border-white grid grid-cols-[1fr,3fr] ">
-            <TimeLine startTime={new Time(9, 0)} endTime={new Time(22, 0)} />
             <ScheduleColumn
-              scheduleItems={day2Schedule}
-              title={'Seminar hall'}
+              scheduleItems={day2}
+              title={'DAY 2'}
               position={ColumnPosition.MID}
               startTime={startTime}
               endTime={endTime}
             />
-          </div>
-        </div>
-
-        <div className="text-white   text-center border-white">
-          <div className="text-white lg:hidden text-center border-white grid grid-cols-[1fr,3fr] ">
-            <TimeLine startTime={new Time(9, 0)} endTime={new Time(22, 0)} />
             <ScheduleColumn
-              scheduleItems={day3Schedule}
-              title={'Place 999'}
+              scheduleItems={day3}
+              title={'DAY 3'}
               position={ColumnPosition.RIGHT}
               startTime={startTime}
               endTime={endTime}
             />
           </div>
+
+          <div className="text-white   text-center border-white">
+            {day === 1 && (
+              <div className="text-white lg:hidden text-center border-white grid grid-cols-[1fr,3fr] ">
+                <TimeLine
+                  startTime={new Time(9, 0)}
+                  endTime={new Time(22, 0)}
+                />
+                <ScheduleColumn
+                  scheduleItems={day1}
+                  title={'Parking lot'}
+                  position={ColumnPosition.LEFT}
+                  startTime={startTime}
+                  endTime={endTime}
+                />
+              </div>
+            )}
+          </div>
+
+          {day === 2 && (
+            <div className="text-white   text-center border-white">
+              <div className="text-white lg:hidden text-center border-white grid grid-cols-[1fr,3fr] ">
+                <TimeLine
+                  startTime={new Time(9, 0)}
+                  endTime={new Time(22, 0)}
+                />
+                <ScheduleColumn
+                  scheduleItems={day2}
+                  title={'Seminar hall'}
+                  position={ColumnPosition.MID}
+                  startTime={startTime}
+                  endTime={endTime}
+                />
+              </div>
+            </div>
+          )}
+
+          {day === 3 && (
+            <div className="text-white   text-center border-white">
+              <div className="text-white lg:hidden text-center border-white grid grid-cols-[1fr,3fr] ">
+                <TimeLine
+                  startTime={new Time(9, 0)}
+                  endTime={new Time(22, 0)}
+                />
+                <ScheduleColumn
+                  scheduleItems={day3}
+                  title={'Place 999'}
+                  position={ColumnPosition.RIGHT}
+                  startTime={startTime}
+                  endTime={endTime}
+                />
+              </div>
+            </div>
+          )}
         </div>
-      </div>
       </div>
     </div>
   );

@@ -5,11 +5,15 @@ export const ScheduleItemType = Object.freeze({
 })
 
 export class ScheduleItem {
-    constructor(title, startTime, endTime, type=ScheduleItemType.EVENT) {
-        this.title = title;
+    constructor({startTime, endTime, image},type = ScheduleItemType.EVENT) {
+        this.image = image;
+        // this.title = title;
         this.startTime = startTime;
         this.endTime = endTime;
-        this.type = type;   
+        this.type = type;
+
+        console.log(this.startTime.toString() + " " + this.endTime.toString() + " " + this.type.toString())
+        console.log(this.startTime.getVal() + " " + this.endTime.getVal() + " " + this.type.toString())
     }
 }
 

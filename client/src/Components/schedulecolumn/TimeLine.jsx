@@ -41,7 +41,7 @@ function TimeLine({ startTime, endTime }) {
             // border: '1px solid red',
             position: 'relative',
           }}>
-            <span className='absolute -mt-3 w-20 left-3' >
+            <span className='absolute -mt-3 w-20 left-3 text-sm' >
             {time.toString()}
             </span>
           </div>
