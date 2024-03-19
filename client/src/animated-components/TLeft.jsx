@@ -8,7 +8,7 @@ function TLeft({ children }) {
   const slideControls = useAnimation();
 
   useEffect(() => {
-    console.log("isInView", isInView);
+    // console.log("isInView", isInView);
     if (isInView) {
       mainControls.start("visible");
       slideControls.start("visible");

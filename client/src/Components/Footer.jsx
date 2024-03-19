@@ -71,18 +71,18 @@ function Footer() {
             </div>
             <div className='flex flex-col items-center justify-center'>
               <a 
-              href='https://oculus.spit.ac.in/privacy-policy'
-              target='_blank'
+              href='/privacy-policy'
+              // target='_blank'
               className='cursor-pointer opacity-75 hover:opacity-100 hover:text-secondary-purple font-semibold'
               >Privacy Policy</a>
               <a 
-              href='https://oculus.spit.ac.in/terms-and-conditions'
-              target='_blank'
+              href='/terms-and-conditions'
+              // target='_blank'
               className='cursor-pointer opacity-75 hover:opacity-100 hover:text-secondary-purple font-semibold'
               >Terms and Conditions</a>
               <a 
-              href='https://oculus.spit.ac.in/refund-policy'
-              target='_blank'
+              href='/refund-policy'
+              // target='_blank'
               className='cursor-pointer opacity-75 hover:opacity-100 hover:text-secondary-purple font-semibold'
               >Refund Policy</a>
             </div>
@@ -92,7 +92,7 @@ function Footer() {
           className='w-[90%] opacity-20' 
         />
         <div className='mb-[-10px]'>
-          <div className='opacity-60'>
+          <div className='opacity-60 max-xs:text-sm w-full '>
             © Oculus The Fest 2024. All rights reserved
           </div>
         </div>

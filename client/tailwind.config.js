@@ -17,6 +17,7 @@ export default {
         'red': '#FF0000',
         'dark-gray': '#BDBDBD',
         'indigo': '#3F51B5',
+        'vsm': "#0b4637"
        },
        screens: {
         'slm': {max: '880px', min: '768px'},
@@ -25,6 +26,8 @@ export default {
         'sw': {max: '767px', min: '0px'},
         'max-xs': {max: '375px'},
         'max-sm': {max: '639px'},
+        'max-md': {max: '850px', min: '0px'},
+        'logo-md': {max: '767px', min: '0px'},
        }
     },
   },

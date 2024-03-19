@@ -1,10 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
-import { useMotionValue, motion, useSpring, useTransform, useCycle } from "framer-motion";
+import { useMotionValue, motion, useSpring, useTransform } from "framer-motion";
 import { FiArrowRight } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
-import GlassmorphicButton from "./glassmorphic/CButtonv1";
-import { toggleNavBar } from "../redux/uislice";
-import NavButton from "../Components/NavButton";
+import { setShowParticleRing, toggleNavBar } from "../redux/uislice";
 import { Sling as Hamburger } from 'hamburger-react';
 import logo from '../assets/Full White.png';
 import { useNavigate } from "react-router-dom";
@@ -16,17 +14,32 @@ export const NavBarv2 = () => {
     const [currWidth, setCurrWidth] = useState(window.innerWidth)
     const navigate = useNavigate()
     const isNavBarOpen = useSelector(state => state.ui.isNavBarOpen)
+    const showParticleRing = useSelector(state => state.ui.showParticleRing)
+
     const dispatch = useDispatch()
 
     useEffect(() => {
         // console.log(currPath)
         setCurrPath(window.location.pathname)
+        // console.log("nav path",window.location.pathname)
+        // if (window.location.pathname !== '/') {
+        //     dispatch(setNavBar(true))
+        // }
+        // do wildcard search for /event/*
+        // if (!window.location.pathname.includes('/event/') && !showParticleRing) {
+        //     dispatch(setShowParticleRing(true))
+        // }
     }, [currPath, window.location.pathname])
 
     useEffect(() => {
         // console.log(currWidth)
         setCurrWidth(window.innerWidth)
     }, [currWidth, window.innerWidth])
+
+    // useEffect(() => {
+    //     console.log("bCheck",isNavBarOpen)
+
+    // }, [isNavBarOpen])
 
     return (
         <>
@@ -38,21 +51,35 @@ export const NavBarv2 = () => {
                     }}
                     style={{
                         display: (currPath !== '/' || isNavBarOpen) ? "block" : "none",
-                    }}     
-                className="fixed top-[-10px] left-4 z-[1001]">
+                    }}
+                    className="fixed top-[-10px] left-4 z-[1001]">
                     <img src={logo} alt="" className="w-48" />
                 </button>
             </Center>
-                <div className={`fixed top-4 right-4 bg-white bg-opacity-10 rounded-full ${currWidth > 400 ? "p-2" : "p-0"} hover:bg-opacity-25 z-[2000]`}>
-                    <Hamburger rounded duration={0.5} size={currWidth < 768 ? 20 : 25} easing="ease-in" color="#C77DFF" toggled={isNavBarOpen} toggle={() => dispatch(toggleNavBar())} />
-                </div>
+            <div className={`fixed top-4 right-4 bg-white bg-opacity-10 rounded-full ${currWidth > 400 ? "p-2" : "p-0"} hover:bg-opacity-25 z-[2000]`}>
+                <Hamburger rounded duration={0.5} size={currWidth < 768 ? 20 : 25} easing="ease-in" color="#C77DFF" toggled={isNavBarOpen} toggle={() => dispatch(toggleNavBar())} />
+            </div>
+
+
+            <motion.div
+                animate={{
+                    transition: {
+                        duration: 1,
+                        type: "spring",
+                        damping: 30,
+                    },
+                    transitionEnd: {
+                        display : isNavBarOpen ? "block" : "none",
+                      },
+                }}
+            >
             <motion.div
                 style={{
                     display: isNavBarOpen ? "block" : "none",
                 }}
                 animate={{
                     width: isNavBarOpen ? "100%" : "0%",
-                    display: isNavBarOpen ? "block" : "none",
+                    height: isNavBarOpen ? "100%" : "0%",
                     opacity: isNavBarOpen ? 1 : 0,
                     left: isNavBarOpen ? "0px" : "100%",
 
@@ -61,6 +88,7 @@ export const NavBarv2 = () => {
                         type: "spring",
                         damping: 30,
                     },
+                    
                 }}
                 className="p-4 md:p-8 sm:mt-8 md:mt-8 mt-12">
                 <motion.div
@@ -109,12 +137,12 @@ export const NavBarv2 = () => {
                         imgSrc="/schedule.webp"
                         href="/schedule"
                     />
-                    <Link
+                    {/* <Link
                         heading="Donations"
                         subheading="Donate for a good cause"
                         imgSrc="/donation.webp"
                         href="/donation"
-                    />
+                    /> */}
                     {/* <Link
                         heading="Login"
                         subheading="Get Started"
@@ -122,6 +150,7 @@ export const NavBarv2 = () => {
                         href="/login"
                     /> */}
                 </motion.div>
+            </motion.div>
             </motion.div>
         </>
     )

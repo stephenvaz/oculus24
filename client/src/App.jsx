@@ -20,10 +20,15 @@ import rocket from './assets/rocket.png';
 import ParticleRing from './Components/background/ParticleRing';
 import { NavBarv2 } from './Components/Navbarv2';
 import { useSelector } from 'react-redux';
+import EventDetailsPage from './Pages/EventDetailsPage';
+import PrivacyPolicy from './Pages/PrivacyPolicy';
+import TermsConditons from './Pages/TermsConditons';
+import RefundPolicy from './Pages/RefundPolicy';
 
 function App() {
 
   const isNavBarOpen = useSelector(state => state.ui.isNavBarOpen)
+  const showParticleRing = useSelector(state => state.ui.showParticleRing)
 
   const router = createBrowserRouter([
     {
@@ -40,7 +45,7 @@ function App() {
 
             {!isNavBarOpen && (
               <>
-                <ParticleRing />
+                {showParticleRing && <ParticleRing />}
                 <Outlet />
                 <Footer />
               </>)}
@@ -69,6 +74,12 @@ function App() {
           ),
         },
         {
+          path: '/event/:id',
+          element: (
+            <EventDetailsPage />
+          ),
+        },
+        {
           path: '/sponsors',
           element: (
             <SponsorsPage />
@@ -92,13 +103,31 @@ function App() {
             <DonationPage />
           ),
         },
+        {
+          path: '/privacy-policy',
+          element: (
+            <PrivacyPolicy />
+          ),
+        },
+        {
+          path: '/terms-and-conditions',
+          element: (
+            <TermsConditons />
+          ),
+        },
+        {
+          path: '/refund-policy',
+          element: (
+            <RefundPolicy />
+          ),
+        },
       ],
     },
   ]);
 
   return (
     <AnimatePresence >
-      <div className="h-screen w-full"
+      <div className="h-full w-full"
         style={{
           cursor: 'url("https://upload.wikimedia.org/wikipedia/commons/3/33/Cartoon_space_rocket.png")',
         }}
