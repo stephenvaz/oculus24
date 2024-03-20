@@ -160,7 +160,7 @@ const SchedulePage = () => {
                       />
                       <ScheduleColumn
                         scheduleItems={day1}
-                        title={'Parking lot'}
+                        title={''}
                         position={ColumnPosition.LEFT}
                         startTime={startTime}
                         endTime={endTime}
@@ -178,7 +178,7 @@ const SchedulePage = () => {
                       />
                       <ScheduleColumn
                         scheduleItems={day2}
-                        title={'Seminar hall'}
+                        title={''}
                         position={ColumnPosition.MID}
                         startTime={startTime}
                         endTime={endTime}
@@ -196,7 +196,7 @@ const SchedulePage = () => {
                       />
                       <ScheduleColumn
                         scheduleItems={day3}
-                        title={'Place 999'}
+                        title={''}
                         position={ColumnPosition.RIGHT}
                         startTime={startTime}
                         endTime={endTime}

@@ -38,6 +38,7 @@ function EventBlock({ scheduleItem, type, position }) {
           <img
             style={{
               height: `${duration * EVENT_HEIGHT}px`,
+              width: '100%',
               backgroundColor: '',
             }}
             src={scheduleItem.image}
