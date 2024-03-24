@@ -18,7 +18,7 @@ const EventsPage = () => {
 
   return (
     <AnimatePresence>
-      <div className='w-full pt-24 pb-16 x-container'>
+      <div className='w-full pt-24 pb-16 x-container min-h-screen'>
         <h1 className='text-5xl grad font-bold mb-7'>Events</h1>
         <div className='flex flex-row gap-4 flex-wrap mb-6'>
           <button
@@ -52,7 +52,7 @@ const EventsPage = () => {
             Cultural
           </button>
         </div>
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 space-y-2'>
           {filteredEvents.map((event, index) => {
             return <EventCard key={index} event={event} />;
           })}

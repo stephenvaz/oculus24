@@ -41,12 +41,12 @@ const EventCard = ({ event }) => {
                 <motion.img
                     src={event.img_front}
                     alt='event'
-                    className='w-full h-[320px] lg:h-[350px] object-cover'
+                    className='w-full object-contain'
                 />
                 <motion.img
                     src={event.img_back}
                     alt='event'
-                    className='w-full h-[320px] lg:h-[350px] object-cover'
+                    className='w-full object-contain'
                 />
             </ReactCardFlip>
         </motion.div>

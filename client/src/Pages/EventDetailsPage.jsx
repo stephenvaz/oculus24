@@ -29,7 +29,7 @@ const EventDetailsPage = () => {
           alt='event'
         />
       </div>
-      <div className='w-full -mt-60 lg:-mt-72 filter-causer relative pt-12'>
+      <div className='w-full -mt-48 lg:-mt-52 filter-causer relative pt-12'>
         <div className='x-container'>
           <div className='flex flex-col items-center justify-center lg:flex-row lg:justify-between'>
             <div className='flex flex-row gap-2 items-center'>
@@ -43,7 +43,7 @@ const EventDetailsPage = () => {
           </div>
         </div>
       </div>
-      <div className='x-container mt-5 lg:mt-0'>
+      <div className='x-container mt-5'>
         <div className='flex flex-row gap-4 flex-wrap mb-6 justify-center lg:justify-start'>
           <button
             className={`event-btn ${selected === 'Summary' ? `selected` : 'bg-slate-800'}`}
