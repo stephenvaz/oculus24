@@ -120,7 +120,28 @@
       "month": "March",
       "year": 2024
     },
-    "faq": [],
+    "faq": [
+      {
+        "question": "Do I use my own cube to compete?",
+        "answer": "Yes you should bring your own cube."
+      },
+      {
+        "question": "What is the normal age of competitors at these events?",
+        "answer": "All ages are welcome to participate."
+      },
+      {
+        "question": "How do I find results?",
+        "answer": "All results are posted on the WCA page within a week after the competition finishes. However, for the day of competing, go to WCA Live to find information about current events."
+      },
+      {
+        "question": "Are there age divisions?",
+        "answer": "Nope! All competitors compete together."
+      },
+      {
+        "question": "I want to attend, or I have friends/family who want to attend, but not compete. Do they need to pay as well?",
+        "answer": "No. All spectators are free to view the competition at no cost."
+      }
+    ],
     "rules": [
       "Participants must reach on the time of their group and adhere to WCA regulations"
     ],
@@ -323,10 +344,8 @@
       "Technical"
     ],
     "summary": "",
-    "faq": [
-    ],
-    "rules": [
-    ],
+    "faq": [],
+    "rules": [],
     "bg_img": "/takedown/web.png",
     "color": "#CEA90D",
     "eventDate": {
